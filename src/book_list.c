@@ -234,7 +234,7 @@ void book_list_swap(BookList *list, BookNode *node1,
  * @param cmp The comparator for sorting.
  */
 void book_list_sort(BookList *list,
-        int (* cmp)(BookNode *node1, BookNode *node2)) {
+        int (*cmp)(BookNode *node1, BookNode *node2)) {
 
     BookNode *node1, *node2;
     BOOL changed;
@@ -261,6 +261,21 @@ void book_list_sort(BookList *list,
             break;
         }
     }
+}
+
+BookList *book_list_search(BookList *list,
+        BOOL (*filter)(Book *book)) {
+
+    BookList *result = book_list_new();
+    BookNode *node;
+
+    BOOK_LIST_FOR_EACH(list, node) {
+        if (filter(node->book)) {
+            book_list_add_end(list, book_clone(node->book));
+        }
+    }
+
+    return result;
 }
 
 /*

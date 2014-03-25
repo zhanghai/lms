@@ -93,6 +93,17 @@ void string_array_free(char *array[], size_t size) {
     }
 }
 
+BOOL string_array_is_equal(char *array1[], char *array2[],
+        size_t size) {
+    size_t i;
+    for (i = 0; i < size; ++i) {
+        if (strcmp(array1[i], array2[i]) != 0) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
 void string_array_print(char *array[], size_t size) {
     int i;
     for (i = 0; i < size; ++i) {

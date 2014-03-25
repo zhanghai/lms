@@ -89,6 +89,22 @@ Book *book_deserialize(FILE *file) {
     }
 }
 
+Book *book_clone(Book *book) {
+    return book_new(book->title, book->authors, book->number,
+            book->subjects, book->publisher, book->year,
+            book->circulating);
+}
+
+BOOL *book_is_equal(Book *book1, Book *book2) {
+    return strcmp(book1->title, book2->title) == 0
+            && string_array_is_equal(book1->authors, book2->authors, 5)
+            && strcmp(book1->number, book2->number)
+            && string_array_is_equal(book1->subjects, book2->subjects, 5)
+            && strcmp(book1->publisher, book2->publisher)
+            && strcmp(book1->year, book2->year)
+            && book1->circulating == book2->circulating;
+}
+
 void book_print(Book *book) {
     printf("Title:              %s\n", book->title);
     printf("Author(s):          ");

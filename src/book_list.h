@@ -23,7 +23,6 @@ typedef struct tagBookNode {
     BookNode *next;
 } BookNode;
 
-
 typedef struct {
     BookNode *head;
     BookNode *tail;
@@ -55,7 +54,10 @@ void book_list_swap(BookList *list, BookNode *node1,
         BookNode *node2);
 
 void book_list_sort(BookList *list,
-        int (* cmp)(BookNode *node1, BookNode *node2));
+        int (*cmp)(BookNode *node1, BookNode *node2));
+
+BookList *book_list_search(BookList *list,
+        BOOL (*filter)(Book *book));
 
 
 #endif /* _LMS_BOOK_LIST_H_ */
