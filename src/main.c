@@ -40,5 +40,19 @@ void test_deserialize() {
 int main(void) {
     test_serialize();
     test_deserialize();
+    inputchoice();
     return 0;
+}
+
+
+int inputchoice(){
+
+	int mychoice;
+
+	printf("Enter your choice");
+	printf("1 - add a new book.\n");
+	printf("2 - modify a book.\n");
+	printf("3 - delete a book.\n");
+	printf("4 - search a book.\n");
+	printf("5 - display a book");
 }
