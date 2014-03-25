@@ -27,7 +27,7 @@ typedef struct tagBookNode {
 typedef struct {
     BookNode *head;
     BookNode *tail;
-    unsigned int size;
+    size_t size;
 } BookList;
 
 
