@@ -88,6 +88,9 @@ void string_array_clone(char *src[], char *dest[], size_t size);
 
 void string_array_free(char *array[], size_t size);
 
+BOOL string_array_is_equal(char *array1[], char *array2[],
+        size_t size);
+
 void string_array_print(char *array[], size_t size);
 
 
