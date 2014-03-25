@@ -57,7 +57,7 @@ void book_list_sort(BookList *list,
         int (*cmp)(BookNode *node1, BookNode *node2));
 
 BookList *book_list_search(BookList *list,
-        BOOL (*filter)(Book *book));
+        BOOL (*filter)(Book *book, void *criteria), void *criteria);
 
 
 #endif /* _LMS_BOOK_LIST_H_ */

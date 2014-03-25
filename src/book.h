@@ -33,7 +33,7 @@ Book *book_deserialize(FILE *file);
 
 Book *book_clone(Book *book);
 
-BOOL *book_is_equal(Book *book1, Book *book2);
+BOOL book_is_equal(Book *book1, Book *book2);
 
 void book_print(Book *book);
 

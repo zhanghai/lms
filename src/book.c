@@ -95,13 +95,13 @@ Book *book_clone(Book *book) {
             book->circulating);
 }
 
-BOOL *book_is_equal(Book *book1, Book *book2) {
+BOOL book_is_equal(Book *book1, Book *book2) {
     return strcmp(book1->title, book2->title) == 0
             && string_array_is_equal(book1->authors, book2->authors, 5)
-            && strcmp(book1->number, book2->number)
+            && strcmp(book1->number, book2->number) == 0
             && string_array_is_equal(book1->subjects, book2->subjects, 5)
-            && strcmp(book1->publisher, book2->publisher)
-            && strcmp(book1->year, book2->year)
+            && strcmp(book1->publisher, book2->publisher) == 0
+            && strcmp(book1->year, book2->year) == 0
             && book1->circulating == book2->circulating;
 }
 

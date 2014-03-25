@@ -264,13 +264,13 @@ void book_list_sort(BookList *list,
 }
 
 BookList *book_list_search(BookList *list,
-        BOOL (*filter)(Book *book)) {
+        BOOL (*filter)(Book *book, void *criteria), void *criteria) {
 
     BookList *result = book_list_new();
     BookNode *node;
 
     BOOK_LIST_FOR_EACH(list, node) {
-        if (filter(node->book)) {
+        if (filter(node->book, criteria)) {
             book_list_add_end(list, book_clone(node->book));
         }
     }
