@@ -67,6 +67,7 @@ void book_list_delete(BookList *list) {
  */
 BOOL book_list_serialize(BookList *list, FILE *file) {
     BookNode *node;
+    serialize_size(&list->size, file);
     BOOK_LIST_FOR_EACH(list, node) {
         if (!book_serialize(node->book, file)) {
             return FALSE;
@@ -84,9 +85,16 @@ BOOL book_list_serialize(BookList *list, FILE *file) {
 BookList *book_list_deserialize(FILE *file) {
 
     BookList *list = book_list_new();
-
+    size_t size, i;
     Book *book;
-    while ((book = book_deserialize(file)) != NULL) {
+
+    if (!deserialize_size(&size, file)) {
+        return NULL;
+    }
+    for (i = 0; i < size; ++i) {
+        if ((book = book_deserialize(file)) == NULL) {
+            return NULL;
+        }
         book_list_add_end(list, book);
     }
 
