@@ -13,13 +13,15 @@ static void book_delete(Book *book);
  * Create a new instance of {@link Book}.
  * The constructor will make copies of the strings passed in.
  * The reference count will be set to 1.
- * @param title
- * @param authors
- * @param number
- * @param subjects
- * @param publisher
- * @param year
- * @param circulating
+ * @note You should always call {@link book_remove_reference} before
+ *       the end of your function where you called this function.
+ * @param title The title of the book.
+ * @param authors The authors of this book.
+ * @param number The LOC catalog number of this book.
+ * @param subjects The subject headings of this book.
+ * @param publisher The publisher of this book.
+ * @param year The year when this book is published.
+ * @param circulating Whether this book is still circulating.
  * @return The created {@link Book} instance.
  */
 Book *book_new(char *title, char *authors[5], char *number,
