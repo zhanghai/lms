@@ -11,6 +11,7 @@
 
 
 typedef struct {
+    size_t reference_count;
     char *title;
     char *authors[5];
     char *number;
@@ -25,7 +26,9 @@ Book *book_new(char *title, char *authors[5], char *number,
         char *subjects[5], char *publisher, char *year,
         BOOL circulating);
 
-void book_delete(Book *book);
+void book_add_reference(Book *book);
+
+void book_remove_reference(Book *book);
 
 BOOL book_serialize(Book *book, FILE *file);
 

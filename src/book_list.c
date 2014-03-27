@@ -16,6 +16,7 @@ static BookNode *book_node_new(Book *book, BookNode *prev,
 
     BookNode *node = LMS_NEW(BookNode);
 
+    book_add_reference(book);
     node->book = book;
     node->prev = prev;
     node->next = next;
@@ -25,7 +26,7 @@ static BookNode *book_node_new(Book *book, BookNode *prev,
 
 static void book_node_delete(BookNode *node) {
 
-    book_delete(node->book);
+    book_remove_reference(node->book);
 
     free(node);
 }
@@ -271,7 +272,7 @@ BookList *book_list_search(BookList *list,
 
     BOOK_LIST_FOR_EACH(list, node) {
         if (filter(node->book, criteria)) {
-            book_list_add_end(list, book_clone(node->book));
+            book_list_add_end(result, node->book);
         }
     }
 
