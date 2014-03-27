@@ -10,6 +10,7 @@
 #include "common.h"
 
 #include "book.h"
+#include "book_filter.h"
 #include "book_list.h"
 
 

@@ -46,18 +46,8 @@
 #define LMS_DECLARE_SERIALIZE_FUNCTION(name, type) \
     BOOL serialize_##name(type *value, FILE *file);
 
-#define LMS_DEFINE_SERIALIZE_FUNCTION(name, type) \
-    BOOL serialize_##name(type *value, FILE *file) { \
-        return fwrite(value, sizeof(type), 1, file) == 1; \
-    };
-
 #define LMS_DECLARE_DESERIALIZE_FUNCTION(name, type) \
     BOOL deserialize_##name(type *value, FILE *file);
-
-#define LMS_DEFINE_DESERIALIZE_FUNCTION(name, type) \
-    BOOL deserialize_##name(type *value, FILE *file) { \
-        return fread(value, sizeof(type), 1, file) == 1; \
-    };
 
 
 LMS_DECLARE_SERIALIZE_FUNCTION(size, size_t)
@@ -84,6 +74,8 @@ void bool_print(BOOL bool);
 
 char *string_clone(char *string);
 
+BOOL string_contains(char *string, char *substring);
+
 void string_array_clone(char *src[], char *dest[], size_t size);
 
 void string_array_free(char *array[], size_t size);
@@ -91,7 +83,14 @@ void string_array_free(char *array[], size_t size);
 BOOL string_array_is_equal(char *array1[], char *array2[],
         size_t size);
 
+BOOL string_array_contains(char *array[], size_t size,
+        char *substring);
+
 void string_array_print(char *array[], size_t size);
+
+
+#undef LMS_DECLARE_SERIALIZE_FUNCTION
+#undef LMS_DECLARE_DESERIALIZE_FUNCTION
 
 
 #endif /* _LMS_COMMON_H_ */

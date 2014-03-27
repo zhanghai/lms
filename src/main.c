@@ -47,12 +47,14 @@ int main(void) {
 
 int inputchoice(){
 
-	int mychoice;
+    int mychoice;
 
-	printf("Enter your choice");
-	printf("1 - add a new book.\n");
-	printf("2 - modify a book.\n");
-	printf("3 - delete a book.\n");
-	printf("4 - search a book.\n");
-	printf("5 - display a book");
+    printf("Enter your choice");
+    printf("1 - add a new book.\n");
+    printf("2 - modify a book.\n");
+    printf("3 - delete a book.\n");
+    printf("4 - search a book.\n");
+    printf("5 - display a book");
+
+    return 0;
 }

@@ -8,6 +8,17 @@
 #include <string.h>
 
 
+#define LMS_DEFINE_SERIALIZE_FUNCTION(name, type) \
+    BOOL serialize_##name(type *value, FILE *file) { \
+        return fwrite(value, sizeof(type), 1, file) == 1; \
+    };
+
+#define LMS_DEFINE_DESERIALIZE_FUNCTION(name, type) \
+    BOOL deserialize_##name(type *value, FILE *file) { \
+        return fread(value, sizeof(type), 1, file) == 1; \
+    };
+
+
 LMS_DEFINE_SERIALIZE_FUNCTION(size, size_t)
 
 LMS_DEFINE_SERIALIZE_FUNCTION(int, int)
@@ -73,6 +84,10 @@ char *string_clone(char *string) {
     return clone;
 }
 
+BOOL string_contains(char *string, char *substring) {
+    return strstr(string, substring) != NULL;
+}
+
 /**
  * Make a deep copy of a string array.
  * @param src The source string array.
@@ -104,6 +119,17 @@ BOOL string_array_is_equal(char *array1[], char *array2[],
     return TRUE;
 }
 
+BOOL string_array_contains(char *array[], size_t size,
+        char *substring) {
+    size_t i;
+    for (i = 0; i < size; ++i) {
+        if (string_contains(array[i], substring)) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 void string_array_print(char *array[], size_t size) {
     int i;
     for (i = 0; i < size; ++i) {
@@ -116,3 +142,7 @@ void string_array_print(char *array[], size_t size) {
         printf("%s", array[i]);
     }
 }
+
+
+#undef LMS_DEFINE_SERIALIZE_FUNCTION
+#undef LMS_DEFINE_DESERIALIZE_FUNCTION
