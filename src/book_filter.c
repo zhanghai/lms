@@ -13,24 +13,24 @@
         return string_contains(book->member, member); \
     }
 
-#define DEFINE_BOOK_FILTER_STRING_ARRAY(member) \
+#define DEFINE_BOOK_FILTER_STRING_ARRAY(member, size) \
     BOOL book_filter_##member(Book *book, void *member) { \
-        return string_array_contains(book->member, member); \
+        return string_array_contains(book->member, size, member); \
     }
 
 #define DEFINE_BOOK_FILTER_BOOL(member) \
     BOOL book_filter_##member(Book *book, void *member) { \
-        return book->member == *member; \
+        return book->member == *(BOOL *)member; \
     }
 
 
 DEFINE_BOOK_FILTER_STRING(title)
 
-DEFINE_BOOK_FILTER_STRING_ARRAY(authors)
+DEFINE_BOOK_FILTER_STRING_ARRAY(authors, 5)
 
 DEFINE_BOOK_FILTER_STRING(number)
 
-DEFINE_BOOK_FILTER_STRING_ARRAY(subjects)
+DEFINE_BOOK_FILTER_STRING_ARRAY(subjects, 5)
 
 DEFINE_BOOK_FILTER_STRING(publisher)
 

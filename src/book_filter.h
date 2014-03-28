@@ -9,6 +9,8 @@
 
 #include "common.h"
 
+#include "book.h"
+
 
 #define DECLARE_BOOK_FILTER(member) \
     BOOL book_filter_##member(Book *book, void *member);

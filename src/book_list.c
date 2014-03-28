@@ -102,6 +102,12 @@ BookList *book_list_deserialize(FILE *file) {
     return list;
 }
 
+/**
+ * Add a {@link Book} instance to the start of a {@link BookList}.
+ * @param list The {@link BookList} to add {@param book} to.
+ * @param book The {@link Book} to be added.
+ * @return The newly added node in the {@param list}.
+ */
 BookNode *book_list_add_start(BookList *list, Book *book) {
 
     BookNode *node = book_node_new(book, NULL,
@@ -121,6 +127,12 @@ BookNode *book_list_add_start(BookList *list, Book *book) {
     return node;
 }
 
+/**
+ * Add a {@link Book} instance to the end of a {@link BookList}.
+ * @param list The {@link BookList} to add {@param book} to.
+ * @param book The {@link Book} to be added.
+ * @return The newly added node in the {@param list}.
+ */
 BookNode *book_list_add_end(BookList *list, Book *book) {
 
     BookNode *node = book_node_new(book, list->tail, NULL);
@@ -141,7 +153,7 @@ BookNode *book_list_add_end(BookList *list, Book *book) {
 
 /**
  * Insert a new node holding @param{book} before {@param node}.
- * @param list The {@link BookList} to insert a new node into.
+ * @param list The {@link BookList} to insert {@param book} into.
  * @param node The node to insert before.
  * @param book The {@link Book} to be inserted.
  * @return The new node just inserted.
@@ -165,7 +177,7 @@ BookNode *book_list_insert_before(BookList *list, BookNode *node,
 
 /**
  * Insert a new node holding @param{book} after {@param node}.
- * @param list The {@link BookList} to insert a new node into.
+ * @param list The {@link BookList} to insert {@param book} into.
  * @param node The node to insert after.
  * @param book The {@link Book} to be inserted.
  * @return The new node just inserted.
@@ -188,13 +200,13 @@ BookNode *book_list_insert_after(BookList *list, BookNode *node,
 }
 
 /**
- * Remove {@param node} from list.
+ * Remove {@param node} from a {@link BookList}.
  * @param list The {@link BookList} to remove the node from.
  * @param node The node to be removed.
  * @return the node following the removed one, or NULL if the tail
  *         node is removed.
  */
-BookNode *book_list_remove(BookList *list, BookNode *node) {
+BookNode *book_list_remove_node(BookList *list, BookNode *node) {
 
     BookNode *next_node = node->next;
 
@@ -217,8 +229,23 @@ BookNode *book_list_remove(BookList *list, BookNode *node) {
 }
 
 /**
- * Swap two nodes in a list.
- * Will just swap the {@link Book} objects of the two nodes.
+ * Remove a {@link Book} instance from a {@link BookList}.
+ * @param list The {@link BookList} to remove {@param book} from.
+ * @param book The {@link Book} instance to be removed.
+ */
+void book_list_remove(BookList *list, Book *book) {
+    BookNode *node;
+    BOOK_LIST_FOR_EACH(list, node) {
+        if (node->book == book) {
+            book_list_remove_node(list, node);
+            return;
+        }
+    }
+}
+
+/**
+ * Swap two nodes in a {@link BookList}.
+ * Will simply swap the {@link Book} objects of the two nodes.
  * @param node1 The first node to be swapped.
  * @param node2 The second node to be swapped.
  */
@@ -229,13 +256,13 @@ void book_list_swap(BookList *list, BookNode *node1,
 }
 
 /**
- * Sort the list by a comparator.
- * Note that this function uses bubble sort.
- * @param list The list to be sorted.
- * @param cmp The comparator for sorting.
+ * Sort a {@link BookList} by a comparator.
+ * @note This function uses bubble sort.
+ * @param list The {@link BookList} to be sorted.
+ * @param comparator The comparator for sorting.
  */
 void book_list_sort(BookList *list,
-        int (*cmp)(BookNode *node1, BookNode *node2)) {
+        int (*comparator)(BookNode *node1, BookNode *node2)) {
 
     BookNode *node1, *node2;
     BOOL changed;
@@ -250,7 +277,7 @@ void book_list_sort(BookList *list,
         changed = FALSE;
 
         for (node2 = list->tail; node2 != node1; ) {
-            if (cmp(node2->prev, node2) > 0) {
+            if (comparator(node2->prev, node2) > 0) {
                 book_list_swap(list, node2->prev, node2);
                 changed = TRUE;
             } else {
@@ -264,6 +291,14 @@ void book_list_sort(BookList *list,
     }
 }
 
+/**
+ * Search in a {@link BookList} according to a filter.
+ * @param list The {@link BookList} to be searched in.
+ * @param filter A filter function for the search.
+ * @param criteria The criteria data to be passed into
+ *        {@param filter}.
+ * @return A {@link BookList} containing the result.
+ */
 BookList *book_list_search(BookList *list,
         BOOL (*filter)(Book *book, void *criteria), void *criteria) {
 

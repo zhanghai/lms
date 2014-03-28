@@ -48,13 +48,13 @@ BookNode *book_list_insert_before(BookList *list, BookNode *node,
 BookNode *book_list_insert_after(BookList *list, BookNode *node,
         Book *book);
 
-BookNode *book_list_remove(BookList *list, BookNode *node);
+BookNode *book_list_remove_node(BookList *list, BookNode *node);
 
 void book_list_swap(BookList *list, BookNode *node1,
         BookNode *node2);
 
 void book_list_sort(BookList *list,
-        int (*cmp)(BookNode *node1, BookNode *node2));
+        int (*comparator)(BookNode *node1, BookNode *node2));
 
 BookList *book_list_search(BookList *list,
         BOOL (*filter)(Book *book, void *criteria), void *criteria);

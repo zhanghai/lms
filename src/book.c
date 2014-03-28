@@ -131,6 +131,8 @@ Book *book_clone(Book *book) {
 }
 
 /**
+ * @deprecated In most cases you may want to compare the two pointers
+ *             directly.
  * Check if two {@link Book} instances are equal.
  * @param book1 The first {@link Book} instance.
  * @param book2 The second {@link Book} instance.
