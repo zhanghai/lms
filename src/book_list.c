@@ -47,7 +47,7 @@ BookList *book_list_new() {
 }
 
 /**
- * Destroy a {@link Book} instance.
+ * Destroy a {@link BookList} instance.
  * @param list The {@link BookList} instance to be destroyed.
  */
 void book_list_delete(BookList *list) {
