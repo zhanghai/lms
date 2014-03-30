@@ -38,14 +38,24 @@ void test_deserialize() {
 }
 
 int main(void) {
+	int choice;
+
     test_serialize();
+    while((choice=input_choice())!=0){
+    	switch(choice){
+    	case 1: add_new_book(); break;
+    	case 2: modify_book(); break:
+    	case 3: delete_book(); break;
+    	case 4: search_book(); break;
+    	case 5: display_book(); break;
+    	}
+    }
     test_deserialize();
-    inputchoice();
     return 0;
 }
 
 
-int inputchoice(){
+int input_choice(){
 
     int mychoice;
 
@@ -55,6 +65,32 @@ int inputchoice(){
     printf("3 - delete a book.\n");
     printf("4 - search a book.\n");
     printf("5 - display a book");
+    printf("0 - exit");
+    scanf("%d", &mychoice);
 
-    return 0;
+    return mychoice;
+}
+
+void add_new_book(){
+	char *title;
+	char *authors[5];
+	char *number;
+	char *subjects[5];
+	char *publisher;
+	char *year;
+	BOOL circulating;
+	book_new(title, authors[5], number, subjects[5], publisher, year, BOOL circulating);
+}
+
+void modify_book(){
+}
+
+void delete_book(){
+}
+
+void search_book(){
+
+}
+
+void display_book(){
 }
