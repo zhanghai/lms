@@ -19,6 +19,11 @@
     };
 
 
+static char *BOOL_TRUE_STRING = "True";
+
+static char *BOOL_FALSE_STRING = "False";
+
+
 LMS_DEFINE_SERIALIZE_FUNCTION(size, size_t)
 
 LMS_DEFINE_SERIALIZE_FUNCTION(int, int)
@@ -74,8 +79,13 @@ BOOL deserialize_string_array(char *array[], size_t size,
     return TRUE;
 }
 
+BOOL bool_is_equal(BOOL bool, char *string) {
+    return bool ? strcasecmp(BOOL_TRUE_STRING, string)
+            : strcasecmp(BOOL_FALSE_STRING, string);
+}
+
 void bool_print(BOOL bool) {
-    printf(bool ? "True" : "False");
+    printf(bool ? BOOL_TRUE_STRING : BOOL_FALSE_STRING);
 }
 
 char *string_clone(char *string) {

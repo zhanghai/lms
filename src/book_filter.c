@@ -20,8 +20,22 @@
 
 #define DEFINE_BOOK_FILTER_BOOL(member) \
     BOOL book_filter_##member(Book *book, void *member) { \
-        return book->member == *(BOOL *)member; \
+        return bool_is_equal(book->member, member); \
     }
+
+
+BookFilter BOOK_FILTERS[] = {
+    book_filter_string,
+    book_filter_title,
+    book_filter_authors,
+    book_filter_number,
+    book_filter_publisher,
+    book_filter_subjects,
+    book_filter_year,
+    book_filter_circulating,
+};
+
+size_t BOOK_FILTERS_SIZE = 8;
 
 
 DEFINE_BOOK_FILTER_STRING(title)
