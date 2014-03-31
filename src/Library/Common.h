@@ -32,6 +32,12 @@
 
 typedef int (*Comparator)(void *data1, void *data2);
 
+typedef bool (*FilterFunction)(void *data, void *filterData);
+
+typedef struct {
+    FilterFunction filter;
+    void *filterData;
+} Filter;
 
 
 #endif /* _COMMON_H_ */

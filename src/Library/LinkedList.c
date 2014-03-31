@@ -256,14 +256,13 @@ void LinkedList_sort(LinkedList *list, Comparator comparator) {
  *        {@param filter}.
  * @return A {@link LinkedList} containing the result.
  */
-LinkedList *LinkedList_search(LinkedList *list,
-        bool (*filter)(void *data, void *criteria), void *criteria) {
+LinkedList *LinkedList_search(LinkedList *list, Filter filter) {
 
     LinkedList *result = LinkedList_new();
     LinkedListNode *node;
 
     LINKED_LIST_FOR_EACH(list, node) {
-        if (filter(node->data, criteria)) {
+        if (filter.filter(node->data, filter.filterData)) {
             LinkedList_addEnd(result, node->data);
         }
     }

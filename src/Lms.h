@@ -1,13 +1,11 @@
 /*
- * File: lms.h
+ * File: Lms.h
  * Author: Zhang Hai
  */
 
 #ifndef _LMS_H_
 #define _LMS_H_
 
-
-#include "Library/Common.h"
 
 #include "Book.h"
 #include "BookFilter.h"

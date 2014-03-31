@@ -52,8 +52,7 @@ void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
 
 void LinkedList_sort(LinkedList *list, Comparator comparator);
 
-LinkedList *LinkedList_search(LinkedList *list,
-        bool (*filter)(void *data, void *criteria), void *criteria);
+LinkedList *LinkedList_search(LinkedList *list, Filter filter);
 
 
 #endif /* _LINKED_LIST_H_ */

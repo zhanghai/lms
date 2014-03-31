@@ -190,7 +190,6 @@ void BookList_sort(BookList *list, BookComparator comparator) {
  *        {@param filter}.
  * @return A {@link BookList} containing the result.
  */
-BookList *BookList_search(BookList *list,
-        bool (*filter)(Book *book, void *criteria), void *criteria) {
-    return LinkedList_search(list, filter);
+BookList *BookList_search(BookList *list, BookFilter filter) {
+    return LinkedList_search(list, *(Filter *)&filter);
 }

@@ -16,10 +16,7 @@
     bool BookFilters_##member(Book *book, void *member);
 
 
-typedef bool (*BookFilter)(Book *book, void *criteria);
-
-
-extern BookFilter BOOK_FILTERS[];
+extern BookFilterFunction BOOK_FILTERS[];
 
 extern size_t BOOK_FILTERS_SIZE;
 
@@ -38,7 +35,9 @@ DECLARE_BOOK_FILTER(year)
 
 DECLARE_BOOK_FILTER(circulating)
 
-bool BookFilters_string(Book *book, void *string);
+bool BookFilters_string(Book *book, void *theString);
+
+bool BookFilters_compound(Book *book, void *list);
 
 
 #undef DECLARE_BOOK_FILTER

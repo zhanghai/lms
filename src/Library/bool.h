@@ -12,9 +12,9 @@
 #include "stdio.h"
 
 
-bool bool_is_equal(bool theBool, string theString);
+bool bool_is_equal(bool boolean, string theString);
 
-void bool_print(FILE *file, bool theBool);
+void bool_print(FILE *file, bool boolean);
 
 
 #endif /* _BOOL_H_ */

@@ -50,8 +50,7 @@ void BookList_swap(BookList *list, BookNode *node1,
 
 void BookList_sort(BookList *list, BookComparator comparator);
 
-BookList *BookList_search(BookList *list,
-        bool (*filter)(Book *book, void *criteria), void *criteria);
+BookList *BookList_search(BookList *list, BookFilter filter);
 
 
 #endif /* _BOOK_LIST_H_ */

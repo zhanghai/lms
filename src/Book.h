@@ -24,8 +24,15 @@ typedef struct {
 
 typedef int (*BookComparator)(Book *book1, Book *book2);
 
+typedef bool (*BookFilterFunction)(Book *book, void *filterData);
 
-extern const string const Book_FIELD_NAMES[];
+typedef struct {
+    BookFilterFunction filter;
+    void *filterData;
+} BookFilter;
+
+
+extern string Book_FIELD_NAMES[];
 
 
 Book *Book_new(string title, string authors[5], string number,

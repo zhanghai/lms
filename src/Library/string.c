@@ -72,6 +72,17 @@ bool string_array_isEqual(string array1[], string array2[],
     return true;
 }
 
+size_t string_array_containsEqual(string array[], size_t size,
+        string theString) {
+    size_t i;
+    for (i = 0; i < size; ++i) {
+        if (string_isEqual(array[i], theString)) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 bool string_array_contains(string array[], size_t size,
         string substring) {
     size_t i;
@@ -83,15 +94,16 @@ bool string_array_contains(string array[], size_t size,
     return false;
 }
 
-void string_array_print(FILE *file, string array[], size_t size) {
+void string_array_print(FILE *file, string array[], size_t size,
+        string splitter) {
     int i;
     for (i = 0; i < size; ++i) {
         if (string_length(array[i]) == 0) {
             break;
         }
         if (i != 0) {
-            fprintf(file, "; ");
+            fprintf(file, splitter);
         }
-        fprintf(file, "%s", array[i]);
+        fprintf(file, array[i]);
     }
 }

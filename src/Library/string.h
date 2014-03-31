@@ -34,10 +34,14 @@ void string_array_free(string array[], size_t size);
 bool string_array_isEqual(string array1[], string array2[],
         size_t size);
 
+size_t string_array_containsEqual(string array[], size_t size,
+        string theString);
+
 bool string_array_contains(string array[], size_t size,
         string substring);
 
-void string_array_print(FILE* file, string array[], size_t size);
+void string_array_print(FILE* file, string array[], size_t size,
+        string splitter);
 
 
 #endif /* _STRING_H_ */

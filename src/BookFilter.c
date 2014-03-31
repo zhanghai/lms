@@ -5,6 +5,8 @@
 
 #include "BookFilter.h"
 
+#include "Library/ArrayList.h"
+
 
 #define DEFINE_BOOK_FILTER_STRING(member) \
     bool BookFilters_##member(Book *book, void *member) { \
@@ -22,7 +24,7 @@
     }
 
 
-BookFilter BOOK_FILTERS[] = {
+BookFilterFunction BOOK_FILTERS[] = {
     BookFilters_string,
     BookFilters_title,
     BookFilters_authors,
@@ -50,13 +52,24 @@ DEFINE_BOOK_FILTER_STRING(year)
 
 DEFINE_BOOK_FILTER_BOOL(circulating)
 
-bool BookFilters_string(Book *book, void *string) {
-    return BookFilters_title(book, string)
-            || BookFilters_authors(book, string)
-            || BookFilters_number(book, string)
-            || BookFilters_subjects(book, string)
-            || BookFilters_publisher(book, string)
-            || BookFilters_year(book, string);
+bool BookFilters_string(Book *book, void *theString) {
+    return BookFilters_title(book, theString)
+            || BookFilters_authors(book, theString)
+            || BookFilters_number(book, theString)
+            || BookFilters_subjects(book, theString)
+            || BookFilters_publisher(book, theString)
+            || BookFilters_year(book, theString);
+}
+
+bool BookFilters_compound(Book *book, void *list) {
+    ArrayList *filters = list;
+    BookFilter *filter;
+    ARRAY_LIST_FOR_EACH(filters, filter) {
+        if (!filter->filter(filter->filterData)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 

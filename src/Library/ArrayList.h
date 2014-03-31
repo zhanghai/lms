@@ -10,18 +10,19 @@
 #include "Common.h"
 
 
-#define ARRAY_LIST_FOR_EACH(list, index) \
-    for (index = 0; index < list->size; ++index)
+#define ARRAY_LIST_FOR_EACH(list, data) \
+    for (data = list->array; data < list->array + list->size * list->elementSize; data += list->elementSize)
 
 
 typedef struct {
     void **array;
+    size_t elementSize;
     size_t size;
     size_t allocatedSize;
 } ArrayList;
 
 
-ArrayList *ArrayList_new();
+ArrayList *ArrayList_new(size_t elementSize);
 
 void ArrayList_delete(ArrayList *list);
 

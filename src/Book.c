@@ -6,7 +6,7 @@
 #include "Book.h"
 
 
-const string const Book_FIELD_NAMES[] = {
+string Book_FIELD_NAMES[] = {
     "Title",
     "Author(s)",
     "LOC Catalog Number",
@@ -167,13 +167,14 @@ bool Book_isEqual(Book *book1, Book *book2) {
 void Book_print(FILE *file, Book *book) {
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[0], book->title);
     fprintf(file, "%-18s: ", Book_FIELD_NAMES[1]);
-    string_array_print(file, book->authors, 5);
+    string_array_print(file, book->authors, 5, "; ");
     fprintf(file, "\n");
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[2], book->number);
     fprintf(file, "%-18s: ", Book_FIELD_NAMES[3]);
-    string_array_print(file, book->subjects, 5);
+    string_array_print(file, book->subjects, 5, "; ");
     fprintf(file, "\n");
-    fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[4], book->publisher);
+    fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[4],
+            book->publisher);
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[5], book->year);
     fprintf(file, "%-18s: ", Book_FIELD_NAMES[6]);
     bool_print(file, book->circulating);
