@@ -16,6 +16,14 @@
     BOOL book_filter_##member(Book *book, void *member);
 
 
+typedef BOOL (*BookFilter)(Book *book, void *criteria);
+
+
+extern BookFilter BOOK_FILTERS[];
+
+extern size_t BOOK_FILTERS_SIZE;
+
+
 DECLARE_BOOK_FILTER(title)
 
 DECLARE_BOOK_FILTER(authors)

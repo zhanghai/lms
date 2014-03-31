@@ -22,6 +22,9 @@ typedef struct {
 } Book;
 
 
+extern char* BOOK_FIELD_NAMES[];
+
+
 Book *book_new(char *title, char *authors[5], char *number,
         char *subjects[5], char *publisher, char *year,
         BOOL circulating);

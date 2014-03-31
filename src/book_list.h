@@ -50,6 +50,8 @@ BookNode *book_list_insert_after(BookList *list, BookNode *node,
 
 BookNode *book_list_remove_node(BookList *list, BookNode *node);
 
+void book_list_remove(BookList *list, Book *book);
+
 void book_list_swap(BookList *list, BookNode *node1,
         BookNode *node2);
 

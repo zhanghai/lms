@@ -6,13 +6,24 @@
 #include "book.h"
 
 
+char* BOOK_FIELD_NAMES[] = {
+    "Title",
+    "Author(s)",
+    "LOC Catalog Number",
+    "Publisher",
+    "Subject(s)",
+    "Year",
+    "Circulating"
+};
+
+
 static void book_delete(Book *book);
 
 
 /**
  * Create a new instance of {@link Book}.
  * The constructor will make copies of the strings passed in.
- * The reference count will be set to 1.
+ * The initial reference count will be set to 1.
  * @note You should always call {@link book_remove_reference} before
  *       the end of your function where you called this function.
  * @param title The title of the book.
@@ -45,6 +56,8 @@ Book *book_new(char *title, char *authors[5], char *number,
 /**
  * @private
  * Destroy a {@link Book} instance.
+ * @note This function is only intended for internal use, developers
+ *       should use {@link book_remove_reference} instead.
  * @param book The {@link Book} instance to be destroyed.
  */
 static void book_delete(Book *book) {
@@ -118,8 +131,7 @@ Book *book_deserialize(FILE *file) {
 }
 
 /**
- * @deprecated In most cases you may want to use
- *             {@link book_add_reference} instead.
+ * @deprecated Use {@link book_add_reference} instead.
  * Clone a {@link Book} instance.
  * @param book The {@link Book} instance to clone.
  * @return The cloned {@link Book} instance.
@@ -153,17 +165,17 @@ BOOL book_is_equal(Book *book1, Book *book2) {
  * @param book The {@link Book} instance to print.
  */
 void book_print(Book *book) {
-    printf("Title:              %s\n", book->title);
-    printf("Author(s):          ");
+    printf("%-18s: %s\n", BOOK_FIELD_NAMES[0], book->title);
+    printf("%-18s: ", BOOK_FIELD_NAMES[1]);
     string_array_print(book->authors, 5);
     printf("\n");
-    printf("LoC catalog number: %s\n", book->number);
-    printf("Subject(s):         ");
+    printf("%-18s: %s\n", BOOK_FIELD_NAMES[2], book->number);
+    printf("%-18s: ", BOOK_FIELD_NAMES[3]);
     string_array_print(book->subjects, 5);
     printf("\n");
-    printf("Publisher:          %s\n", book->publisher);
-    printf("Year:               %s\n", book->year);
-    printf("Circulating:        ");
+    printf("%-18s: %s\n", BOOK_FIELD_NAMES[4], book->publisher);
+    printf("%-18s: %s\n", BOOK_FIELD_NAMES[5], book->year);
+    printf("%-18s: ", BOOK_FIELD_NAMES[6]);
     bool_print(book->circulating);
     printf("\n");
 }

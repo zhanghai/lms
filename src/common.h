@@ -32,6 +32,8 @@
 
 #define LMS_ALLOC(size) calloc(1, size);
 
+#define LMS_REALLOC(attr, size) realloc(attr, size);
+
 #define LMS_MAX(var1, var2) ((var1) > (var2) ? (var1) : (var2))
 
 #define LMS_MIN(var1, var2) ((var1) < (var2) ? (var1) : (var2))
@@ -69,6 +71,8 @@ BOOL serialize_string_array(char *array[], size_t size, FILE *file);
 BOOL deserialize_string(char **value, FILE *file);
 
 BOOL deserialize_string_array(char *array[], size_t size, FILE *file);
+
+BOOL bool_is_equal(BOOL bool, char *string);
 
 void bool_print(BOOL bool);
 
