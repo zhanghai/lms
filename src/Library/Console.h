@@ -22,5 +22,7 @@ string Console_readLine(string message);
 size_t Console_readChoice(string message, string choices[],
         size_t choicesSize);
 
+bool Console_readYN(string message);
+
 
 #endif /* _CONSOLE_H_ */

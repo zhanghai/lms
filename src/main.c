@@ -3,10 +3,8 @@
  * Author: Zhang Hai
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "Lms.h"
 
-#include "lms.h"
 
 #define DATAFILE "lms.dat"
 
@@ -32,7 +30,7 @@ void test_deserialize() {
     BookList *list;
     FILE *file = fopen(DATAFILE, "rb");
     list = BookList_deserialize(file);
-    Book_print(stdin, list->head->data);
+    Lms_searchBook(list);
     BookList_delete(list);
     fclose(file);
 }
@@ -40,21 +38,5 @@ void test_deserialize() {
 int main(void) {
     test_serialize();
     test_deserialize();
-    inputchoice();
-    return 0;
-}
-
-
-int inputchoice(){
-
-    int mychoice;
-
-    printf("Enter your choice");
-    printf("1 - add a new book.\n");
-    printf("2 - modify a book.\n");
-    printf("3 - delete a book.\n");
-    printf("4 - search a book.\n");
-    printf("5 - display a book");
-
     return 0;
 }

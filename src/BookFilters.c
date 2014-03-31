@@ -3,19 +3,19 @@
  * Author: Zhang Hai
  */
 
-#include "BookFilter.h"
+#include "BookFilters.h"
 
 #include "Library/ArrayList.h"
 
 
 #define DEFINE_BOOK_FILTER_STRING(member) \
     bool BookFilters_##member(Book *book, void *member) { \
-        return string_contains(book->member, member); \
+        return string_containsIgnoreCase(book->member, member); \
     }
 
 #define DEFINE_BOOK_FILTER_STRING_ARRAY(member, size) \
     bool BookFilters_##member(Book *book, void *member) { \
-        return string_array_contains(book->member, size, member); \
+        return string_array_containsIgnoreCase(book->member, size, member); \
     }
 
 #define DEFINE_BOOK_FILTER_BOOL(member) \
@@ -65,7 +65,7 @@ bool BookFilters_compound(Book *book, void *list) {
     ArrayList *filters = list;
     BookFilter *filter;
     ARRAY_LIST_FOR_EACH(filters, filter) {
-        if (!filter->filter(filter->filterData)) {
+        if (!filter->filter(book, filter->filterData)) {
             return false;
         }
     }

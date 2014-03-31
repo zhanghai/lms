@@ -5,7 +5,10 @@
 
 #include "string.h"
 
+// For strcasestr()
+#define __USE_GNU
 #include <string.h>
+#undef __USE_GNU
 #include <strings.h>
 
 #include "Memory.h"
@@ -33,8 +36,12 @@ int string_compareIgnoreCase(string string1, string string2) {
     return strcasecmp(string1, string2);
 }
 
-bool string_contains(string theString, string substring) {
-    return strstr(theString, substring) != null;
+bool string_contains(string theString, string subString) {
+    return strstr(theString, subString) != null;
+}
+
+bool string_containsIgnoreCase(string theString, string subString) {
+    return strcasestr(theString, subString) != null;
 }
 
 size_t string_length(string theString) {
@@ -72,6 +79,17 @@ bool string_array_isEqual(string array1[], string array2[],
     return true;
 }
 
+bool string_array_isEqualIgnoreCase(string array1[], string array2[],
+        size_t size) {
+    size_t i;
+    for (i = 0; i < size; ++i) {
+        if (!string_isEqualIgnoreCase(array1[i], array2[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
 size_t string_array_containsEqual(string array[], size_t size,
         string theString) {
     size_t i;
@@ -83,11 +101,33 @@ size_t string_array_containsEqual(string array[], size_t size,
     return -1;
 }
 
-bool string_array_contains(string array[], size_t size,
-        string substring) {
+size_t string_array_containsEqualIgnoreCase(string array[],
+        size_t size, string theString) {
     size_t i;
     for (i = 0; i < size; ++i) {
-        if (string_contains(array[i], substring)) {
+        if (string_isEqualIgnoreCase(array[i], theString)) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+bool string_array_contains(string array[], size_t size,
+        string subString) {
+    size_t i;
+    for (i = 0; i < size; ++i) {
+        if (string_contains(array[i], subString)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool string_array_containsIgnoreCase(string array[], size_t size,
+        string subString) {
+    size_t i;
+    for (i = 0; i < size; ++i) {
+        if (string_containsIgnoreCase(array[i], subString)) {
             return true;
         }
     }

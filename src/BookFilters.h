@@ -3,8 +3,8 @@
  * Author: Zhang Hai
  */
 
-#ifndef _BOOK_FILTER_H_
-#define _BOOK_FILTER_H_
+#ifndef _BOOK_FILTERS_H_
+#define _BOOK_FILTERS_H_
 
 
 #include "Library/Common.h"
@@ -43,4 +43,4 @@ bool BookFilters_compound(Book *book, void *list);
 #undef DECLARE_BOOK_FILTER
 
 
-#endif /* _BOOK_FILTER_H_ */
+#endif /* _BOOK_FILTERS_H_ */

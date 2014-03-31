@@ -9,12 +9,11 @@
 static const size_t INITIAL_ALLOCATION_SIZE = 8;
 
 
-ArrayList *ArrayList_new(size_t elementSize) {
+ArrayList *ArrayList_new() {
 
     ArrayList *list = Memory_allocateType(ArrayList);
 
-    list->array = Memory_allocate(INITIAL_ALLOCATION_SIZE * elementSize);
-    list->elementSize = elementSize;
+    list->array = Memory_allocate(INITIAL_ALLOCATION_SIZE * sizeof(void *));
     list->size = 0;
     list->allocatedSize = INITIAL_ALLOCATION_SIZE;
 
@@ -34,17 +33,17 @@ void *ArrayList_getAt(ArrayList *list, size_t index) {
         return null;
     }
 
-    return list->array + index * list->elementSize;
+    return list->array[index];
 }
 
 void ArrayList_addEnd(ArrayList *list, void *data) {
 
     if (list->size == list->allocatedSize) {
         list->array = Memory_reallocate(list->array,
-                2 * list->allocatedSize * list->elementSize);
+                2 * list->allocatedSize * sizeof(void *));
         list->allocatedSize *= 2;
     }
 
-    memcpy(list->array + list->size, data, list->elementSize);
+    list->array[list->size] = data;
     ++list->size;
 }

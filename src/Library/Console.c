@@ -10,6 +10,9 @@
 #include <readline/history.h>
 
 
+string CONSOLE_CHOICES_Y_N[] = {"y", "n"};
+
+
 void Console_print(string format, ...) {
     va_list arguments;
     va_start(arguments, format);
@@ -59,8 +62,8 @@ size_t Console_readChoice(string message, string choices[],
         Console_print("%s [", message);
         string_array_print(stdout, choices, choicesSize, "/");
         line = Console_readLine("]: ");
-        index = string_array_containsEqual(choices, choicesSize,
-                line);
+        index = string_array_containsEqualIgnoreCase(choices,
+                choicesSize, line);
         if (index != -1){
             Memory_free(line);
             break;
@@ -70,4 +73,10 @@ size_t Console_readChoice(string message, string choices[],
     }
 
     return index;
+}
+
+bool Console_readYN(string message) {
+    return Console_readChoice(message, CONSOLE_CHOICES_Y_N,
+            sizeof(CONSOLE_CHOICES_Y_N) / sizeof(CONSOLE_CHOICES_Y_N[0]))
+            == 0;
 }
