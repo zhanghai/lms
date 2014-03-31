@@ -7,16 +7,16 @@
 #define _BOOK_FILTER_H_
 
 
-#include "Common.h"
+#include "Library/Common.h"
 
 #include "Book.h"
 
 
 #define DECLARE_BOOK_FILTER(member) \
-    BOOL BookFilters_##member(Book *book, void *member);
+    bool BookFilters_##member(Book *book, void *member);
 
 
-typedef BOOL (*BookFilter)(Book *book, void *criteria);
+typedef bool (*BookFilter)(Book *book, void *criteria);
 
 
 extern BookFilter BOOK_FILTERS[];
@@ -38,7 +38,7 @@ DECLARE_BOOK_FILTER(year)
 
 DECLARE_BOOK_FILTER(circulating)
 
-BOOL BookFilters_string(Book *book, void *string);
+bool BookFilters_string(Book *book, void *string);
 
 
 #undef DECLARE_BOOK_FILTER

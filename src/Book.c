@@ -6,7 +6,7 @@
 #include "Book.h"
 
 
-char* BOOK_FIELD_NAMES[] = {
+const string const Book_FIELD_NAMES[] = {
     "Title",
     "Author(s)",
     "LOC Catalog Number",
@@ -35,11 +35,11 @@ static void Book_delete(Book *book);
  * @param circulating Whether this book is still circulating.
  * @return The created {@link Book} instance.
  */
-Book *Book_new(char *title, char *authors[5], char *number,
-        char *subjects[5], char *publisher, char *year,
-        BOOL circulating) {
+Book *Book_new(string title, string authors[5], string number,
+        string subjects[5], string publisher, string year,
+        bool circulating) {
 
-    Book *book = LMS_NEW(Book);
+    Book *book = Memory_allocateType(Book);
 
     book->reference_count = 1;
     book->title = string_clone(title);
@@ -62,14 +62,14 @@ Book *Book_new(char *title, char *authors[5], char *number,
  */
 static void Book_delete(Book *book) {
 
-    free(book->title);
+    Memory_free(book->title);
     string_array_free(book->authors, 5);
-    free(book->number);
+    Memory_free(book->number);
     string_array_free(book->subjects, 5);
-    free(book->publisher);
-    free(book->year);
+    Memory_free(book->publisher);
+    Memory_free(book->year);
 
-    free(book);
+    Memory_free(book);
 }
 
 /**
@@ -97,36 +97,36 @@ void Book_removeReference(Book *book) {
  * @param file The file to serialize {@param book}.
  * @return Whether the serialization was successful.
  */
-BOOL Book_serialize(Book *book, FILE *file) {
-    return serialize_string(book->title, file)
-            && serialize_string_array(book->authors, 5, file)
-            && serialize_string(book->number, file)
-            && serialize_string_array(book->subjects, 5, file)
-            && serialize_string(book->publisher, file)
-            && serialize_string(book->year, file)
-            && serialize_bool(&book->circulating, file);
+bool Book_serialize(Book *book, FILE *file) {
+    return string_serialize(book->title, file)
+            && string_array_serialize(book->authors, 5, file)
+            && string_serialize(book->number, file)
+            && string_array_serialize(book->subjects, 5, file)
+            && string_serialize(book->publisher, file)
+            && string_serialize(book->year, file)
+            && bool_serialize(&book->circulating, file);
 }
 
 /**
  * Deserialize a {@link Book} from file.
  * @param file The file to deserialize a {@link Book} from.
- * @return A {@link Book} deserialized from {@param file}, or NULL if
+ * @return A {@link Book} deserialized from {@param file}, or null if
  *         an error occurred.
  */
 Book *Book_deserialize(FILE *file) {
-    Book *book = LMS_NEW(Book);
-    if (deserialize_string(&book->title, file)
-            && deserialize_string_array(book->authors, 5, file)
-            && deserialize_string(&book->number, file)
-            && deserialize_string_array(book->subjects, 5, file)
-            && deserialize_string(&book->publisher, file)
-            && deserialize_string(&book->year, file)
-            && deserialize_bool(&book->circulating, file)) {
+    Book *book = Memory_allocateType(Book);
+    if (string_deserialize(&book->title, file)
+            && string_array_deserialize(book->authors, 5, file)
+            && string_deserialize(&book->number, file)
+            && string_array_deserialize(book->subjects, 5, file)
+            && string_deserialize(&book->publisher, file)
+            && string_deserialize(&book->year, file)
+            && bool_deserialize(&book->circulating, file)) {
         book->reference_count = 1;
         return book;
     } else {
         Book_delete(book);
-        return NULL;
+        return null;
     }
 }
 
@@ -150,13 +150,13 @@ Book *Book_clone(Book *book) {
  * @param book2 The second {@link Book} instance.
  * @return Whether the two {@link Book} instances are equal.
  */
-BOOL Book_isEqual(Book *book1, Book *book2) {
-    return strcmp(book1->title, book2->title) == 0
-            && string_array_is_equal(book1->authors, book2->authors, 5)
-            && strcmp(book1->number, book2->number) == 0
-            && string_array_is_equal(book1->subjects, book2->subjects, 5)
-            && strcmp(book1->publisher, book2->publisher) == 0
-            && strcmp(book1->year, book2->year) == 0
+bool Book_isEqual(Book *book1, Book *book2) {
+    return string_isEqual(book1->title, book2->title)
+            && string_array_isEqual(book1->authors, book2->authors, 5)
+            && string_isEqual(book1->number, book2->number)
+            && string_array_isEqual(book1->subjects, book2->subjects, 5)
+            && string_isEqual(book1->publisher, book2->publisher)
+            && string_isEqual(book1->year, book2->year)
             && book1->circulating == book2->circulating;
 }
 
@@ -164,18 +164,18 @@ BOOL Book_isEqual(Book *book1, Book *book2) {
  * Print the information stored in a {@link Book} instance.
  * @param book The {@link Book} instance to print.
  */
-void Book_print(Book *book) {
-    printf("%-18s: %s\n", BOOK_FIELD_NAMES[0], book->title);
-    printf("%-18s: ", BOOK_FIELD_NAMES[1]);
-    string_array_print(book->authors, 5);
-    printf("\n");
-    printf("%-18s: %s\n", BOOK_FIELD_NAMES[2], book->number);
-    printf("%-18s: ", BOOK_FIELD_NAMES[3]);
-    string_array_print(book->subjects, 5);
-    printf("\n");
-    printf("%-18s: %s\n", BOOK_FIELD_NAMES[4], book->publisher);
-    printf("%-18s: %s\n", BOOK_FIELD_NAMES[5], book->year);
-    printf("%-18s: ", BOOK_FIELD_NAMES[6]);
-    bool_print(book->circulating);
-    printf("\n");
+void Book_print(FILE *file, Book *book) {
+    fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[0], book->title);
+    fprintf(file, "%-18s: ", Book_FIELD_NAMES[1]);
+    string_array_print(file, book->authors, 5);
+    fprintf(file, "\n");
+    fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[2], book->number);
+    fprintf(file, "%-18s: ", Book_FIELD_NAMES[3]);
+    string_array_print(file, book->subjects, 5);
+    fprintf(file, "\n");
+    fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[4], book->publisher);
+    fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[5], book->year);
+    fprintf(file, "%-18s: ", Book_FIELD_NAMES[6]);
+    bool_print(file, book->circulating);
+    fprintf(file, "\n");
 }

@@ -4,7 +4,6 @@
  */
 
 
-#include <stdio.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 
@@ -20,44 +19,44 @@ void print_book_filters() {
 
     printf("[%d] %s", 0, "Full Text");
     for (i = 1; i < BOOK_FILTERS_SIZE; ++i) {
-        printf("[%d] %s", i, BOOK_FIELD_NAMES[i - 1]);
+        printf("[%d] %s", i, Book_FIELD_NAMES[i - 1]);
     }
 }
 
 BookList *filter_book(BookList *list) {
 
-    char *input;
+    string input;
     // Using int for sscanf().
     int index;
     BookFilter filter;
     BookList *result;
 
     print_book_filters();
-    while (TRUE) {
+    while (true) {
         input = readline("Enter filter index: ");
-        if (input == NULL) {
-            return NULL;
+        if (input == null) {
+            return null;
         }
         if (sscanf(input, "%d", &index) != 1
                 || index < 0 || index >= BOOK_FILTERS_SIZE) {
             printf("Invalid input \"%s\", please try again.\n", input);
-            free(input);
+            Memory_free(input);
             continue;
         }
-        free(input);
+        Memory_free(input);
         filter = BOOK_FILTERS[index];
         break;
     }
 
     input = readline("Enter keyword: ");
-    if (input == NULL) {
-        return NULL;
+    if (input == null) {
+        return null;
     }
     if (strlen(input) > 0) {
         add_history(input);
     }
     result = BookList_search(list, filter, input);
-    free(input);
+    Memory_free(input);
 
     return result;
 }
@@ -72,7 +71,7 @@ void search_book(BookList *list) {
     result = filter_book(list);
 
     BOOK_LIST_FOR_EACH(result, node) {
-        Book_print(node->book);
+        Book_print(node->data);
     }
 
     BookList_delete(list);

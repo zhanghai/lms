@@ -11,9 +11,9 @@ static const size_t INITIAL_ALLOCATION_SIZE = 8;
 
 ArrayList *ArrayList_new() {
 
-    ArrayList *list = LMS_NEW(ArrayList);
+    ArrayList *list = Memory_allocateType(ArrayList);
 
-    list->array = LMS_ALLOC(INITIAL_ALLOCATION_SIZE * sizeof(void *));
+    list->array = Memory_allocate(INITIAL_ALLOCATION_SIZE * sizeof(void *));
     list->size = 0;
     list->allocatedSize = INITIAL_ALLOCATION_SIZE;
 
@@ -22,15 +22,15 @@ ArrayList *ArrayList_new() {
 
 void ArrayList_delete(ArrayList *list) {
 
-    free(list->array);
+    Memory_free(list->array);
 
-    free(list);
+    Memory_free(list);
 }
 
 void *ArrayList_getAt(ArrayList *list, size_t index) {
 
     if (index >= list->size) {
-        return NULL;
+        return null;
     }
 
     return list->array[index];
@@ -39,7 +39,7 @@ void *ArrayList_getAt(ArrayList *list, size_t index) {
 void ArrayList_addEnd(ArrayList *list, void *data) {
 
     if (list->size == list->allocatedSize) {
-        list->array = LMS_REALLOC(list->array,
+        list->array = Memory_reallocate(list->array,
                 2 * list->allocatedSize * sizeof(void *));
         list->allocatedSize *= 2;
     }

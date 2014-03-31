@@ -12,13 +12,13 @@
 
 void test_serialize() {
     BookList *list = BookList_new();
-    char *title = "title";
-    char *authors[5] = {"author1", "author2", "author3", "", ""};
-    char *number = "number123";
-    char *subjects[5] = {"author1", "author2", "author3", "", ""};
-    char *publisher = "publisher";
-    char *year = "year";
-    BOOL circulating = TRUE;
+    string title = "title";
+    string authors[5] = {"author1", "author2", "author3", "", ""};
+    string number = "number123";
+    string subjects[5] = {"author1", "author2", "author3", "", ""};
+    string publisher = "publisher";
+    string year = "year";
+    bool circulating = true;
     Book *book = Book_new(title, authors, number, subjects, publisher,
             year, circulating);
     FILE *file = fopen(DATAFILE, "wb");
@@ -32,7 +32,7 @@ void test_deserialize() {
     BookList *list;
     FILE *file = fopen(DATAFILE, "rb");
     list = BookList_deserialize(file);
-    Book_print(list->head->book);
+    Book_print(stdin, list->head->data);
     BookList_delete(list);
     fclose(file);
 }

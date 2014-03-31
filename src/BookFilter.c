@@ -5,21 +5,19 @@
 
 #include "BookFilter.h"
 
-#include <strings.h>
-
 
 #define DEFINE_BOOK_FILTER_STRING(member) \
-    BOOL BookFilters_##member(Book *book, void *member) { \
+    bool BookFilters_##member(Book *book, void *member) { \
         return string_contains(book->member, member); \
     }
 
 #define DEFINE_BOOK_FILTER_STRING_ARRAY(member, size) \
-    BOOL BookFilters_##member(Book *book, void *member) { \
+    bool BookFilters_##member(Book *book, void *member) { \
         return string_array_contains(book->member, size, member); \
     }
 
 #define DEFINE_BOOK_FILTER_BOOL(member) \
-    BOOL BookFilters_##member(Book *book, void *member) { \
+    bool BookFilters_##member(Book *book, void *member) { \
         return bool_is_equal(book->member, member); \
     }
 
@@ -52,7 +50,7 @@ DEFINE_BOOK_FILTER_STRING(year)
 
 DEFINE_BOOK_FILTER_BOOL(circulating)
 
-BOOL BookFilters_string(Book *book, void *string) {
+bool BookFilters_string(Book *book, void *string) {
     return BookFilters_title(book, string)
             || BookFilters_authors(book, string)
             || BookFilters_number(book, string)

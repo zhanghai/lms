@@ -14,7 +14,7 @@ static void LinkedListNode_delete(LinkedListNode *node);
 static LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
         LinkedListNode *next) {
 
-    LinkedListNode *node = LMS_NEW(LinkedListNode);
+    LinkedListNode *node = Memory_allocateType(LinkedListNode);
 
     node->data = data;
     node->prev = prev;
@@ -24,7 +24,7 @@ static LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
 }
 
 static void LinkedListNode_delete(LinkedListNode *node) {
-    free(node);
+    Memory_free(node);
 }
 
 /**
@@ -33,10 +33,10 @@ static void LinkedListNode_delete(LinkedListNode *node) {
  */
 LinkedList *LinkedList_new() {
 
-    LinkedList *list = LMS_NEW(LinkedList);
+    LinkedList *list = Memory_allocateType(LinkedList);
 
-    list->head = NULL;
-    list->tail = NULL;
+    list->head = null;
+    list->tail = null;
     list->size = 0;
 
     return list;
@@ -53,7 +53,7 @@ void LinkedList_delete(LinkedList *list) {
         LinkedListNode_delete(node);
     }
 
-    free(list);
+    Memory_free(list);
 }
 
 /**
@@ -65,15 +65,15 @@ void LinkedList_delete(LinkedList *list) {
  */
 LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
 
-    LinkedListNode *node = LinkedListNode_new(data, NULL,
+    LinkedListNode *node = LinkedListNode_new(data, null,
             list->head);
 
-    if (list->head != NULL) {
+    if (list->head != null) {
         list->head->prev = node;
     }
 
     list->head = node;
-    if (list->tail == NULL) {
+    if (list->tail == null) {
         list->tail = node;
     }
 
@@ -91,14 +91,14 @@ LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
  */
 LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data) {
 
-    LinkedListNode *node = LinkedListNode_new(data, list->tail, NULL);
+    LinkedListNode *node = LinkedListNode_new(data, list->tail, null);
 
-    if (list->tail != NULL) {
+    if (list->tail != null) {
         list->tail->next = node;
     }
 
     list->tail = node;
-    if (list->head == NULL) {
+    if (list->head == null) {
         list->head = node;
     }
 
@@ -119,7 +119,7 @@ LinkedListNode *LinkedList_insertBefore(LinkedList *list, LinkedListNode *node,
 
     LinkedListNode *newNode = LinkedListNode_new(data, node->prev, node);
 
-    if (node->prev != NULL) {
+    if (node->prev != null) {
         node->prev->next = newNode;
     } else {
         list->head = newNode;
@@ -143,7 +143,7 @@ LinkedListNode *LinkedList_insertAfter(LinkedList *list, LinkedListNode *node,
 
     LinkedListNode *newNode = LinkedListNode_new(data, node, node->next);
 
-    if (node->next != NULL) {
+    if (node->next != null) {
         node->next->prev = newNode;
     } else {
         list->tail = newNode;
@@ -159,19 +159,19 @@ LinkedListNode *LinkedList_insertAfter(LinkedList *list, LinkedListNode *node,
  * Remove {@param node} from a {@link LinkedList}.
  * @param list The {@link LinkedList} to remove the node from.
  * @param node The node to be removed.
- * @return the node following the removed one, or NULL if the tail
+ * @return the node following the removed one, or null if the tail
  *         node is removed.
  */
 LinkedListNode *LinkedList_removeNode(LinkedList *list, LinkedListNode *node) {
 
     LinkedListNode *nextNode = node->next;
 
-    if (node->prev != NULL) {
+    if (node->prev != null) {
         node->prev->next = node->next;
     } else {
         list->head = node->next;
     }
-    if (node->next != NULL) {
+    if (node->next != null) {
         node->next->prev = node->prev;
     } else {
         list->tail = node->prev;
@@ -219,25 +219,24 @@ void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
  * @param list The {@link LinkedList} to be sorted.
  * @param comparator The comparator for sorting.
  */
-void LinkedList_sort(LinkedList *list,
-        int (*comparator)(void *data1, void *data2)) {
+void LinkedList_sort(LinkedList *list, Comparator comparator) {
 
     LinkedListNode *node1, *node2;
-    BOOL changed;
+    bool changed;
 
     if (list->size == 0) {
         return;
     }
 
-    for (node1 = list->head; node1->next != NULL;
+    for (node1 = list->head; node1->next != null;
             node1 = node1->next) {
 
-        changed = FALSE;
+        changed = false;
 
         for (node2 = list->tail; node2 != node1; ) {
             if (comparator(node2->prev->data, node2->data) > 0) {
                 LinkedList_swap(list, node2->prev, node2);
-                changed = TRUE;
+                changed = true;
             } else {
                 node2 = node2->prev;
             }
@@ -258,7 +257,7 @@ void LinkedList_sort(LinkedList *list,
  * @return A {@link LinkedList} containing the result.
  */
 LinkedList *LinkedList_search(LinkedList *list,
-        BOOL (*filter)(void *data, void *criteria), void *criteria) {
+        bool (*filter)(void *data, void *criteria), void *criteria) {
 
     LinkedList *result = LinkedList_new();
     LinkedListNode *node;

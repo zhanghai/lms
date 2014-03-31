@@ -11,7 +11,7 @@
 
 
 #define LINKED_LIST_FOR_EACH(list, node) \
-    for (node = list->head; node != NULL; node = node->next)
+    for (node = list->head; node != null; node = node->next)
 
 
 typedef struct tagLinkedListNode LinkedListNode;
@@ -50,11 +50,10 @@ void LinkedList_remove(LinkedList *list, void *data);
 void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
         LinkedListNode *node2);
 
-void LinkedList_sort(LinkedList *list,
-        int (*comparator)(void *data1, void *data2));
+void LinkedList_sort(LinkedList *list, Comparator comparator);
 
 LinkedList *LinkedList_search(LinkedList *list,
-        BOOL (*filter)(void *data, void *criteria), void *criteria);
+        bool (*filter)(void *data, void *criteria), void *criteria);
 
 
 #endif /* _LINKED_LIST_H_ */
