@@ -1,9 +1,9 @@
 /*
- * File: book.c
+ * File: Book.c
  * Author: Zhang Hai
  */
 
-#include "book.h"
+#include "Book.h"
 
 
 char* BOOK_FIELD_NAMES[] = {
@@ -17,14 +17,14 @@ char* BOOK_FIELD_NAMES[] = {
 };
 
 
-static void book_delete(Book *book);
+static void Book_delete(Book *book);
 
 
 /**
  * Create a new instance of {@link Book}.
  * The constructor will make copies of the strings passed in.
  * The initial reference count will be set to 1.
- * @note You should always call {@link book_remove_reference} before
+ * @note You should always call {@link Book_removeReference} before
  *       the end of your function where you called this function.
  * @param title The title of the book.
  * @param authors The authors of this book.
@@ -35,7 +35,7 @@ static void book_delete(Book *book);
  * @param circulating Whether this book is still circulating.
  * @return The created {@link Book} instance.
  */
-Book *book_new(char *title, char *authors[5], char *number,
+Book *Book_new(char *title, char *authors[5], char *number,
         char *subjects[5], char *publisher, char *year,
         BOOL circulating) {
 
@@ -57,10 +57,10 @@ Book *book_new(char *title, char *authors[5], char *number,
  * @private
  * Destroy a {@link Book} instance.
  * @note This function is only intended for internal use, developers
- *       should use {@link book_remove_reference} instead.
+ *       should use {@link Book_removeReference} instead.
  * @param book The {@link Book} instance to be destroyed.
  */
-static void book_delete(Book *book) {
+static void Book_delete(Book *book) {
 
     free(book->title);
     string_array_free(book->authors, 5);
@@ -76,7 +76,7 @@ static void book_delete(Book *book) {
  * Add a reference to a {@link Book} instance.
  * @param book The {@link Book} instance to add a reference to.
  */
-void book_add_reference(Book *book) {
+void Book_addReference(Book *book) {
     ++book->reference_count;
 }
 
@@ -85,9 +85,9 @@ void book_add_reference(Book *book) {
  * instance if reference count reaches 0.
  * @param book The {@link Book} instance to remove a reference from.
  */
-void book_remove_reference(Book *book) {
+void Book_removeReference(Book *book) {
     if(--book->reference_count == 0) {
-        book_delete(book);
+        Book_delete(book);
     }
 }
 
@@ -97,7 +97,7 @@ void book_remove_reference(Book *book) {
  * @param file The file to serialize {@param book}.
  * @return Whether the serialization was successful.
  */
-BOOL book_serialize(Book *book, FILE *file) {
+BOOL Book_serialize(Book *book, FILE *file) {
     return serialize_string(book->title, file)
             && serialize_string_array(book->authors, 5, file)
             && serialize_string(book->number, file)
@@ -113,7 +113,7 @@ BOOL book_serialize(Book *book, FILE *file) {
  * @return A {@link Book} deserialized from {@param file}, or NULL if
  *         an error occurred.
  */
-Book *book_deserialize(FILE *file) {
+Book *Book_deserialize(FILE *file) {
     Book *book = LMS_NEW(Book);
     if (deserialize_string(&book->title, file)
             && deserialize_string_array(book->authors, 5, file)
@@ -125,19 +125,19 @@ Book *book_deserialize(FILE *file) {
         book->reference_count = 1;
         return book;
     } else {
-        book_delete(book);
+        Book_delete(book);
         return NULL;
     }
 }
 
 /**
- * @deprecated Use {@link book_add_reference} instead.
+ * @deprecated Use {@link Book_addReference} instead.
  * Clone a {@link Book} instance.
  * @param book The {@link Book} instance to clone.
  * @return The cloned {@link Book} instance.
  */
-Book *book_clone(Book *book) {
-    return book_new(book->title, book->authors, book->number,
+Book *Book_clone(Book *book) {
+    return Book_new(book->title, book->authors, book->number,
             book->subjects, book->publisher, book->year,
             book->circulating);
 }
@@ -150,7 +150,7 @@ Book *book_clone(Book *book) {
  * @param book2 The second {@link Book} instance.
  * @return Whether the two {@link Book} instances are equal.
  */
-BOOL book_is_equal(Book *book1, Book *book2) {
+BOOL Book_isEqual(Book *book1, Book *book2) {
     return strcmp(book1->title, book2->title) == 0
             && string_array_is_equal(book1->authors, book2->authors, 5)
             && strcmp(book1->number, book2->number) == 0
@@ -164,7 +164,7 @@ BOOL book_is_equal(Book *book1, Book *book2) {
  * Print the information stored in a {@link Book} instance.
  * @param book The {@link Book} instance to print.
  */
-void book_print(Book *book) {
+void Book_print(Book *book) {
     printf("%-18s: %s\n", BOOK_FIELD_NAMES[0], book->title);
     printf("%-18s: ", BOOK_FIELD_NAMES[1]);
     string_array_print(book->authors, 5);

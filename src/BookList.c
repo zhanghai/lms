@@ -1,22 +1,22 @@
 /*
- * File: book_list.c
+ * File: BookList.c
  * Author: Zhang Hai
  */
 
-#include "book_list.h"
+#include "BookList.h"
 
 
-static BookNode *book_node_new(Book *book, BookNode *prev,
+static BookNode *BookNode_new(Book *book, BookNode *prev,
         BookNode *next);
-static void book_node_delete(BookNode *node);
+static void BookNode_delete(BookNode *node);
 
 
-static BookNode *book_node_new(Book *book, BookNode *prev,
+static BookNode *BookNode_new(Book *book, BookNode *prev,
         BookNode *next) {
 
     BookNode *node = LMS_NEW(BookNode);
 
-    book_add_reference(book);
+    Book_addReference(book);
     node->book = book;
     node->prev = prev;
     node->next = next;
@@ -24,9 +24,9 @@ static BookNode *book_node_new(Book *book, BookNode *prev,
     return node;
 }
 
-static void book_node_delete(BookNode *node) {
+static void BookNode_delete(BookNode *node) {
 
-    book_remove_reference(node->book);
+    Book_removeReference(node->book);
 
     free(node);
 }
@@ -35,7 +35,7 @@ static void book_node_delete(BookNode *node) {
  * Create a new instance of {@link BookList}.
  * @return The created {@link BookList} instance.
  */
-BookList *book_list_new() {
+BookList *BookList_new() {
 
     BookList *list = LMS_NEW(BookList);
 
@@ -50,11 +50,11 @@ BookList *book_list_new() {
  * Destroy a {@link BookList} instance.
  * @param list The {@link BookList} instance to be destroyed.
  */
-void book_list_delete(BookList *list) {
+void BookList_delete(BookList *list) {
 
     BookNode *node;
     BOOK_LIST_FOR_EACH(list, node) {
-        book_node_delete(node);
+        BookNode_delete(node);
     }
 
     free(list);
@@ -66,11 +66,11 @@ void book_list_delete(BookList *list) {
  * @param file The file to serialize {@param list}.
  * @return Whether the serialization was successful.
  */
-BOOL book_list_serialize(BookList *list, FILE *file) {
+BOOL BookList_serialize(BookList *list, FILE *file) {
     BookNode *node;
     serialize_size(&list->size, file);
     BOOK_LIST_FOR_EACH(list, node) {
-        if (!book_serialize(node->book, file)) {
+        if (!Book_serialize(node->book, file)) {
             return FALSE;
         }
     }
@@ -83,9 +83,9 @@ BOOL book_list_serialize(BookList *list, FILE *file) {
  * @return a {@link BookList} deserialized from {@param file}, or NULL
  *         if failed to read sufficient data.
  */
-BookList *book_list_deserialize(FILE *file) {
+BookList *BookList_deserialize(FILE *file) {
 
-    BookList *list = book_list_new();
+    BookList *list = BookList_new();
     size_t size, i;
     Book *book;
 
@@ -93,10 +93,10 @@ BookList *book_list_deserialize(FILE *file) {
         return NULL;
     }
     for (i = 0; i < size; ++i) {
-        if ((book = book_deserialize(file)) == NULL) {
+        if ((book = Book_deserialize(file)) == NULL) {
             return NULL;
         }
-        book_list_add_end(list, book);
+        BookList_addEnd(list, book);
     }
 
     return list;
@@ -108,9 +108,9 @@ BookList *book_list_deserialize(FILE *file) {
  * @param book The {@link Book} to be added.
  * @return The newly added node in the {@param list}.
  */
-BookNode *book_list_add_start(BookList *list, Book *book) {
+BookNode *BookList_addStart(BookList *list, Book *book) {
 
-    BookNode *node = book_node_new(book, NULL,
+    BookNode *node = BookNode_new(book, NULL,
             list->head);
 
     if (list->head != NULL) {
@@ -133,9 +133,9 @@ BookNode *book_list_add_start(BookList *list, Book *book) {
  * @param book The {@link Book} to be added.
  * @return The newly added node in the {@param list}.
  */
-BookNode *book_list_add_end(BookList *list, Book *book) {
+BookNode *BookList_addEnd(BookList *list, Book *book) {
 
-    BookNode *node = book_node_new(book, list->tail, NULL);
+    BookNode *node = BookNode_new(book, list->tail, NULL);
 
     if (list->tail != NULL) {
         list->tail->next = node;
@@ -152,51 +152,51 @@ BookNode *book_list_add_end(BookList *list, Book *book) {
 }
 
 /**
- * Insert a new node holding @param{book} before {@param node}.
+ * Insert a {@link Book} instance before {@param node}.
  * @param list The {@link BookList} to insert {@param book} into.
  * @param node The node to insert before.
  * @param book The {@link Book} to be inserted.
- * @return The new node just inserted.
+ * @return The newly inserted node in the {@param list}.
  */
-BookNode *book_list_insert_before(BookList *list, BookNode *node,
+BookNode *BookList_insertBefore(BookList *list, BookNode *node,
         Book *book) {
 
-    BookNode *new_node = book_node_new(book, node->prev, node);
+    BookNode *newNode = BookNode_new(book, node->prev, node);
 
     if (node->prev != NULL) {
-        node->prev->next = new_node;
+        node->prev->next = newNode;
     } else {
-        list->head = new_node;
+        list->head = newNode;
     }
-    node->prev = new_node;
+    node->prev = newNode;
 
     ++list->size;
 
-    return new_node;
+    return newNode;
 }
 
 /**
- * Insert a new node holding @param{book} after {@param node}.
+ * Insert a {@link Book} instance after {@param node}.
  * @param list The {@link BookList} to insert {@param book} into.
  * @param node The node to insert after.
  * @param book The {@link Book} to be inserted.
- * @return The new node just inserted.
+ * @return The newly inserted node in the {@param list}.
  */
-BookNode *book_list_insert_after(BookList *list, BookNode *node,
+BookNode *BookList_insertAfter(BookList *list, BookNode *node,
         Book *book) {
 
-    BookNode *new_node = book_node_new(book, node, node->next);
+    BookNode *newNode = BookNode_new(book, node, node->next);
 
     if (node->next != NULL) {
-        node->next->prev = new_node;
+        node->next->prev = newNode;
     } else {
-        list->tail = new_node;
+        list->tail = newNode;
     }
-    node->next = new_node;
+    node->next = newNode;
 
     ++list->size;
 
-    return new_node;
+    return newNode;
 }
 
 /**
@@ -206,9 +206,9 @@ BookNode *book_list_insert_after(BookList *list, BookNode *node,
  * @return the node following the removed one, or NULL if the tail
  *         node is removed.
  */
-BookNode *book_list_remove_node(BookList *list, BookNode *node) {
+BookNode *BookList_removeNode(BookList *list, BookNode *node) {
 
-    BookNode *next_node = node->next;
+    BookNode *nextNode = node->next;
 
     if (node->prev != NULL) {
         node->prev->next = node->next;
@@ -221,23 +221,25 @@ BookNode *book_list_remove_node(BookList *list, BookNode *node) {
         list->tail = node->prev;
     }
 
-    book_node_delete(node);
+    BookNode_delete(node);
 
     --list->size;
 
-    return next_node;
+    return nextNode;
 }
 
 /**
  * Remove a {@link Book} instance from a {@link BookList}.
+ * @note This function will only remove the first occurrence of
+ *       {@param Book}.
  * @param list The {@link BookList} to remove {@param book} from.
  * @param book The {@link Book} instance to be removed.
  */
-void book_list_remove(BookList *list, Book *book) {
+void BookList_remove(BookList *list, Book *book) {
     BookNode *node;
     BOOK_LIST_FOR_EACH(list, node) {
         if (node->book == book) {
-            book_list_remove_node(list, node);
+            BookList_removeNode(list, node);
             return;
         }
     }
@@ -245,11 +247,12 @@ void book_list_remove(BookList *list, Book *book) {
 
 /**
  * Swap two nodes in a {@link BookList}.
- * Will simply swap the {@link Book} objects of the two nodes.
+ * @note This function will simply swap the {@link Book} objects of
+ *       the two nodes.
  * @param node1 The first node to be swapped.
  * @param node2 The second node to be swapped.
  */
-void book_list_swap(BookList *list, BookNode *node1,
+void BookList_swap(BookList *list, BookNode *node1,
         BookNode *node2) {
     Book *tmp;
     LMS_SWAP(node1->book, node2->book, tmp);
@@ -261,8 +264,8 @@ void book_list_swap(BookList *list, BookNode *node1,
  * @param list The {@link BookList} to be sorted.
  * @param comparator The comparator for sorting.
  */
-void book_list_sort(BookList *list,
-        int (*comparator)(BookNode *node1, BookNode *node2)) {
+void BookList_sort(BookList *list,
+        int (*comparator)(Book *book1, Book *book2)) {
 
     BookNode *node1, *node2;
     BOOL changed;
@@ -277,8 +280,8 @@ void book_list_sort(BookList *list,
         changed = FALSE;
 
         for (node2 = list->tail; node2 != node1; ) {
-            if (comparator(node2->prev, node2) > 0) {
-                book_list_swap(list, node2->prev, node2);
+            if (comparator(node2->prev->book, node2->book) > 0) {
+                BookList_swap(list, node2->prev, node2);
                 changed = TRUE;
             } else {
                 node2 = node2->prev;
@@ -292,32 +295,24 @@ void book_list_sort(BookList *list,
 }
 
 /**
- * Search in a {@link BookList} according to a filter.
+ * Search in a {@link BookList} by a filter.
  * @param list The {@link BookList} to be searched in.
  * @param filter A filter function for the search.
  * @param criteria The criteria data to be passed into
  *        {@param filter}.
  * @return A {@link BookList} containing the result.
  */
-BookList *book_list_search(BookList *list,
+BookList *BookList_search(BookList *list,
         BOOL (*filter)(Book *book, void *criteria), void *criteria) {
 
-    BookList *result = book_list_new();
+    BookList *result = BookList_new();
     BookNode *node;
 
     BOOK_LIST_FOR_EACH(list, node) {
         if (filter(node->book, criteria)) {
-            book_list_add_end(result, node->book);
+            BookList_addEnd(result, node->book);
         }
     }
 
     return result;
 }
-
-/*
-int book_node_cmp_z_order(BookNode *node1, BookNode *node2) {
-    int z_order1 = node1->book->z_order,
-            z_order2 = node2->book->z_order;
-    return z_order1 < z_order2 ? -1 : (z_order1 == z_order2 ? 0 : 1);
-}
-*/

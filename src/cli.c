@@ -13,7 +13,8 @@
 
 void print_book_filters() {
 
-    size_t i;
+    // Using int for printf().
+    int i;
 
     printf("Available book filters: ");
 
@@ -26,7 +27,8 @@ void print_book_filters() {
 BookList *filter_book(BookList *list) {
 
     char *input;
-    size_t index;
+    // Using int for sscanf().
+    int index;
     BookFilter filter;
     BookList *result;
 
@@ -54,7 +56,7 @@ BookList *filter_book(BookList *list) {
     if (strlen(input) > 0) {
         add_history(input);
     }
-    result = book_list_search(list, filter, input);
+    result = BookList_search(list, filter, input);
     free(input);
 
     return result;
@@ -69,11 +71,11 @@ void search_book(BookList *list) {
 
     result = filter_book(list);
 
-    BOOK_LIST_FOR_EACH(list, node) {
-        book_print(node->book);
+    BOOK_LIST_FOR_EACH(result, node) {
+        Book_print(node->book);
     }
 
-    book_list_delete(list);
+    BookList_delete(list);
 }
 
 void delete_book(BookList *list) {
@@ -85,11 +87,11 @@ void delete_book(BookList *list) {
 
     result = filter_book(list);
 
-    BOOK_LIST_FOR_EACH(list, node) {
-        book_print(node->book);
+    BOOK_LIST_FOR_EACH(result, node) {
+        Book_print(node->book);
         // TODO
-        book_list_remove(list, node->book);
+        BookList_remove(list, node->book);
     }
 
-    book_list_delete(list);
+    BookList_delete(list);
 }

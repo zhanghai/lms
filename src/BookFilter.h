@@ -1,5 +1,5 @@
 /*
- * File: book_filter.h
+ * File: BookFilter.h
  * Author: Zhang Hai
  */
 
@@ -7,13 +7,13 @@
 #define _BOOK_FILTER_H_
 
 
-#include "common.h"
+#include "Common.h"
 
-#include "book.h"
+#include "Book.h"
 
 
 #define DECLARE_BOOK_FILTER(member) \
-    BOOL book_filter_##member(Book *book, void *member);
+    BOOL BookFilters_##member(Book *book, void *member);
 
 
 typedef BOOL (*BookFilter)(Book *book, void *criteria);
@@ -38,7 +38,7 @@ DECLARE_BOOK_FILTER(year)
 
 DECLARE_BOOK_FILTER(circulating)
 
-BOOL book_filter_string(Book *book, void *string);
+BOOL BookFilters_string(Book *book, void *string);
 
 
 #undef DECLARE_BOOK_FILTER

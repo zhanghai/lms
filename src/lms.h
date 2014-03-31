@@ -7,11 +7,11 @@
 #define _LMS_H_
 
 
-#include "common.h"
+#include "Common.h"
 
-#include "book.h"
-#include "book_filter.h"
-#include "book_list.h"
+#include "Book.h"
+#include "BookFilter.h"
+#include "BookList.h"
 
 
 #endif /* _LMS_H_ */

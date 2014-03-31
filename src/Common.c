@@ -1,9 +1,9 @@
 /*
- * File: common.c
+ * File: Common.c
  * Author: Zhang Hai
  */
 
-#include "common.h"
+#include "Common.h"
 
 #include <string.h>
 

@@ -11,7 +11,7 @@
 #define DATAFILE "lms.dat"
 
 void test_serialize() {
-    BookList *list = book_list_new();
+    BookList *list = BookList_new();
     char *title = "title";
     char *authors[5] = {"author1", "author2", "author3", "", ""};
     char *number = "number123";
@@ -19,21 +19,21 @@ void test_serialize() {
     char *publisher = "publisher";
     char *year = "year";
     BOOL circulating = TRUE;
-    Book *book = book_new(title, authors, number, subjects, publisher,
+    Book *book = Book_new(title, authors, number, subjects, publisher,
             year, circulating);
     FILE *file = fopen(DATAFILE, "wb");
-    book_list_add_end(list, book);
-    book_list_serialize(list, file);
-    book_list_delete(list);
+    BookList_addEnd(list, book);
+    BookList_serialize(list, file);
+    BookList_delete(list);
     fclose(file);
 }
 
 void test_deserialize() {
     BookList *list;
     FILE *file = fopen(DATAFILE, "rb");
-    list = book_list_deserialize(file);
-    book_print(list->head->book);
-    book_list_delete(list);
+    list = BookList_deserialize(file);
+    Book_print(list->head->book);
+    BookList_delete(list);
     fclose(file);
 }
 

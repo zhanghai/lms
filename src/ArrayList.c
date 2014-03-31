@@ -1,33 +1,33 @@
 /*
- * File: array_list.c
+ * File: ArrayList.c
  * Author: Zhang Hai
  */
 
-#include "array_list.h"
+#include "ArrayList.h"
 
 
 static const size_t INITIAL_ALLOCATION_SIZE = 8;
 
 
-ArrayList *array_list_new() {
+ArrayList *ArrayList_new() {
 
     ArrayList *list = LMS_NEW(ArrayList);
 
     list->array = LMS_ALLOC(INITIAL_ALLOCATION_SIZE * sizeof(void *));
     list->size = 0;
-    list->allocated_size = INITIAL_ALLOCATION_SIZE;
+    list->allocatedSize = INITIAL_ALLOCATION_SIZE;
 
     return list;
 }
 
-void array_list_delete(ArrayList *list) {
+void ArrayList_delete(ArrayList *list) {
 
     free(list->array);
 
     free(list);
 }
 
-void *array_list_get_at(ArrayList *list, size_t index) {
+void *ArrayList_getAt(ArrayList *list, size_t index) {
 
     if (index >= list->size) {
         return NULL;
@@ -36,12 +36,12 @@ void *array_list_get_at(ArrayList *list, size_t index) {
     return list->array[index];
 }
 
-void array_list_add_end(ArrayList *list, void *data) {
+void ArrayList_addEnd(ArrayList *list, void *data) {
 
-    if (list->size == list->allocated_size) {
+    if (list->size == list->allocatedSize) {
         list->array = LMS_REALLOC(list->array,
-                2 * list->allocated_size * sizeof(void *));
-        list->allocated_size *= 2;
+                2 * list->allocatedSize * sizeof(void *));
+        list->allocatedSize *= 2;
     }
 
     list->array[list->size] = data;
