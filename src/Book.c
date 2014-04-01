@@ -8,10 +8,10 @@
 
 string Book_FIELD_NAMES[] = {
     "Title",
-    "Author(s)",
+    "Authors",
     "LOC Catalog Number",
+    "Subjects",
     "Publisher",
-    "Subject(s)",
     "Year",
     "Circulating"
 };
@@ -125,7 +125,7 @@ Book *Book_deserialize(FILE *file) {
         book->reference_count = 1;
         return book;
     } else {
-        Book_delete(book);
+        Memory_free(book);
         return null;
     }
 }
@@ -163,20 +163,21 @@ bool Book_isEqual(Book *book1, Book *book2) {
 /**
  * Print the information stored in a {@link Book} instance.
  * @param book The {@link Book} instance to print.
+ * @param file The file to print {@param Book} to.
  */
-void Book_print(FILE *file, Book *book) {
+void Book_print(Book *book, FILE *file) {
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[0], book->title);
     fprintf(file, "%-18s: ", Book_FIELD_NAMES[1]);
-    string_array_print(file, book->authors, 5, "; ");
+    string_array_printSkipEmpty(book->authors, 5, "; ", file);
     fprintf(file, "\n");
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[2], book->number);
     fprintf(file, "%-18s: ", Book_FIELD_NAMES[3]);
-    string_array_print(file, book->subjects, 5, "; ");
+    string_array_printSkipEmpty(book->subjects, 5, "; ", file);
     fprintf(file, "\n");
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[4],
             book->publisher);
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[5], book->year);
     fprintf(file, "%-18s: ", Book_FIELD_NAMES[6]);
-    bool_print(file, book->circulating);
+    bool_print(book->circulating, file);
     fprintf(file, "\n");
 }

@@ -37,7 +37,7 @@ bool string_serialize(string theString, FILE *file) {
 /**
  * Deserialize a string from file.
  * Note that memory will be allocated for the string.
- * @param value Pointer to the string.
+ * @param theString Pointer to the string.
  * @param file The file to deserialize string from.
  * @return Whether the deserialization is successful.
  */

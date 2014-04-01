@@ -48,6 +48,10 @@ size_t string_length(string theString) {
     return strlen(theString);
 }
 
+bool string_isEmpty(string theString) {
+    return string_length(theString) == 0;
+}
+
 /**
  * Make a deep copy of a string array.
  * @param source The source string array.
@@ -134,12 +138,23 @@ bool string_array_containsIgnoreCase(string array[], size_t size,
     return false;
 }
 
-void string_array_print(FILE *file, string array[], size_t size,
-        string splitter) {
+void string_array_print(string array[], size_t size, string splitter,
+        FILE *file) {
     int i;
     for (i = 0; i < size; ++i) {
-        if (string_length(array[i]) == 0) {
-            break;
+        if (i != 0) {
+            fprintf(file, splitter);
+        }
+        fprintf(file, array[i]);
+    }
+}
+
+void string_array_printSkipEmpty(string array[], size_t size,
+        string splitter, FILE *file) {
+    int i;
+    for (i = 0; i < size; ++i) {
+        if (string_isEmpty(array[i])) {
+            continue;
         }
         if (i != 0) {
             fprintf(file, splitter);

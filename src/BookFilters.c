@@ -29,13 +29,13 @@ BookFilterFunction BOOK_FILTERS[] = {
     BookFilters_title,
     BookFilters_authors,
     BookFilters_number,
-    BookFilters_publisher,
     BookFilters_subjects,
+    BookFilters_publisher,
     BookFilters_year,
     BookFilters_circulating,
 };
 
-size_t BOOK_FILTERS_SIZE = 8;
+size_t BOOK_FILTERS_SIZE = sizeof(BOOK_FILTERS) / sizeof(BOOK_FILTERS[0]);
 
 
 DEFINE_BOOK_FILTER_STRING(title)

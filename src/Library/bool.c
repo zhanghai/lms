@@ -17,6 +17,6 @@ bool bool_is_equal(bool boolean, string theString) {
             : string_isEqualIgnoreCase(BOOL_FALSE_STRING, theString);
 }
 
-void bool_print(FILE *file, bool boolean) {
+void bool_print(bool boolean, FILE *file) {
     fprintf(file, boolean ? BOOL_TRUE_STRING : BOOL_FALSE_STRING);
 }

@@ -14,7 +14,7 @@
 
 bool bool_is_equal(bool boolean, string theString);
 
-void bool_print(FILE *file, bool boolean);
+void bool_print(bool boolean, FILE *file);
 
 
 #endif /* _BOOL_H_ */

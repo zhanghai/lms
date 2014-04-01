@@ -51,7 +51,7 @@ Book *Book_clone(Book *book);
 
 bool Book_isEqual(Book *book1, Book *book2);
 
-void Book_print(FILE *file, Book *book);
+void Book_print(Book *book, FILE *file);
 
 
 #endif /* _BOOK_H_ */

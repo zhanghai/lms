@@ -28,6 +28,8 @@ bool string_containsIgnoreCase(string theString, string subString);
 
 size_t string_length(string theString);
 
+bool string_isEmpty(string theString);
+
 void string_array_clone(string source[], string destination[],
         size_t size);
 
@@ -51,8 +53,10 @@ bool string_array_contains(string array[], size_t size,
 bool string_array_containsIgnoreCase(string array[], size_t size,
         string subString);
 
-void string_array_print(FILE* file, string array[], size_t size,
-        string splitter);
+void string_array_print(string array[], size_t size, string splitter,
+        FILE *file);
 
+void string_array_printSkipEmpty(string array[], size_t size,
+        string splitter, FILE *file);
 
 #endif /* _STRING_H_ */
