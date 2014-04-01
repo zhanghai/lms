@@ -43,13 +43,19 @@ void add_new_book(BookList *list);
 void delete_book(BookList* list);
 void modify_book(BookList *list);
 void search_book(BookList *list);
+void input(BookList *list);
+void output(BookList *list);
 
 int main(void) {
 	int choice;
-	BookList *list;
+	BookList *list = book_list_new();
 
-
+	input(list);
 	while ((choice = input_choice()) != 0) {
+		while(choice <= 0 || choice >4){
+			printf("wrong number, try again.\n");
+			choice = input_choice();
+		}
 		switch (choice) {
 		case 1:
 			add_new_book(list);
@@ -65,6 +71,7 @@ int main(void) {
 			break;
 		}
 	}
+	output(list);
 	return 0;
 }
 
@@ -72,13 +79,12 @@ int input_choice() {
 
 	int mychoice;
 
-	printf("Enter your choice");
+	printf("Enter your choice\n");
 	printf("1 - add a new book.\n");
 	printf("2 - modify a book.\n");
 	printf("3 - delete a book.\n");
 	printf("4 - search a book.\n");
-	printf("5 - display a book");
-	printf("0 - exit");
+	printf("0 - exit.\n");
 	scanf("%d", &mychoice);
 
 	return mychoice;
@@ -94,49 +100,52 @@ void add_new_book(BookList *list) {
 	char *year;
 	BOOL circulating;
 	char input[80];
-	printf("the title:");
+	printf("the title:\n");
 	scanf("%80s", input);
 	title = input;
-	printf("the first author:");
+	printf("the first author:\n");
 	scanf("%80s", input);
 	authors[0] = input;
-	printf("the second author:");
+	printf("have second author?.\n");
+	printf("1 - yes\n");
+	printf("0 - no\n");
+	printf("the second author:\n");
 	scanf("%80s", input);
 	authors[1] = input;
-	printf("the third author:");
+	printf("the third author:\n");
 	scanf("%80s", input);
 	authors[2] = input;
-	printf("the fourth author:");
+	printf("the fourth author:\n");
 	scanf("%80s", input);
 	authors[3] = input;
-	printf("the fifth author:");
+	printf("the fifth author:\n");
 	scanf("%80s", input);
 	authors[4] = input;
-	printf("the number:");
+	printf("the number:\n");
 	scanf("%80s", input);
 	number = input;
-	printf("the first subject:");
+	printf("the first subject:\n");
 	scanf("%80s", input);
 	authors[0] = input;
-	printf("the second subject:");
+	printf("the second subject:\n");
 	scanf("%80s", input);
 	subjects[1] = input;
-	printf("the third subject:");
+	printf("the third subject:\n");
 	scanf("%80s", input);
 	subjects[2] = input;
-	printf("the fourth subject:");
+	printf("the fourth subject:\n");
 	scanf("%80s", input);
 	subjects[3] = input;
-	printf("the fifth subject:");
+	printf("the fifth subject:\n");
 	scanf("%80s", input);
 	subjects[4] = input;
-	printf("the publisher:");
+	printf("the publisher:\n");
 	scanf("%80s", input);
 	publisher = input;
-	printf("the year:");
+	printf("the year:\n");
 	scanf("%80s", input);
 	year = input;
-	printf("the circulating");
+	printf("the circulating\n");
 	scanf("%d", &circulating);
 
 	book = book_new(title, authors, number, subjects, publisher, year, circulating);
@@ -153,105 +162,105 @@ void modify_book(BookList *list) {
 	BOOK_LIST_FOR_EACH(small, node)
 	{
 		book_print(node->book);
-		printf("Yes or no?");
-		printf("1 - yes");
-		printf("0 - no");
+		printf("Yes or no?\n");
+		printf("1 - yes\n");
+		printf("0 - no\n");
 		scanf("%d", &i);
 
 		if (i == 1) {
 
-			printf("modify the book");
-			printf("modify the title?");
-			printf("1 - yes");
-			printf("0 - no");
+			printf("modify the book\n\n");
+			printf("modify the title?\n");
+			printf("1 - yes\n");
+			printf("0 - no\n");
 			if (getchar() == '1') {
-				printf("the title is:");
+				printf("the title is:\n");
 				free(node->book->title);
 				scanf("%80s", input);
 				node->book->title = input;
 			}
 
-			printf("modify the author?");
+			printf("modify the author?\n");
 			printf("1 - yes");
 			printf("0 - no");
 			if (getchar() == '1') {
 				free(node->book->authors);
-				printf(" the first author is:");
+				printf(" the first author is:\n");
 				scanf("%80s", input);
 				node->book->authors[0] = input;
-				printf(" the second author is:");
+				printf(" the second author is:\n");
 				scanf("%80s", input);
 				node->book->authors[1] = input;
-				printf(" the third author is:");
+				printf(" the third author is:\n");
 				scanf("%80s", input);
 				node->book->authors[2] = input;
-				printf(" the fourth author is:");
+				printf(" the fourth author is:\n");
 				scanf("%80s", input);
 				node->book->authors[3] = input;
-				printf(" the fifth author is:");
+				printf(" the fifth author is:\n");
 				scanf("%80s", input);
 				node->book->authors[4] = input;
 			}
 
-			printf("modify the number?");
+			printf("modify the number?\n");
 			printf("1 - yes");
 			printf("0 - no");
 			if (getchar() == '1') {
-				printf("the number is:");
+				printf("the number is:\n");
 				free(node->book->number);
 				scanf("%80s", input);
 				node->book->number = input;
 			}
 
-			printf("modify the subjects?");
-			printf("1 - yes");
-			printf("0 - no");
+			printf("modify the subjects?\n");
+			printf("1 - yes\n");
+			printf("0 - no\n");
 			if(getchar() == '1'){
 				free(node->book->subjects);
-				printf(" the first author is:");
+				printf(" the first author is:\n");
 				scanf("%80s", input);
 			    node->book->authors[0] = input;
-				printf(" the second author is:");
+				printf(" the second author is:\n");
 				scanf("%80s", input);
 				node->book->authors[1] = input;
-				printf(" the third author is:");
+				printf(" the third author is:\n");
 				scanf("%80s", input);
 				node->book->authors[2] = input;
-				printf(" the fourth author is:");
+				printf(" the fourth author is:\n");
 				scanf("%80s", input);
 				node->book->authors[3] = input;
-				printf(" the fifth author is:");
+				printf(" the fifth author is:\n");
 				scanf("%80s", input);
 				node->book->authors[4] = input;
 			}
 
-			printf("modify the publisher?");
-			printf("1 - yes");
-			printf("0 - no");
+			printf("modify the publisher?\n");
+			printf("1 - yes\n");
+			printf("0 - no\n");
 			if(getchar() == '1'){
-				printf("the publisher is:");
+				printf("the publisher is:\n");
 				free(node->book->publisher);
 				scanf("%80s", input);
 				node->book->number = input;
 			}
 
-			printf("modify the year?");
-			printf("1 - yes");
-			printf("0 - no");
+			printf("modify the year?\n");
+			printf("1 - yes\n");
+			printf("0 - no\n");
 			if(getchar() == '1'){
-				printf("the year is:");
+				printf("the year is:\n");
 				free(node->book->year);
 				scanf("%80s", input);
 				node->book->year = input;
 			}
 
-			printf("modify the cirluating?");
-			printf("1 - yes");
-		    printf("0 - no");
+			printf("modify the cirluating?\n");
+			printf("1 - yes\n");
+		    printf("0 - no\n");
 			if(getchar() == '1'){
-				printf("the cirluating is:");
-				printf("1 - circulating");
-				printf("0 - uncirluating");
+				printf("the cirluating is:\n");
+				printf("1 - circulating\n");
+				printf("0 - uncirluating\n");
 				scanf("%d", &node->book->circulating);
 			}
 		}
@@ -266,9 +275,9 @@ void delete_book(BookList* list){
 
 	BOOK_LIST_FOR_EACH(small, node){
 		book_print(node->book);
-		printf("yes or no?");
-		printf("1 - yes");
-		printf("0 - no");
+		printf("yes or no?\n");
+		printf("1 - yes\n");
+		printf("0 - no\n");
 		scanf("%d", &i);
 
 		if(i == 1){
@@ -285,17 +294,17 @@ BookList *get_booklist(BookList *list){
 	BookList *small;
 	int a;
 
-	printf("Select a filter: ");
-	printf("1 - title");
-	printf("2 - author");
-	printf("3 - catalog number");
-	printf("4 - subject headings");
-	printf("5 - publisher");
-	printf("6 - year of publication");
-	printf("7 - circulation condition");
-	printf("8 - all filters");
+	printf("Select a filter:\n");
+	printf("1 - title\n");
+	printf("2 - author\n");
+	printf("3 - catalog number\n");
+	printf("4 - subject headings\n");
+	printf("5 - publisher\n");
+	printf("6 - year of publication\n");
+	printf("7 - circulation condition\n");
+	printf("8 - all filters\n");
 	scanf("%d", &a);
-	printf("enter your input");
+	printf("enter your input\n");
 	scanf("%as", &input);
 
 	BOOK_LIST_FOR_EACH(list, node)
@@ -328,7 +337,7 @@ BookList *get_booklist(BookList *list){
 			break;
 		}
 	}
-	if (sizeof(small) == 0) {
+	if (small->size == 0) {
 		return NULL;
 	} else {
 		return small;
@@ -343,4 +352,17 @@ void search_book(BookList *list) {
 		book_print(node->book);
 	}
 	book_list_delete(small);
+}
+
+void input(BookList *list){
+	FILE *file = fopen(DATAFILE, "rb");
+	list = book_list_deserialize(file);
+	fclose(file);
+}
+
+void output(BookList *list){
+	FILE *file = fopen(DATAFILE, "wb");
+	book_list_serialize(list, file);
+	book_list_delete(list);
+	fclose(file);
 }
