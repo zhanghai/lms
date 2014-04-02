@@ -108,6 +108,8 @@ bool Book_serialize(Book *book, FILE *file) {
 
 /**
  * Deserialize a {@link Book} from file.
+ * @note You should always call {@link Book_removeReference} before
+ *       the end of your function where you called this function.
  * @param file The file to deserialize a {@link Book} from.
  * @return A {@link Book} deserialized from {@param file}, or null if
  *         an error occurred.

@@ -94,6 +94,7 @@ BookList *BookList_deserialize(FILE *file) {
             return null;
         }
         BookList_addEnd(list, book);
+        Book_removeReference(book);
     }
 
     return list;
