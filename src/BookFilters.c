@@ -1,6 +1,6 @@
-/*
- * File: BookFilter.c
- * Author: Zhang Hai
+/**
+ * @file BookFilters.c
+ * @author Zhang Hai
  */
 
 #include "BookFilters.h"
@@ -61,6 +61,15 @@ bool BookFilters_string(Book *book, void *theString) {
             || BookFilters_year(book, theString);
 }
 
+/**
+ * A compound {@link BookFilter} function.
+ * @param book The book to be filtered, supplied by the search
+ *        algorithm.
+ * @param list An {@link ArrayList} containing {@link BookFilter}
+ *        instances.
+ * @return Whether this book should be in the result list, used by the
+ *         search algorithm.
+ */
 bool BookFilters_compound(Book *book, void *list) {
     ArrayList *filters = list;
     BookFilter *filter;

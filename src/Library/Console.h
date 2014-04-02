@@ -1,6 +1,6 @@
-/*
- * File: Console.h
- * Author: Zhang Hai
+/**
+ * @file Console.h
+ * @author Zhang Hai
  */
 
 #ifndef _CONSOLE_H_

@@ -1,6 +1,6 @@
-/*
- * File: Cli.c
- * Author: Zhang Hai
+/**
+ * @file Lms.c
+ * @author Zhang Hai
  */
 
 #include "Lms.h"

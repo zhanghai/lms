@@ -1,0 +1,59 @@
+\hypertarget{BookFilters_8h}{\section{/home/zh/workspace/eclipse/lms/src/\-Book\-Filters.h File Reference}
+\label{BookFilters_8h}\index{/home/zh/workspace/eclipse/lms/src/\-Book\-Filters.\-h@{/home/zh/workspace/eclipse/lms/src/\-Book\-Filters.\-h}}
+}
+{\ttfamily \#include \char`\"{}Library/\-Common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Book.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{BookFilters_8h_a114e76cd567a5525b1c133157ee56693}{\#define {\bfseries D\-E\-C\-L\-A\-R\-E\-\_\-\-B\-O\-O\-K\-\_\-\-F\-I\-L\-T\-E\-R}(member)~bool Book\-Filters\-\_\-\#\#member(\hyperlink{structBook}{Book} $\ast$book, void $\ast$member);}\label{BookFilters_8h_a114e76cd567a5525b1c133157ee56693}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{BookFilters_8h_ae19295d4040a01e263db2cf891a4dabe}{bool {\bfseries Book\-Filters\-\_\-string} (\hyperlink{structBook}{Book} $\ast$book, void $\ast$the\-String)}\label{BookFilters_8h_ae19295d4040a01e263db2cf891a4dabe}
+
+\item 
+bool \hyperlink{BookFilters_8h_a1007712a46203acf0abcace91e981235}{Book\-Filters\-\_\-compound} (\hyperlink{structBook}{Book} $\ast$book, void $\ast$list)
+\begin{DoxyCompactList}\small\item\em A compound \hyperlink{structBookFilter}{Book\-Filter} function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{BookFilters_8h_a3cd259486fd9b961029243bfe8de217f}{Book\-Filter\-Function {\bfseries B\-O\-O\-K\-\_\-\-F\-I\-L\-T\-E\-R\-S} \mbox{[}$\,$\mbox{]}}\label{BookFilters_8h_a3cd259486fd9b961029243bfe8de217f}
+
+\item 
+\hypertarget{BookFilters_8h_ae191bd09864af8dedf213ed57c33d0b3}{size\-\_\-t {\bfseries B\-O\-O\-K\-\_\-\-F\-I\-L\-T\-E\-R\-S\-\_\-\-S\-I\-Z\-E}}\label{BookFilters_8h_ae191bd09864af8dedf213ed57c33d0b3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Zhang Hai 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{BookFilters_8h_a1007712a46203acf0abcace91e981235}{\index{Book\-Filters.\-h@{Book\-Filters.\-h}!Book\-Filters\-\_\-compound@{Book\-Filters\-\_\-compound}}
+\index{Book\-Filters\-\_\-compound@{Book\-Filters\-\_\-compound}!BookFilters.h@{Book\-Filters.\-h}}
+\subsubsection[{Book\-Filters\-\_\-compound}]{\setlength{\rightskip}{0pt plus 5cm}bool Book\-Filters\-\_\-compound (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book, }
+\item[{void $\ast$}]{list}
+\end{DoxyParamCaption}
+)}}\label{BookFilters_8h_a1007712a46203acf0abcace91e981235}
+
+
+A compound \hyperlink{structBookFilter}{Book\-Filter} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book} & The book to be filtered, supplied by the search algorithm. \\
+\hline
+{\em list} & An \hyperlink{structArrayList}{Array\-List} containing \hyperlink{structBookFilter}{Book\-Filter} instances. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether this book should be in the result list, used by the search algorithm. 
+\end{DoxyReturn}

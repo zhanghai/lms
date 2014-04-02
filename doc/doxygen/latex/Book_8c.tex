@@ -1,0 +1,235 @@
+\hypertarget{Book_8c}{\section{/home/zh/workspace/eclipse/lms/src/\-Book.c File Reference}
+\label{Book_8c}\index{/home/zh/workspace/eclipse/lms/src/\-Book.\-c@{/home/zh/workspace/eclipse/lms/src/\-Book.\-c}}
+}
+{\ttfamily \#include \char`\"{}Book.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structBook}{Book} $\ast$ \hyperlink{Book_8c_a9478207f0ec9ccdb53d858e1d102211b}{Book\-\_\-new} (string title, string authors\mbox{[}5\mbox{]}, string number, string subjects\mbox{[}5\mbox{]}, string publisher, string year, bool circulating)
+\begin{DoxyCompactList}\small\item\em Create a new instance of \hyperlink{structBook}{Book}. \end{DoxyCompactList}\item 
+void \hyperlink{Book_8c_ac0c145026ed614f2e951dcf45b0947eb}{Book\-\_\-add\-Reference} (\hyperlink{structBook}{Book} $\ast$book)
+\begin{DoxyCompactList}\small\item\em Add a reference to a \hyperlink{structBook}{Book} instance. \end{DoxyCompactList}\item 
+void \hyperlink{Book_8c_a75cd1575560384d112b857bd9462820e}{Book\-\_\-remove\-Reference} (\hyperlink{structBook}{Book} $\ast$book)
+\begin{DoxyCompactList}\small\item\em Remove a reference to a \hyperlink{structBook}{Book} instance, will delete the instance if reference count reaches 0. \end{DoxyCompactList}\item 
+bool \hyperlink{Book_8c_a618bacdf87cd513549580c586b2dcfc8}{Book\-\_\-serialize} (\hyperlink{structBook}{Book} $\ast$book, F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Serialize a \hyperlink{structBook}{Book} to file. \end{DoxyCompactList}\item 
+\hyperlink{structBook}{Book} $\ast$ \hyperlink{Book_8c_a377b34c02bbbb5c67ea463eb57b50980}{Book\-\_\-deserialize} (F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Deserialize a \hyperlink{structBook}{Book} from file. \end{DoxyCompactList}\item 
+\hyperlink{structBook}{Book} $\ast$ \hyperlink{Book_8c_adb2b1a59b5622e16741f7d8b703279de}{Book\-\_\-clone} (\hyperlink{structBook}{Book} $\ast$book)
+\begin{DoxyCompactList}\small\item\em Clone a \hyperlink{structBook}{Book} instance. \end{DoxyCompactList}\item 
+bool \hyperlink{Book_8c_a224d073e77d4f55a30e069acb50a8aec}{Book\-\_\-is\-Equal} (\hyperlink{structBook}{Book} $\ast$book1, \hyperlink{structBook}{Book} $\ast$book2)
+\begin{DoxyCompactList}\small\item\em Check if two \hyperlink{structBook}{Book} instances are equal. \end{DoxyCompactList}\item 
+void \hyperlink{Book_8c_a802c99e1bef05ddbe41e5cf896341f3e}{Book\-\_\-print} (\hyperlink{structBook}{Book} $\ast$book, F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Print the information stored in a \hyperlink{structBook}{Book} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string {\bfseries Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Zhang Hai 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{Book_8c_ac0c145026ed614f2e951dcf45b0947eb}{\index{Book.\-c@{Book.\-c}!Book\-\_\-add\-Reference@{Book\-\_\-add\-Reference}}
+\index{Book\-\_\-add\-Reference@{Book\-\_\-add\-Reference}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-add\-Reference}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-\_\-add\-Reference (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_ac0c145026ed614f2e951dcf45b0947eb}
+
+
+Add a reference to a \hyperlink{structBook}{Book} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book} & The \hyperlink{structBook}{Book} instance to add a reference to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{Book_8c_adb2b1a59b5622e16741f7d8b703279de}{\index{Book.\-c@{Book.\-c}!Book\-\_\-clone@{Book\-\_\-clone}}
+\index{Book\-\_\-clone@{Book\-\_\-clone}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book}$\ast$ Book\-\_\-clone (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_adb2b1a59b5622e16741f7d8b703279de}
+
+
+Clone a \hyperlink{structBook}{Book} instance. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]Use \hyperlink{Book_8h_ac0c145026ed614f2e951dcf45b0947eb}{Book\-\_\-add\-Reference} instead. 
+\begin{DoxyParams}{Parameters}
+{\em book} & The \hyperlink{structBook}{Book} instance to clone. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cloned \hyperlink{structBook}{Book} instance. 
+\end{DoxyReturn}
+\end{DoxyRefDesc}
+\hypertarget{Book_8c_a377b34c02bbbb5c67ea463eb57b50980}{\index{Book.\-c@{Book.\-c}!Book\-\_\-deserialize@{Book\-\_\-deserialize}}
+\index{Book\-\_\-deserialize@{Book\-\_\-deserialize}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-deserialize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book}$\ast$ Book\-\_\-deserialize (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_a377b34c02bbbb5c67ea463eb57b50980}
+
+
+Deserialize a \hyperlink{structBook}{Book} from file. 
+
+\begin{DoxyNote}{Note}
+You should always call \hyperlink{Book_8h_a75cd1575560384d112b857bd9462820e}{Book\-\_\-remove\-Reference} before the end of your function where you called this function. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The file to deserialize a \hyperlink{structBook}{Book} from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \hyperlink{structBook}{Book} deserialized from the file, or null if an error occurred. 
+\end{DoxyReturn}
+\hypertarget{Book_8c_a224d073e77d4f55a30e069acb50a8aec}{\index{Book.\-c@{Book.\-c}!Book\-\_\-is\-Equal@{Book\-\_\-is\-Equal}}
+\index{Book\-\_\-is\-Equal@{Book\-\_\-is\-Equal}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-is\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}bool Book\-\_\-is\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book1, }
+\item[{{\bf Book} $\ast$}]{book2}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_a224d073e77d4f55a30e069acb50a8aec}
+
+
+Check if two \hyperlink{structBook}{Book} instances are equal. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000002}{Deprecated}]In most cases you may want to compare the two pointers directly. 
+\begin{DoxyParams}{Parameters}
+{\em book1} & The first \hyperlink{structBook}{Book} instance. \\
+\hline
+{\em book2} & The second \hyperlink{structBook}{Book} instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the two \hyperlink{structBook}{Book} instances are equal. 
+\end{DoxyReturn}
+\end{DoxyRefDesc}
+\hypertarget{Book_8c_a9478207f0ec9ccdb53d858e1d102211b}{\index{Book.\-c@{Book.\-c}!Book\-\_\-new@{Book\-\_\-new}}
+\index{Book\-\_\-new@{Book\-\_\-new}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book}$\ast$ Book\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{string}]{title, }
+\item[{string}]{authors\mbox{[}5\mbox{]}, }
+\item[{string}]{number, }
+\item[{string}]{subjects\mbox{[}5\mbox{]}, }
+\item[{string}]{publisher, }
+\item[{string}]{year, }
+\item[{bool}]{circulating}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_a9478207f0ec9ccdb53d858e1d102211b}
+
+
+Create a new instance of \hyperlink{structBook}{Book}. 
+
+The initial reference count will be set to 1. \begin{DoxyNote}{Note}
+You should always call \hyperlink{Book_8h_a75cd1575560384d112b857bd9462820e}{Book\-\_\-remove\-Reference} before the end of your function where you called this function. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title of the book. \\
+\hline
+{\em authors} & The authors of this book. \\
+\hline
+{\em number} & The L\-O\-C catalog number of this book. \\
+\hline
+{\em subjects} & The subject headings of this book. \\
+\hline
+{\em publisher} & The publisher of this book. \\
+\hline
+{\em year} & The year when this book is published. \\
+\hline
+{\em circulating} & Whether this book is still circulating. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created \hyperlink{structBook}{Book} instance. 
+\end{DoxyReturn}
+\hypertarget{Book_8c_a802c99e1bef05ddbe41e5cf896341f3e}{\index{Book.\-c@{Book.\-c}!Book\-\_\-print@{Book\-\_\-print}}
+\index{Book\-\_\-print@{Book\-\_\-print}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book, }
+\item[{F\-I\-L\-E $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_a802c99e1bef05ddbe41e5cf896341f3e}
+
+
+Print the information stored in a \hyperlink{structBook}{Book} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book} & The \hyperlink{structBook}{Book} instance to print. \\
+\hline
+{\em file} & The file to print the book to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{Book_8c_a75cd1575560384d112b857bd9462820e}{\index{Book.\-c@{Book.\-c}!Book\-\_\-remove\-Reference@{Book\-\_\-remove\-Reference}}
+\index{Book\-\_\-remove\-Reference@{Book\-\_\-remove\-Reference}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-remove\-Reference}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-\_\-remove\-Reference (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_a75cd1575560384d112b857bd9462820e}
+
+
+Remove a reference to a \hyperlink{structBook}{Book} instance, will delete the instance if reference count reaches 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book} & The \hyperlink{structBook}{Book} instance to remove a reference from. \\
+\hline
+\end{DoxyParams}
+\hypertarget{Book_8c_a618bacdf87cd513549580c586b2dcfc8}{\index{Book.\-c@{Book.\-c}!Book\-\_\-serialize@{Book\-\_\-serialize}}
+\index{Book\-\_\-serialize@{Book\-\_\-serialize}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-serialize}]{\setlength{\rightskip}{0pt plus 5cm}bool Book\-\_\-serialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Book} $\ast$}]{book, }
+\item[{F\-I\-L\-E $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{Book_8c_a618bacdf87cd513549580c586b2dcfc8}
+
+
+Serialize a \hyperlink{structBook}{Book} to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book} & The \hyperlink{structBook}{Book} to be serialized. \\
+\hline
+{\em file} & The file to serialize the book. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the serialization was successful. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Book_8c_a945fcba6bfaf47e961d617be8ce91df7}{\index{Book.\-c@{Book.\-c}!Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S@{Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S}}
+\index{Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S@{Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S}!Book.c@{Book.\-c}}
+\subsubsection[{Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}string Book\-\_\-\-F\-I\-E\-L\-D\-\_\-\-N\-A\-M\-E\-S\mbox{[}$\,$\mbox{]}}}\label{Book_8c_a945fcba6bfaf47e961d617be8ce91df7}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"Title"},
+    \textcolor{stringliteral}{"Authors"},
+    \textcolor{stringliteral}{"LOC Catalog Number"},
+    \textcolor{stringliteral}{"Subjects"},
+    \textcolor{stringliteral}{"Publisher"},
+    \textcolor{stringliteral}{"Year"},
+    \textcolor{stringliteral}{"Circulating"}
+\}
+\end{DoxyCode}

@@ -1,6 +1,6 @@
-/*
- * File: Lms.h
- * Author: Zhang Hai
+/**
+ * @file Lms.h
+ * @author Zhang Hai
  */
 
 #ifndef _LMS_H_

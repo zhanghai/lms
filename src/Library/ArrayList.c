@@ -1,6 +1,6 @@
-/*
- * File: ArrayList.c
- * Author: Zhang Hai
+/**
+ * @file ArrayList.c
+ * @author Zhang Hai
  */
 
 #include "ArrayList.h"

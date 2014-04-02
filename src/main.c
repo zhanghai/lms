@@ -1,6 +1,6 @@
-/*
- * File: main.c
- * Author: Zhang Hai
+/**
+ * @file main.c
+ * @author Zhang Hai
  */
 
 #include "Lms.h"

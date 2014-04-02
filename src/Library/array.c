@@ -1,6 +1,6 @@
-/*
- * File: array.c
- * Author: Zhang Hai
+/**
+ * @file array.c
+ * @author Zhang Hai
  */
 
 #include "array.h"

@@ -1,6 +1,6 @@
-/*
- * File: Book.c
- * Author: Zhang Hai
+/**
+ * @file Book.c
+ * @author Zhang Hai
  */
 
 #include "Book.h"
@@ -93,7 +93,7 @@ void Book_removeReference(Book *book) {
 /**
  * Serialize a {@link Book} to file.
  * @param book The {@link Book} to be serialized.
- * @param file The file to serialize {@param book}.
+ * @param file The file to serialize the book.
  * @return Whether the serialization was successful.
  */
 bool Book_serialize(Book *book, FILE *file) {
@@ -111,7 +111,7 @@ bool Book_serialize(Book *book, FILE *file) {
  * @note You should always call {@link Book_removeReference} before
  *       the end of your function where you called this function.
  * @param file The file to deserialize a {@link Book} from.
- * @return A {@link Book} deserialized from {@param file}, or null if
+ * @return A {@link Book} deserialized from the file, or null if
  *         an error occurred.
  */
 Book *Book_deserialize(FILE *file) {
@@ -132,8 +132,8 @@ Book *Book_deserialize(FILE *file) {
 }
 
 /**
- * @deprecated Use {@link Book_addReference} instead.
  * Clone a {@link Book} instance.
+ * @deprecated Use {@link Book_addReference} instead.
  * @param book The {@link Book} instance to clone.
  * @return The cloned {@link Book} instance.
  */
@@ -148,9 +148,9 @@ Book *Book_clone(Book *book) {
 }
 
 /**
+ * Check if two {@link Book} instances are equal.
  * @deprecated In most cases you may want to compare the two pointers
  *             directly.
- * Check if two {@link Book} instances are equal.
  * @param book1 The first {@link Book} instance.
  * @param book2 The second {@link Book} instance.
  * @return Whether the two {@link Book} instances are equal.
@@ -168,7 +168,7 @@ bool Book_isEqual(Book *book1, Book *book2) {
 /**
  * Print the information stored in a {@link Book} instance.
  * @param book The {@link Book} instance to print.
- * @param file The file to print {@param Book} to.
+ * @param file The file to print the book to.
  */
 void Book_print(Book *book, FILE *file) {
     fprintf(file, "%-18s: %s\n", Book_FIELD_NAMES[0], book->title);

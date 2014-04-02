@@ -1,6 +1,6 @@
-/*
- * File: Memory.c
- * Author: Zhang Hai
+/**
+ * @file Memory.c
+ * @author Zhang Hai
  */
 
 #include "Memory.h"
@@ -18,9 +18,9 @@ static void Memory_checkAllocation(void *address) {
 
 
 /**
- * Allocate memory of {@param size} bytes.
+ * Allocate memory by bytes.
  * @note This function will clear the allocated memory to 0.
- * @param size The size of the memory to be allocated.
+ * @param size The size of memory to be allocated.
  */
 void *Memory_allocate(size_t size) {
     void *address = calloc(1, size);
@@ -29,7 +29,7 @@ void *Memory_allocate(size_t size) {
 }
 
 /**
- * Reallocate memory at {@param address} to {@param size} bytes.
+ * Reallocate memory at an address to a new size.
  * @note This function will NOT clear the reallocated memory.
  * @param address The address of the memory.
  * @param size The size of the memory to be reallocated to.

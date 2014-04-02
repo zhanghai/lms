@@ -1,6 +1,6 @@
-/*
- * File: LinkedList.h
- * Author: Zhang Hai
+/**
+ * @file LinkedList.h
+ * @author Zhang Hai
  */
 
 #ifndef _LINKED_LIST_H_

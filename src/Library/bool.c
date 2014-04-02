@@ -1,6 +1,6 @@
-/*
- * File: bool.c
- * Author: Zhang Hai
+/**
+ * @file bool.c
+ * @author Zhang Hai
  */
 
 #include "bool.h"

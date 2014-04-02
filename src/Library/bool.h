@@ -1,6 +1,6 @@
-/*
- * File: bool.h
- * Author: Zhang Hai
+/**
+ * @file bool.h
+ * @author Zhang Hai
  */
 
 #ifndef _BOOL_H_

@@ -1,6 +1,6 @@
-/*
- * File: Application.h
- * Author: Zhang Hai
+/**
+ * @file Application.h
+ * @author Zhang Hai
  */
 
 #ifndef _APPLICATION_H_

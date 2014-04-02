@@ -1,6 +1,6 @@
-/*
- * File: primitives.h
- * Author: Zhang Hai
+/**
+ * @file primitives.h
+ * @author Zhang Hai
  */
 
 #ifndef _PRIMITIVES_H_

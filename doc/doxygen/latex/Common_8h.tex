@@ -1,0 +1,64 @@
+\hypertarget{Common_8h}{\section{/home/zh/workspace/eclipse/lms/src/\-Library/\-Common.h File Reference}
+\label{Common_8h}\index{/home/zh/workspace/eclipse/lms/src/\-Library/\-Common.\-h@{/home/zh/workspace/eclipse/lms/src/\-Library/\-Common.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}primitives.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bool.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}serialize.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Application.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Memory.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structFilter}{Filter}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Common_8h_a3a83b3e8406a57ca829bb90091d799f3}{\#define {\bfseries M\-A\-X}(var1, var2)~((var1) $>$ (var2) ? (var1) \-: (var2))}\label{Common_8h_a3a83b3e8406a57ca829bb90091d799f3}
+
+\item 
+\hypertarget{Common_8h_aa379ba9837f75fa7fa7e41719ca74bc8}{\#define {\bfseries M\-I\-N}(var1, var2)~((var1) $<$ (var2) ? (var1) \-: (var2))}\label{Common_8h_aa379ba9837f75fa7fa7e41719ca74bc8}
+
+\item 
+\#define {\bfseries S\-W\-A\-P}(var1, var2, tmp)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Common_8h_a753b1995455fa0b8aea8780582697ac5}{typedef int($\ast$ {\bfseries Comparator} )(void $\ast$data1, void $\ast$data2)}\label{Common_8h_a753b1995455fa0b8aea8780582697ac5}
+
+\item 
+\hypertarget{Common_8h_aa7cb667f51559ca93484477a62654ee6}{typedef bool($\ast$ {\bfseries Filter\-Function} )(void $\ast$data, void $\ast$filter\-Data)}\label{Common_8h_aa7cb667f51559ca93484477a62654ee6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Zhang Hai 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Common_8h_ae2e4f92ac8ec33624417a8e49b10aa1a}{\index{Common.\-h@{Common.\-h}!S\-W\-A\-P@{S\-W\-A\-P}}
+\index{S\-W\-A\-P@{S\-W\-A\-P}!Common.h@{Common.\-h}}
+\subsubsection[{S\-W\-A\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-A\-P(
+\begin{DoxyParamCaption}
+\item[{}]{var1, }
+\item[{}]{var2, }
+\item[{}]{tmp}
+\end{DoxyParamCaption}
+)}}\label{Common_8h_ae2e4f92ac8ec33624417a8e49b10aa1a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        tmp = var1; \(\backslash\)
+        var1 = var2; \(\backslash\)
+        var2 = tmp; \(\backslash\)
+    \} \textcolor{keywordflow}{while} (\textcolor{keyword}{false})
+\end{DoxyCode}

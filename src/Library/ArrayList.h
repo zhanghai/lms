@@ -1,6 +1,6 @@
-/*
- * File: ArrayList.h
- * Author: Zhang Hai
+/**
+ * @file ArrayList.h
+ * @author Zhang Hai
  */
 
 #ifndef _ARRAY_LIST_H_

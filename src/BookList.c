@@ -1,6 +1,6 @@
-/*
- * File: BookList.c
- * Author: Zhang Hai
+/**
+ * @file BookList.c
+ * @author Zhang Hai
  */
 
 #include "BookList.h"
@@ -57,7 +57,7 @@ void BookList_delete(BookList *list) {
 /**
  * Serialize a {@link BookList} to file.
  * @param list The {@link BookList} to be serialized.
- * @param file The file to serialize {@param list}.
+ * @param file The file to serialize the list.
  * @return Whether the serialization was successful.
  */
 bool BookList_serialize(BookList *list, FILE *file) {
@@ -77,7 +77,7 @@ bool BookList_serialize(BookList *list, FILE *file) {
 /**
  * Deserialize a {@link BookList} from file.
  * @param file The file to deserialize a {@link BookList} from.
- * @return a {@link BookList} deserialized from {@param file}, or null
+ * @return a {@link BookList} deserialized from the file, or null
  *         if failed to read sufficient data.
  */
 BookList *BookList_deserialize(FILE *file) {
@@ -102,9 +102,9 @@ BookList *BookList_deserialize(FILE *file) {
 
 /**
  * Add a {@link Book} instance to the start of a {@link BookList}.
- * @param list The {@link BookList} to add {@param book} to.
+ * @param list The {@link BookList} to add the book to.
  * @param book The {@link Book} to be added.
- * @return The newly added node in the {@param list}.
+ * @return The newly added node in the {@link BookList).
  */
 BookNode *BookList_addStart(BookList *list, Book *book) {
     return LinkedList_addStart((LinkedList *)list, book);
@@ -112,20 +112,20 @@ BookNode *BookList_addStart(BookList *list, Book *book) {
 
 /**
  * Add a {@link Book} instance to the end of a {@link BookList}.
- * @param list The {@link BookList} to add {@param book} to.
+ * @param list The {@link BookList} to add the book to.
  * @param book The {@link Book} to be added.
- * @return The newly added node in the {@param list}.
+ * @return The newly added node in the {@link BookList).
  */
 BookNode *BookList_addEnd(BookList *list, Book *book) {
     return LinkedList_addEnd((LinkedList *)list, book);
 }
 
 /**
- * Insert a {@link Book} instance before {@param node}.
- * @param list The {@link BookList} to insert {@param book} into.
+ * Insert a {@link Book} instance before a node in a {@link BookList}.
+ * @param list The {@link BookList} to insert the book into.
  * @param node The node to insert before.
  * @param book The {@link Book} to be inserted.
- * @return The newly inserted node in the {@param list}.
+ * @return The newly inserted node in the {@link BookList).
  */
 BookNode *BookList_insertBefore(BookList *list, BookNode *node,
         Book *book) {
@@ -134,11 +134,11 @@ BookNode *BookList_insertBefore(BookList *list, BookNode *node,
 }
 
 /**
- * Insert a {@link Book} instance after {@param node}.
- * @param list The {@link BookList} to insert {@param book} into.
+ * Insert a {@link Book} instance after a node in a {@link BookList}.
+ * @param list The {@link BookList} to insert the book into.
  * @param node The node to insert after.
  * @param book The {@link Book} to be inserted.
- * @return The newly inserted node in the {@param list}.
+ * @return The newly inserted node in the {@link BookList).
  */
 BookNode *BookList_insertAfter(BookList *list, BookNode *node,
         Book *book) {
@@ -147,7 +147,7 @@ BookNode *BookList_insertAfter(BookList *list, BookNode *node,
 }
 
 /**
- * Remove {@param node} from a {@link BookList}.
+ * Remove a node from a {@link BookList}.
  * @param list The {@link BookList} to remove the node from.
  * @param node The node to be removed.
  * @return the node following the removed one, or null if the tail
@@ -160,9 +160,9 @@ BookNode *BookList_removeNode(BookList *list, BookNode *node) {
 
 /**
  * Remove a {@link Book} instance from a {@link BookList}.
- * @note This function will only remove the first occurrence of
- *       {@param Book}.
- * @param list The {@link BookList} to remove {@param book} from.
+ * @note This function will only remove the first occurrence of the
+ *       book.
+ * @param list The {@link BookList} to remove the book from.
  * @param book The {@link Book} instance to be removed.
  */
 void BookList_remove(BookList *list, Book *book) {
@@ -196,8 +196,7 @@ void BookList_sort(BookList *list, BookComparator comparator) {
  * Search in a {@link BookList} by a filter.
  * @param list The {@link BookList} to be searched in.
  * @param filter A filter function for the search.
- * @param criteria The criteria data to be passed into
- *        {@param filter}.
+ * @param criteria The criteria data to be passed into the filter.
  * @return A {@link BookList} containing the result.
  */
 BookList *BookList_search(BookList *list, BookFilter filter) {

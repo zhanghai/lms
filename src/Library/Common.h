@@ -1,6 +1,6 @@
-/*
- * File: Common.h
- * Author: Zhang Hai
+/**
+ * @file Common.h
+ * @author Zhang Hai
  */
 
 #ifndef _COMMON_H_

@@ -1,6 +1,6 @@
-/*
- * File: string.c
- * Author: Zhang Hai
+/**
+ * @file string.c
+ * @author Zhang Hai
  */
 
 #include "string.h"

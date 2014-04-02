@@ -1,0 +1,66 @@
+\hypertarget{Memory_8c}{\section{/home/zh/workspace/eclipse/lms/src/\-Library/\-Memory.c File Reference}
+\label{Memory_8c}\index{/home/zh/workspace/eclipse/lms/src/\-Library/\-Memory.\-c@{/home/zh/workspace/eclipse/lms/src/\-Library/\-Memory.\-c}}
+}
+{\ttfamily \#include \char`\"{}Memory.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Application.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{Memory_8c_af6a2b9c9796242b3bdd0e28da2cce74e}{Memory\-\_\-allocate} (size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Allocate memory by bytes. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{Memory_8c_a40f09e5edabb572815abee20b9627e6c}{Memory\-\_\-reallocate} (void $\ast$address, size\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Reallocate memory at an address to a new size. \end{DoxyCompactList}\item 
+\hypertarget{Memory_8c_a6bd277c1e07e62d8865d556aaabbc9ff}{void {\bfseries Memory\-\_\-free} (void $\ast$address)}\label{Memory_8c_a6bd277c1e07e62d8865d556aaabbc9ff}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Zhang Hai 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{Memory_8c_af6a2b9c9796242b3bdd0e28da2cce74e}{\index{Memory.\-c@{Memory.\-c}!Memory\-\_\-allocate@{Memory\-\_\-allocate}}
+\index{Memory\-\_\-allocate@{Memory\-\_\-allocate}!Memory.c@{Memory.\-c}}
+\subsubsection[{Memory\-\_\-allocate}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Memory\-\_\-allocate (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{Memory_8c_af6a2b9c9796242b3bdd0e28da2cce74e}
+
+
+Allocate memory by bytes. 
+
+\begin{DoxyNote}{Note}
+This function will clear the allocated memory to 0. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of memory to be allocated. \\
+\hline
+\end{DoxyParams}
+\hypertarget{Memory_8c_a40f09e5edabb572815abee20b9627e6c}{\index{Memory.\-c@{Memory.\-c}!Memory\-\_\-reallocate@{Memory\-\_\-reallocate}}
+\index{Memory\-\_\-reallocate@{Memory\-\_\-reallocate}!Memory.c@{Memory.\-c}}
+\subsubsection[{Memory\-\_\-reallocate}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Memory\-\_\-reallocate (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{address, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{Memory_8c_a40f09e5edabb572815abee20b9627e6c}
+
+
+Reallocate memory at an address to a new size. 
+
+\begin{DoxyNote}{Note}
+This function will N\-O\-T clear the reallocated memory. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the memory. \\
+\hline
+{\em size} & The size of the memory to be reallocated to. \\
+\hline
+\end{DoxyParams}

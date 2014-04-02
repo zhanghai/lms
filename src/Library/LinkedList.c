@@ -1,6 +1,6 @@
-/*
- * File: LinkedList.c
- * Author: Zhang Hai
+/**
+ * @file LinkedList.c
+ * @author Zhang Hai
  */
 
 #include "LinkedList.h"
@@ -99,11 +99,10 @@ void LinkedList_delete(LinkedList *list) {
 }
 
 /**
- * Add a node holding {@param data} to the start of a
- * {@link LinkedList}.
- * @param list The {@link LinkedList} to add {@param data} to.
+ * Add a node holding some data to the start of a {@link LinkedList}.
+ * @param list The {@link LinkedList} to add the data to.
  * @param data The data to be added.
- * @return The newly added node in the {@param list}.
+ * @return The newly added node in the {@link LinkedList}.
  */
 LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
 
@@ -125,11 +124,10 @@ LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
 }
 
 /**
- * Add a node holding {@param data} to the end of a
- * {@link LinkedList}.
- * @param list The {@link LinkedList} to add {@param data} to.
+ * Add a node holding some data to the end of a {@link LinkedList}.
+ * @param list The {@link LinkedList} to add the data to.
  * @param data The data to be added.
- * @return The newly added node in the {@param list}.
+ * @return The newly added node in the {@link LinkedList}.
  */
 LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data) {
 
@@ -151,11 +149,11 @@ LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data) {
 }
 
 /**
- * Insert a new node holding {@param data} before {@param node}.
- * @param list The {@link LinkedList} to insert {@param data} into.
+ * Insert a new node holding some data before a node.
+ * @param list The {@link LinkedList} to insert the data into.
  * @param node The node to insert before.
  * @param data The data to be inserted.
- * @return The newly inserted node in the {@param list}.
+ * @return The newly inserted node in the {@link LinkedList}.
  */
 LinkedListNode *LinkedList_insertBefore(LinkedList *list,
         LinkedListNode *node, void *data) {
@@ -176,11 +174,11 @@ LinkedListNode *LinkedList_insertBefore(LinkedList *list,
 }
 
 /**
- * Insert a new node holding {@param data} after {@param node}.
- * @param list The {@link LinkedList} to insert {@param data} into.
+ * Insert a new node holding some data after a node.
+ * @param list The {@link LinkedList} to insert the data into.
  * @param node The node to insert after.
  * @param data The data to be inserted.
- * @return The newly inserted node in the {@param list}.
+ * @return The newly inserted node in the {@link LinkedList}.
  */
 LinkedListNode *LinkedList_insertAfter(LinkedList *list, LinkedListNode *node,
         void *data) {
@@ -201,7 +199,7 @@ LinkedListNode *LinkedList_insertAfter(LinkedList *list, LinkedListNode *node,
 }
 
 /**
- * Remove {@param node} from a {@link LinkedList}.
+ * Remove a node from a {@link LinkedList}.
  * @param list The {@link LinkedList} to remove the node from.
  * @param node The node to be removed.
  * @return the node following the removed one, or null if the tail
@@ -230,10 +228,10 @@ LinkedListNode *LinkedList_removeNode(LinkedList *list, LinkedListNode *node) {
 }
 
 /**
- * Remove {@param data} from a {@link LinkedList}.
- * @note This function will only remove the first occurrence of
- *       {@param data}.
- * @param list The {@link LinkedList} to remove {@param data} from.
+ * Remove a piece of data from a {@link LinkedList}.
+ * @note This function will only remove the first occurrence of the
+ *       data.
+ * @param list The {@link LinkedList} to remove the data from.
  * @param data The data to be removed.
  */
 void LinkedList_remove(LinkedList *list, void *data) {
@@ -297,8 +295,7 @@ void LinkedList_sort(LinkedList *list, Comparator comparator) {
  * Search in a {@link LinkedList} by a filter.
  * @param list The {@link LinkedList} to be searched in.
  * @param filter A filter function for the search.
- * @param criteria The criteria data to be passed into
- *        {@param filter}.
+ * @param criteria The criteria data to be passed into the filter.
  * @return A {@link LinkedList} containing the result.
  */
 LinkedList *LinkedList_search(LinkedList *list, Filter filter) {

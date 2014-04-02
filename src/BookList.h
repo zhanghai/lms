@@ -1,6 +1,6 @@
-/*
- * File: BookList.h
- * Author: Zhang Hai
+/**
+ * @file BookList.h
+ * @author Zhang Hai
  */
 
 #ifndef _BOOK_LIST_H_

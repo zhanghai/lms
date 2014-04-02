@@ -1,0 +1,87 @@
+\hypertarget{serialize_8c}{\section{/home/zh/workspace/eclipse/lms/src/\-Library/serialize.c File Reference}
+\label{serialize_8c}\index{/home/zh/workspace/eclipse/lms/src/\-Library/serialize.\-c@{/home/zh/workspace/eclipse/lms/src/\-Library/serialize.\-c}}
+}
+{\ttfamily \#include \char`\"{}serialize.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Memory.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}(type)
+\item 
+\#define {\bfseries L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}(type)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{serialize_8c_a2e5608b1f010a208bf2b13cc3b7829f3}{bool {\bfseries string\-\_\-serialize} (string the\-String, F\-I\-L\-E $\ast$file)}\label{serialize_8c_a2e5608b1f010a208bf2b13cc3b7829f3}
+
+\item 
+bool \hyperlink{serialize_8c_a6340c4b9a5918f9bf4bb199ea355011e}{string\-\_\-deserialize} (string $\ast$the\-String, F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Deserialize a string from file. \end{DoxyCompactList}\item 
+\hypertarget{serialize_8c_adce5fa3a62df2785f547f159c462a4c1}{bool {\bfseries string\-\_\-array\-\_\-serialize} (string array\mbox{[}$\,$\mbox{]}, size\-\_\-t size, F\-I\-L\-E $\ast$file)}\label{serialize_8c_adce5fa3a62df2785f547f159c462a4c1}
+
+\item 
+\hypertarget{serialize_8c_ae76eb2b0ca9c4126a56ecc9caf83517d}{bool {\bfseries string\-\_\-array\-\_\-deserialize} (string array\mbox{[}$\,$\mbox{]}, size\-\_\-t size, F\-I\-L\-E $\ast$file)}\label{serialize_8c_ae76eb2b0ca9c4126a56ecc9caf83517d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Zhang Hai 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{serialize_8c_aec6de318447a45d57bb492abaaaf32f2}{\index{serialize.\-c@{serialize.\-c}!L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}}
+\index{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}!serialize.c@{serialize.\-c}}
+\subsubsection[{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{type}
+\end{DoxyParamCaption}
+)}}\label{serialize_8c_aec6de318447a45d57bb492abaaaf32f2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} type##\_deserialize(type *value, FILE *file) \{ \(\backslash\)
+        return fread(value, \textcolor{keyword}{sizeof}(type), 1, file) == 1; \(\backslash\)
+    \};
+\end{DoxyCode}
+\hypertarget{serialize_8c_a3b47562f9b44c57199800862aa6e3507}{\index{serialize.\-c@{serialize.\-c}!L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}}
+\index{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}!serialize.c@{serialize.\-c}}
+\subsubsection[{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{type}
+\end{DoxyParamCaption}
+)}}\label{serialize_8c_a3b47562f9b44c57199800862aa6e3507}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} type##\_serialize(type *value, FILE *file) \{ \(\backslash\)
+        return fwrite(value, \textcolor{keyword}{sizeof}(type), 1, file) == 1; \(\backslash\)
+    \};
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{serialize_8c_a6340c4b9a5918f9bf4bb199ea355011e}{\index{serialize.\-c@{serialize.\-c}!string\-\_\-deserialize@{string\-\_\-deserialize}}
+\index{string\-\_\-deserialize@{string\-\_\-deserialize}!serialize.c@{serialize.\-c}}
+\subsubsection[{string\-\_\-deserialize}]{\setlength{\rightskip}{0pt plus 5cm}bool string\-\_\-deserialize (
+\begin{DoxyParamCaption}
+\item[{string $\ast$}]{the\-String, }
+\item[{F\-I\-L\-E $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{serialize_8c_a6340c4b9a5918f9bf4bb199ea355011e}
+
+
+Deserialize a string from file. 
+
+Note that memory will be allocated for the string. 
+\begin{DoxyParams}{Parameters}
+{\em the\-String} & Pointer to the string. \\
+\hline
+{\em file} & The file to deserialize string from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the deserialization is successful. 
+\end{DoxyReturn}

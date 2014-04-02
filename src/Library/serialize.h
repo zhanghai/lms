@@ -1,6 +1,6 @@
-/*
- * File: serialize.h
- * Author: Zhang Hai
+/**
+ * @file serialize.h
+ * @author Zhang Hai
  */
 
 #ifndef _SERIALIZE_H_

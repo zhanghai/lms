@@ -1,6 +1,6 @@
-/*
- * File: Console.c
- * Author: Zhang Hai
+/**
+ * @file Console.c
+ * @author Zhang Hai
  */
 
 #include "Console.h"

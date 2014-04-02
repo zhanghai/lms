@@ -1,6 +1,6 @@
-/*
- * File: serialize.c
- * Author: Zhang Hai
+/**
+ * @file serialize.c
+ * @author Zhang Hai
  */
 
 #include "serialize.h"

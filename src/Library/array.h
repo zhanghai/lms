@@ -1,6 +1,6 @@
-/*
- * File: array.h
- * Author: Zhang Hai
+/**
+ * @file array.h
+ * @author Zhang Hai
  */
 
 #ifndef _ARRAY_H_

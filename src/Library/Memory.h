@@ -1,6 +1,6 @@
-/*
- * File: Memory.h
- * Author: Zhang Hai
+/**
+ * @file Memory.h
+ * @author Zhang Hai
  */
 
 #ifndef _MEMORY_H_

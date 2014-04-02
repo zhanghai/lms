@@ -1,6 +1,6 @@
-/*
- * File: string.h
- * Author: Zhang Hai
+/**
+ * @file string.h
+ * @author Zhang Hai
  */
 
 #ifndef _STRING_H_
