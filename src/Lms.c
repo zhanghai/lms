@@ -29,7 +29,7 @@ static void Lms_printBookFilters();
 
 static void Lms_printBookFound();
 
-static void Lms_printBookNotFound();
+static void Lms_promptBookNotFound();
 
 static BookList *Lms_filterBook(BookList *list);
 
@@ -76,8 +76,8 @@ static void Lms_printBookFound(size_t size) {
     Console_printLine("Found %zu book(s):", size);
 }
 
-static void Lms_printBookNotFound() {
-    Console_printLine("No book was found by specified filter(s).");
+static void Lms_promptBookNotFound() {
+    Console_prompt("No book was found by specified filter(s).");
 }
 
 static BookList *Lms_filterBook(BookList *list) {
@@ -278,16 +278,16 @@ void Lms_searchBook(BookList *list) {
 
     Console_printSeparator();
     if (result->size == 0) {
-        Lms_printBookNotFound();
+        Lms_promptBookNotFound();
     } else {
         Lms_printBookFound(result->size);
         BOOK_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
             Book_print(node->data, stdout);
         }
+        Console_printSeparator();
+        Console_pause();
     }
-    Console_printSeparator();
-    Console_pause();
 
     BookList_delete(result);
 }
@@ -324,7 +324,7 @@ void Lms_modifyBook(BookList *list) {
 
     Console_printSeparator();
     if (result->size == 0) {
-        Lms_printBookNotFound();
+        Lms_promptBookNotFound();
     } else {
         Lms_printBookFound(result->size);
         BOOK_LIST_FOR_EACH(result, node) {
@@ -364,7 +364,7 @@ void Lms_removeBook(BookList *list) {
 
     Console_printSeparator();
     if (result->size == 0) {
-        Lms_printBookNotFound();
+        Lms_promptBookNotFound();
     } else {
         Lms_printBookFound(result->size);
         BOOK_LIST_FOR_EACH(result, node) {
