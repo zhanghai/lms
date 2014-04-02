@@ -38,7 +38,7 @@
 
 #### 开发环境
 
-* 操作系统：Arch Linux / (Windows 8.1 + MingW)
+* 操作系统：Arch Linux / (Windows 8.1 + MinGW)
 
 * 集成开发环境：Eclipse Kepler with CDT
 
