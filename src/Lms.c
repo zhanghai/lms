@@ -223,7 +223,7 @@ static bool Lms_modifyBookBool(bool field, string fieldName) {
     switch (Console_readChoice("", Lms_CHOICES_YNQ,
             array_size(Lms_CHOICES_YNQ))) {
     case 0:
-        Console_print("Enter new %s: ", field);
+        Console_print("Enter new %s: ", fieldName);
         field = Console_readChoiceBoolean("");
                 return true;
         break;

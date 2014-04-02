@@ -40,7 +40,7 @@ BookList *BookList_new() {
             LinkedList_sort,
             LinkedList_search);
 
-    return LinkedList_new();
+    return list;
 }
 
 /**
