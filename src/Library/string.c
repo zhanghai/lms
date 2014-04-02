@@ -11,11 +11,15 @@
 #undef __USE_GNU
 #include <strings.h>
 
+#include "array.h"
 #include "Memory.h"
 
 
+string string_EMPTY = "";
+
+
 string string_clone(string theString) {
-    string clone = Memory_allocate(string_length(theString) + 1);
+    string clone = Memory_allocate((string_length(theString) + 1) * sizeof(char));
     strcpy(clone, theString);
     return clone;
 }
@@ -63,6 +67,11 @@ void string_array_clone(string src[], string dest[], size_t size) {
     for (i = 0; i < size; ++i) {
         dest[i] = string_clone(src[i]);
     }
+}
+
+void string_array_copy(string source[], string destination[],
+        size_t size) {
+    array_copy(source, destination, size, sizeof(string));
 }
 
 void string_array_free(string array[], size_t size) {

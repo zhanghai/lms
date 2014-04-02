@@ -23,6 +23,10 @@ typedef LinkedListNode BookNode;
 typedef LinkedList BookList;
 
 
+BookNode *BookNode_new(void *data, BookNode *prev, BookNode *next);
+
+void BookNode_delete(BookNode *node);
+
 BookList *BookList_new();
 
 void BookList_delete(BookList *list);

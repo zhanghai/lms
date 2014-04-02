@@ -9,20 +9,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #include "primitives.h"
 #include "bool.h"
+#include "array.h"
 #include "string.h"
 #include "serialize.h"
 #include "Application.h"
 #include "Memory.h"
 
 
-#define LMS_MAX(var1, var2) ((var1) > (var2) ? (var1) : (var2))
+#define MAX(var1, var2) ((var1) > (var2) ? (var1) : (var2))
 
-#define LMS_MIN(var1, var2) ((var1) < (var2) ? (var1) : (var2))
+#define MIN(var1, var2) ((var1) < (var2) ? (var1) : (var2))
 
-#define LMS_SWAP(var1, var2, tmp) \
+#define SWAP(var1, var2, tmp) \
     do { \
         tmp = var1; \
         var1 = var2; \

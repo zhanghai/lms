@@ -12,6 +12,9 @@
 #include "stdio.h"
 
 
+extern string string_EMPTY;
+
+
 string string_clone(string theString);
 
 bool string_isEqual(string string1, string string2);
@@ -31,6 +34,9 @@ size_t string_length(string theString);
 bool string_isEmpty(string theString);
 
 void string_array_clone(string source[], string destination[],
+        size_t size);
+
+void string_array_copy(string source[], string destination[],
         size_t size);
 
 void string_array_free(string array[], size_t size);

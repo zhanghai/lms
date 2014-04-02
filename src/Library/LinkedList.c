@@ -6,12 +6,7 @@
 #include "LinkedList.h"
 
 
-static LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
-        LinkedListNode *next);
-static void LinkedListNode_delete(LinkedListNode *node);
-
-
-static LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
+LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
         LinkedListNode *next) {
 
     LinkedListNode *node = Memory_allocateType(LinkedListNode);
@@ -23,8 +18,47 @@ static LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
     return node;
 }
 
-static void LinkedListNode_delete(LinkedListNode *node) {
+void LinkedListNode_delete(LinkedListNode *node) {
     Memory_free(node);
+}
+
+void LinkedList_initialize(LinkedList *list,
+        LinkedList_MethodNew new,
+        LinkedList_MethodDelete delete,
+        LinkedList_MethodNewNode newNode,
+        LinkedList_MethodDeleteNode deleteNode,
+        LinkedList_MethodAddStart addStart,
+        LinkedList_MethodAddEnd addEnd,
+        LinkedList_MethodInsertBefore insertBefore,
+        LinkedList_MethodInsertAfter insertAfter,
+        LinkedList_MethodRemoveNode removeNode,
+        LinkedList_MethodRemove remove,
+        LinkedList_MethodSwap swap,
+        LinkedList_MethodSort sort,
+        LinkedList_MethodSearch search) {
+    list->head = null;
+    list->tail = null;
+    list->size = 0;
+    list->methods.new = new;
+    list->methods.delete = delete;
+    list->methods.newNode = newNode;
+    list->methods.deleteNode = deleteNode;
+    list->methods.addStart = addStart;
+    list->methods.addEnd = addEnd;
+    list->methods.insertBefore = insertBefore;
+    list->methods.insertAfter = insertAfter;
+    list->methods.removeNode = removeNode;
+    list->methods.remove = remove;
+    list->methods.swap = swap;
+    list->methods.sort = sort;
+    list->methods.search = search;
+}
+
+void LinkedList_finalize(LinkedList *list) {
+    LinkedListNode *node;
+    LINKED_LIST_FOR_EACH(list, node) {
+        list->methods.deleteNode(node);
+    }
 }
 
 /**
@@ -35,9 +69,20 @@ LinkedList *LinkedList_new() {
 
     LinkedList *list = Memory_allocateType(LinkedList);
 
-    list->head = null;
-    list->tail = null;
-    list->size = 0;
+    LinkedList_initialize(list,
+            LinkedList_new,
+            LinkedList_delete,
+            LinkedListNode_new,
+            LinkedListNode_delete,
+            LinkedList_addStart,
+            LinkedList_addEnd,
+            LinkedList_insertBefore,
+            LinkedList_insertAfter,
+            LinkedList_removeNode,
+            LinkedList_remove,
+            LinkedList_swap,
+            LinkedList_sort,
+            LinkedList_search);
 
     return list;
 }
@@ -48,10 +93,7 @@ LinkedList *LinkedList_new() {
  */
 void LinkedList_delete(LinkedList *list) {
 
-    LinkedListNode *node;
-    LINKED_LIST_FOR_EACH(list, node) {
-        LinkedListNode_delete(node);
-    }
+    LinkedList_finalize(list);
 
     Memory_free(list);
 }
@@ -65,7 +107,7 @@ void LinkedList_delete(LinkedList *list) {
  */
 LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
 
-    LinkedListNode *node = LinkedListNode_new(data, null,
+    LinkedListNode *node = list->methods.newNode(data, null,
             list->head);
 
     if (list->head != null) {
@@ -91,7 +133,8 @@ LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
  */
 LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data) {
 
-    LinkedListNode *node = LinkedListNode_new(data, list->tail, null);
+    LinkedListNode *node = list->methods.newNode(data, list->tail,
+            null);
 
     if (list->tail != null) {
         list->tail->next = node;
@@ -114,10 +157,11 @@ LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data) {
  * @param data The data to be inserted.
  * @return The newly inserted node in the {@param list}.
  */
-LinkedListNode *LinkedList_insertBefore(LinkedList *list, LinkedListNode *node,
-        void *data) {
+LinkedListNode *LinkedList_insertBefore(LinkedList *list,
+        LinkedListNode *node, void *data) {
 
-    LinkedListNode *newNode = LinkedListNode_new(data, node->prev, node);
+    LinkedListNode *newNode = list->methods.newNode(data, node->prev,
+            node);
 
     if (node->prev != null) {
         node->prev->next = newNode;
@@ -141,7 +185,8 @@ LinkedListNode *LinkedList_insertBefore(LinkedList *list, LinkedListNode *node,
 LinkedListNode *LinkedList_insertAfter(LinkedList *list, LinkedListNode *node,
         void *data) {
 
-    LinkedListNode *newNode = LinkedListNode_new(data, node, node->next);
+    LinkedListNode *newNode = list->methods.newNode(data, node,
+            node->next);
 
     if (node->next != null) {
         node->next->prev = newNode;
@@ -177,7 +222,7 @@ LinkedListNode *LinkedList_removeNode(LinkedList *list, LinkedListNode *node) {
         list->tail = node->prev;
     }
 
-    LinkedListNode_delete(node);
+    list->methods.deleteNode(node);
 
     --list->size;
 
@@ -195,7 +240,7 @@ void LinkedList_remove(LinkedList *list, void *data) {
     LinkedListNode *node;
     LINKED_LIST_FOR_EACH(list, node) {
         if (node->data == data) {
-            LinkedList_removeNode(list, node);
+            list->methods.removeNode(list, node);
             return;
         }
     }
@@ -210,7 +255,7 @@ void LinkedList_remove(LinkedList *list, void *data) {
 void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
         LinkedListNode *node2) {
     void *tmp;
-    LMS_SWAP(node1->data, node2->data, tmp);
+    SWAP(node1->data, node2->data, tmp);
 }
 
 /**
@@ -235,7 +280,7 @@ void LinkedList_sort(LinkedList *list, Comparator comparator) {
 
         for (node2 = list->tail; node2 != node1; ) {
             if (comparator(node2->prev->data, node2->data) > 0) {
-                LinkedList_swap(list, node2->prev, node2);
+                list->methods.swap(list, node2->prev, node2);
                 changed = true;
             } else {
                 node2 = node2->prev;
@@ -258,12 +303,12 @@ void LinkedList_sort(LinkedList *list, Comparator comparator) {
  */
 LinkedList *LinkedList_search(LinkedList *list, Filter filter) {
 
-    LinkedList *result = LinkedList_new();
+    LinkedList *result = list->methods.new();
     LinkedListNode *node;
 
     LINKED_LIST_FOR_EACH(list, node) {
         if (filter.filter(node->data, filter.filterData)) {
-            LinkedList_addEnd(result, node->data);
+            list->methods.addEnd(result, node->data);
         }
     }
 

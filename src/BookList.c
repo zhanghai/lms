@@ -6,11 +6,40 @@
 #include "BookList.h"
 
 
+BookNode *BookNode_new(void *data, BookNode *prev, BookNode *next) {
+    Book_addReference(data);
+    return LinkedListNode_new(data, (LinkedListNode *)prev,
+            (LinkedListNode *)next);
+}
+
+void BookNode_delete(BookNode *node) {
+    Book_removeReference(node->data);
+    LinkedListNode_delete((LinkedListNode *)node);
+}
+
 /**
  * Create a new instance of {@link BookList}.
  * @return The created {@link BookList} instance.
  */
 BookList *BookList_new() {
+
+    BookList *list = Memory_allocateType(BookList);
+
+    LinkedList_initialize(list,
+            (LinkedList_MethodNew) BookList_new,
+            (LinkedList_MethodDelete) BookList_delete,
+            (LinkedList_MethodNewNode) BookNode_new,
+            (LinkedList_MethodDeleteNode) BookNode_delete,
+            LinkedList_addStart,
+            LinkedList_addEnd,
+            LinkedList_insertBefore,
+            LinkedList_insertAfter,
+            LinkedList_removeNode,
+            LinkedList_remove,
+            LinkedList_swap,
+            LinkedList_sort,
+            LinkedList_search);
+
     return LinkedList_new();
 }
 
@@ -20,12 +49,9 @@ BookList *BookList_new() {
  */
 void BookList_delete(BookList *list) {
 
-    BookNode *node;
-    BOOK_LIST_FOR_EACH(list, node) {
-        Book_removeReference(node->data);
-    }
+    LinkedList_finalize((LinkedList *)list);
 
-    LinkedList_delete(list);
+    Memory_free(list);
 }
 
 /**
@@ -80,10 +106,7 @@ BookList *BookList_deserialize(FILE *file) {
  * @return The newly added node in the {@param list}.
  */
 BookNode *BookList_addStart(BookList *list, Book *book) {
-
-    Book_addReference(book);
-
-    return LinkedList_addStart(list, book);
+    return LinkedList_addStart((LinkedList *)list, book);
 }
 
 /**
@@ -93,10 +116,7 @@ BookNode *BookList_addStart(BookList *list, Book *book) {
  * @return The newly added node in the {@param list}.
  */
 BookNode *BookList_addEnd(BookList *list, Book *book) {
-
-    Book_addReference(book);
-
-    return LinkedList_addEnd(list, book);
+    return LinkedList_addEnd((LinkedList *)list, book);
 }
 
 /**
@@ -108,10 +128,8 @@ BookNode *BookList_addEnd(BookList *list, Book *book) {
  */
 BookNode *BookList_insertBefore(BookList *list, BookNode *node,
         Book *book) {
-
-    Book_addReference(book);
-
-    return LinkedList_insertBefore(list, node, book);
+    return LinkedList_insertBefore((LinkedList *)list,
+            (LinkedListNode *)node, book);
 }
 
 /**
@@ -123,10 +141,8 @@ BookNode *BookList_insertBefore(BookList *list, BookNode *node,
  */
 BookNode *BookList_insertAfter(BookList *list, BookNode *node,
         Book *book) {
-
-    Book_addReference(book);
-
-    return LinkedList_insertAfter(list, node, book);
+    return LinkedList_insertAfter((LinkedList *)list,
+            (LinkedListNode *)node, book);
 }
 
 /**
@@ -137,10 +153,8 @@ BookNode *BookList_insertAfter(BookList *list, BookNode *node,
  *         node is removed.
  */
 BookNode *BookList_removeNode(BookList *list, BookNode *node) {
-
-    Book_removeReference(node->data);
-
-    return LinkedList_removeNode(list, node);
+    return LinkedList_removeNode((LinkedList *)list,
+            (LinkedListNode *)node);
 }
 
 /**
@@ -151,13 +165,7 @@ BookNode *BookList_removeNode(BookList *list, BookNode *node) {
  * @param book The {@link Book} instance to be removed.
  */
 void BookList_remove(BookList *list, Book *book) {
-    BookNode *node;
-    BOOK_LIST_FOR_EACH(list, node) {
-        if (node->data == book) {
-            BookList_removeNode(list, node);
-            return;
-        }
-    }
+    LinkedList_remove((LinkedList *)list, book);
 }
 
 /**
@@ -169,7 +177,8 @@ void BookList_remove(BookList *list, Book *book) {
  */
 void BookList_swap(BookList *list, BookNode *node1,
         BookNode *node2) {
-    LinkedList_swap(list, node1, node2);
+    LinkedList_swap((LinkedList *)list, (LinkedListNode *)node1,
+            (LinkedListNode *)node2);
 }
 
 /**
@@ -179,7 +188,7 @@ void BookList_swap(BookList *list, BookNode *node1,
  * @param comparator The comparator for sorting.
  */
 void BookList_sort(BookList *list, BookComparator comparator) {
-    LinkedList_sort(list, (Comparator) comparator);
+    LinkedList_sort((LinkedList *)list, (Comparator) comparator);
 }
 
 /**
@@ -191,5 +200,5 @@ void BookList_sort(BookList *list, BookComparator comparator) {
  * @return A {@link BookList} containing the result.
  */
 BookList *BookList_search(BookList *list, BookFilter filter) {
-    return LinkedList_search(list, *(Filter *)&filter);
+    return LinkedList_search((LinkedList *)list, *(Filter *)&filter);
 }

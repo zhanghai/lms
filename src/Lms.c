@@ -5,9 +5,6 @@
 
 #include "Lms.h"
 
-// For access()
-#include <unistd.h>
-
 #include "Library/ArrayList.h"
 #include "Library/Console.h"
 
@@ -20,8 +17,6 @@ static string Lms_FUNCTIONS[] = {
         "Add a book",
         "Modify books",
         "Remove books"};
-
-static size_t Lms_FUNCTIONS_SIZE = sizeof(Lms_FUNCTIONS) / sizeof(Lms_FUNCTIONS[0]);
 
 static string Lms_CHOICES_YNQ[] = {"y", "n", "q"};
 
@@ -54,14 +49,16 @@ static bool Lms_modifyBookBool(bool field, string fieldName);
 
 
 static void Lms_printTitle(string title) {
+    Console_clear();
     Console_printSeparator();
     Console_printLine(title);
     Console_printSeparator();
 }
 
 static void Lms_printFunctions() {
+    static size_t SIZE = array_size(Lms_FUNCTIONS);
     size_t i;
-    for (i = 0; i < Lms_FUNCTIONS_SIZE; ++i) {
+    for (i = 0; i < SIZE; ++i) {
         Console_printLine("[%zu] %s", i, Lms_FUNCTIONS[i]);
     }
 }
@@ -75,8 +72,8 @@ static void Lms_printBookFilters() {
     }
 }
 
-static void Lms_printBookFound() {
-    Console_printLine("The following books are found:");
+static void Lms_printBookFound(size_t size) {
+    Console_printLine("Found %zu book(s):", size);
 }
 
 static void Lms_printBookNotFound() {
@@ -87,6 +84,7 @@ static BookList *Lms_filterBook(BookList *list) {
 
     static string INDEXES[] = {"0", "1", "2", "3", "4", "5", "6",
             "7"};
+
     size_t index;
     string keyword;
     BookFilter *filter, compoundFilter;
@@ -96,7 +94,7 @@ static BookList *Lms_filterBook(BookList *list) {
     Lms_printBookFilters();
     do {
         index = Console_readChoice("Enter filter index", INDEXES,
-                sizeof(INDEXES) / sizeof(INDEXES[0]));
+                array_size(INDEXES));
         keyword = Console_readLine("Enter keyword: ");
         filter = Memory_allocateType(BookFilter);
         filter->filter = BOOK_FILTERS[index];
@@ -112,6 +110,7 @@ static BookList *Lms_filterBook(BookList *list) {
         Memory_free(filter->filterData);
         Memory_free(filter);
     }
+    ArrayList_delete(filters);
 
     return result;
 }
@@ -140,20 +139,19 @@ static void Lms_readBookStringArray(string array[], size_t size,
                 fill = true;
             }
         } else {
-            array[i] = Memory_allocateType(char);
-            *array[i] = '\0';
+            array[i] = string_clone(string_EMPTY);
         }
     }
 }
 
 static bool Lms_readBookBoolean(string fieldName) {
-    return Console_readChoiceBoolean("fieldName");
+    return Console_readChoiceBoolean(fieldName);
 }
 
 static bool Lms_modifyBookString(string field, string fieldName) {
     Console_print("Do you want to modify %s?", fieldName);
     switch (Console_readChoice("", Lms_CHOICES_YNQ,
-            sizeof(Lms_CHOICES_YNQ) / sizeof(Lms_CHOICES_YNQ[0]))) {
+            array_size(Lms_CHOICES_YNQ))) {
     case 0:
         Memory_free(field);
         Console_print("Enter new %s: ", fieldName);
@@ -189,7 +187,7 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
             Console_print("Do you want to modify %s %zu?", fieldName,
                     i + 1);
             switch (Console_readChoice("", Lms_CHOICES_YNQ,
-                    sizeof(Lms_CHOICES_YNQ) / sizeof(Lms_CHOICES_YNQ[0]))) {
+                    array_size(Lms_CHOICES_YNQ))) {
             case 0:
                 Memory_free(array[i]);
                 Console_print("Enter new %s %zu: ", fieldName, i + 1);
@@ -209,8 +207,7 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
             }
         } else {
             if (!string_isEmpty(array[i])) {
-                array[i] = Memory_allocateType(char);
-                *array[i] = '\0';
+                array[i] = string_clone(string_EMPTY);
             }
         }
     }
@@ -221,7 +218,7 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
 static bool Lms_modifyBookBool(bool field, string fieldName) {
     Console_print("Do you want to modify %s?", fieldName);
     switch (Console_readChoice("", Lms_CHOICES_YNQ,
-            sizeof(Lms_CHOICES_YNQ) / sizeof(Lms_CHOICES_YNQ[0]))) {
+            array_size(Lms_CHOICES_YNQ))) {
     case 0:
         Console_print("Enter new %s: ", field);
         field = Console_readChoiceBoolean("");
@@ -243,14 +240,13 @@ BookList *Lms_deserializeOrCreateBookList(string filename) {
     FILE *file;
     BookList *list;
     if ((file = fopen(filename, "rb")) == null) {
-        // FIXME: Use errno.
-        if (access(filename, F_OK)) {
+        if (errno == ENOENT) {
+            // File not found, simply return a new BookList.
+            return BookList_new();
+        } else {
             // File already exists, but we failed to open it for reading.
             Application_fatalError("Opening database file for reading failed.");
             return null;
-        } else {
-            // File not found, simply return a new BookList.
-            return BookList_new();
         }
     }
     list = BookList_deserialize(file);
@@ -281,7 +277,7 @@ void Lms_searchBook(BookList *list) {
     if (result->size == 0) {
         Lms_printBookNotFound();
     } else {
-        Lms_printBookFound();
+        Lms_printBookFound(result->size);
         BOOK_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
             Book_print(node->data, stdout);
@@ -327,7 +323,7 @@ void Lms_modifyBook(BookList *list) {
     if (result->size == 0) {
         Lms_printBookNotFound();
     } else {
-        Lms_printBookFound();
+        Lms_printBookFound(result->size);
         BOOK_LIST_FOR_EACH(result, node) {
             book = node->data;
             Console_printSeparator();
@@ -348,7 +344,7 @@ void Lms_modifyBook(BookList *list) {
                 && Lms_modifyBookBool(book->circulating,
                         Book_FIELD_NAMES[6])) {}
                 Console_printSeparator();
-                Console_prompt("Book modified successfully");
+                Console_prompt("Book modified successfully.");
             }
         }
     }
@@ -367,7 +363,7 @@ void Lms_removeBook(BookList *list) {
     if (result->size == 0) {
         Lms_printBookNotFound();
     } else {
-        Lms_printBookFound();
+        Lms_printBookFound(result->size);
         BOOK_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
             Book_print(node->data, stdout);
@@ -398,8 +394,8 @@ void Lms_loop() {
     do {
         Lms_printTitle("Library Management System");
         Lms_printFunctions();
-        choice = Console_readChoice("", FUNCTION_CHOICES,
-                Lms_FUNCTIONS_SIZE);
+        choice = Console_readChoice("Please select a function",
+                FUNCTION_CHOICES, array_size(FUNCTION_CHOICES));
         Lms_printTitle(Lms_FUNCTIONS[choice]);
         switch (choice) {
         case 0:

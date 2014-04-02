@@ -22,7 +22,6 @@ static void Book_delete(Book *book);
 
 /**
  * Create a new instance of {@link Book}.
- * The constructor will make copies of the strings passed in.
  * The initial reference count will be set to 1.
  * @note You should always call {@link Book_removeReference} before
  *       the end of your function where you called this function.
@@ -42,12 +41,12 @@ Book *Book_new(string title, string authors[5], string number,
     Book *book = Memory_allocateType(Book);
 
     book->reference_count = 1;
-    book->title = string_clone(title);
-    string_array_clone(authors, book->authors, 5);
-    book->number = string_clone(number);
-    string_array_clone(subjects, book->subjects, 5);
-    book->publisher = string_clone(publisher);
-    book->year = string_clone(year);
+    book->title = title;
+    string_array_copy(authors, book->authors, 5);
+    book->number = number;
+    string_array_copy(subjects, book->subjects, 5);
+    book->publisher = publisher;
+    book->year = year;
     book->circulating = circulating;
 
     return book;
@@ -137,8 +136,12 @@ Book *Book_deserialize(FILE *file) {
  * @return The cloned {@link Book} instance.
  */
 Book *Book_clone(Book *book) {
-    return Book_new(book->title, book->authors, book->number,
-            book->subjects, book->publisher, book->year,
+    string authors[5], subjects[5];
+    string_array_clone(authors, book->authors, 5);
+    string_array_clone(subjects, book->subjects, 5);
+    return Book_new(string_clone(book->title), authors,
+            string_clone(book->number), subjects,
+            string_clone(book->publisher), string_clone(book->year),
             book->circulating);
 }
 
