@@ -184,6 +184,10 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
     bool fill = false;
     for (i = 0; i < size; ++i) {
         if (!fill) {
+            if (string_isEmpty(array[i])
+                    && string_isEmpty(array[i - 1])) {
+                return true;
+            }
             Console_print("Do you want to modify %s %zu?", fieldName,
                     i + 1);
             switch (Console_readChoice("", Lms_CHOICES_YNQ,
@@ -211,8 +215,7 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
             }
         }
     }
-    Application_fatalError("Internal error at Lms_modifyBookStringArray()");
-    return false;
+    return true;
 }
 
 static bool Lms_modifyBookBool(bool field, string fieldName) {
