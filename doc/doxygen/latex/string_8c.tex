@@ -2,6 +2,7 @@
 \label{string_8c}\index{/home/zh/workspace/eclipse/lms/src/\-Library/string.\-c@{/home/zh/workspace/eclipse/lms/src/\-Library/string.\-c}}
 }
 {\ttfamily \#include \char`\"{}string.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
 {\ttfamily \#include $<$strings.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Memory.\-h\char`\"{}}\\*
@@ -35,6 +36,16 @@
 \hypertarget{string_8c_ab8cb0cb072d6e9e1a346bca10326edf8}{bool {\bfseries string\-\_\-is\-Empty} (string the\-String)}\label{string_8c_ab8cb0cb072d6e9e1a346bca10326edf8}
 
 \item 
+\hypertarget{string_8c_a36a6cb0d3d99e69e74b8255bc86214e2}{void {\bfseries string\-\_\-to\-Upper} (string the\-String)}\label{string_8c_a36a6cb0d3d99e69e74b8255bc86214e2}
+
+\item 
+\hypertarget{string_8c_a643bdffb8d978c94e84021e6809efef1}{void {\bfseries string\-\_\-to\-Lower} (string the\-String)}\label{string_8c_a643bdffb8d978c94e84021e6809efef1}
+
+\item 
+string \hyperlink{string_8c_a8620e4f73df0cbaf85d975689cf02f83}{string\-\_\-append} (string the\-String, string extra)
+\begin{DoxyCompactList}\small\item\em Append a string to an existing string. \end{DoxyCompactList}\item 
+string \hyperlink{string_8c_a5275cafd7a6dc7d61876e53525211d37}{string\-\_\-concatenate} (string first, string second)
+\begin{DoxyCompactList}\small\item\em Concatenate a string with another string. \end{DoxyCompactList}\item 
 void \hyperlink{string_8c_a779f8e787345b305b0f0e68465dd18ba}{string\-\_\-array\-\_\-clone} (string src\mbox{[}$\,$\mbox{]}, string dest\mbox{[}$\,$\mbox{]}, size\-\_\-t size)
 \begin{DoxyCompactList}\small\item\em Make a deep copy of a string array. \end{DoxyCompactList}\item 
 \hypertarget{string_8c_a570c4f9c1392e7cef8678f4e105cba8b}{void {\bfseries string\-\_\-array\-\_\-copy} (string source\mbox{[}$\,$\mbox{]}, string destination\mbox{[}$\,$\mbox{]}, size\-\_\-t size)}\label{string_8c_a570c4f9c1392e7cef8678f4e105cba8b}
@@ -82,6 +93,28 @@ Zhang Hai
 
 
 \subsection{Function Documentation}
+\hypertarget{string_8c_a8620e4f73df0cbaf85d975689cf02f83}{\index{string.\-c@{string.\-c}!string\-\_\-append@{string\-\_\-append}}
+\index{string\-\_\-append@{string\-\_\-append}!string.c@{string.\-c}}
+\subsubsection[{string\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}string string\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{string}]{the\-String, }
+\item[{string}]{extra}
+\end{DoxyParamCaption}
+)}}\label{string_8c_a8620e4f73df0cbaf85d975689cf02f83}
+
+
+Append a string to an existing string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\-String} & The existing string. \\
+\hline
+{\em extra} & The extra string to be appended. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The address of the string appended by extra, may differ from the original string. 
+\end{DoxyReturn}
 \hypertarget{string_8c_a779f8e787345b305b0f0e68465dd18ba}{\index{string.\-c@{string.\-c}!string\-\_\-array\-\_\-clone@{string\-\_\-array\-\_\-clone}}
 \index{string\-\_\-array\-\_\-clone@{string\-\_\-array\-\_\-clone}!string.c@{string.\-c}}
 \subsubsection[{string\-\_\-array\-\_\-clone}]{\setlength{\rightskip}{0pt plus 5cm}void string\-\_\-array\-\_\-clone (
@@ -104,3 +137,25 @@ Make a deep copy of a string array.
 {\em size} & Size of both string arrays. \\
 \hline
 \end{DoxyParams}
+\hypertarget{string_8c_a5275cafd7a6dc7d61876e53525211d37}{\index{string.\-c@{string.\-c}!string\-\_\-concatenate@{string\-\_\-concatenate}}
+\index{string\-\_\-concatenate@{string\-\_\-concatenate}!string.c@{string.\-c}}
+\subsubsection[{string\-\_\-concatenate}]{\setlength{\rightskip}{0pt plus 5cm}string string\-\_\-concatenate (
+\begin{DoxyParamCaption}
+\item[{string}]{first, }
+\item[{string}]{second}
+\end{DoxyParamCaption}
+)}}\label{string_8c_a5275cafd7a6dc7d61876e53525211d37}
+
+
+Concatenate a string with another string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\-String} & The first string. \\
+\hline
+{\em extra} & The second string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new concatenated string. 
+\end{DoxyReturn}
