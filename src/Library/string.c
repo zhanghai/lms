@@ -59,8 +59,10 @@ bool string_containsIgnoreCase(string theString, string subString) {
 }
 #else
 bool string_containsIgnoreCase(string theString, string subString) {
-    string *stringUpper = string_toUpper(string_clone(theString)),
-            subStringUpper = string_toUpper(string_clone(subString));
+    string *stringUpper = string_clone(theString),
+            subStringUpper = string_clone(subString);
+    string_toUpperCase(stringUpper);
+    string_toUpperCase(subStringUpper);
     bool result = strstr(stringUpper, subStringUpper);
     Memory_free(stringUpper);
     Memory_free(subStringUpper);
@@ -76,7 +78,7 @@ bool string_isEmpty(string theString) {
     return string_length(theString) == 0;
 }
 
-void string_toUpper(string theString) {
+void string_toUpperCase(string theString) {
     size_t i, size;
     size = string_length(theString);
     for (i = 0; i < size; ++i) {
@@ -85,7 +87,7 @@ void string_toUpper(string theString) {
     }
 }
 
-void string_toLower(string theString) {
+void string_toLowerCase(string theString) {
     size_t i, size;
     size = string_length(theString);
     for (i = 0; i < size; ++i) {

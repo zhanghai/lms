@@ -33,9 +33,9 @@ size_t string_length(string theString);
 
 bool string_isEmpty(string theString);
 
-void string_toUpper(string theString);
+void string_toUpperCase(string theString);
 
-void string_toLower(string theString);
+void string_toLowerCase(string theString);
 
 string string_append(string theString, string extra);
 
