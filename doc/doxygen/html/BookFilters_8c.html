@@ -96,7 +96,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="BookFilters_8h_source.html">BookFilters.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="ArrayList_8h_source.html">Library/ArrayList.h</a>&quot;</code><br/>
-</div><table class="memberdecls">
+</div>
+<p><a href="BookFilters_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a4baa60fd46f8f2914ea33201ea690db2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFINE_BOOK_FILTER_STRING</b>(member)</td></tr>
@@ -125,6 +127,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>BOOK_FILTERS_SIZE</
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Zhang Hai </dd></dl>
+
+<p>Definition in file <a class="el" href="BookFilters_8c_source.html">BookFilters.c</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="aca14f7eca38380be13c90fb5133222d1"></a>
 <div class="memitem">
@@ -142,8 +146,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>BOOK_FILTERS_SIZE</
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">bool</span> BookFilters_##member(<a class="code" href="structBook.html">Book</a> *book, <span class="keywordtype">void</span> *member) { \</div>
 <div class="line">        return bool_is_equal(book-&gt;member, member); \</div>
 <div class="line">    }</div>
-<div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> Book.h:13</div></div>
+<div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
 </div><!-- fragment -->
+<p>Definition at line <a class="el" href="BookFilters_8c_source.html#l00021">21</a> of file <a class="el" href="BookFilters_8c_source.html">BookFilters.c</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4baa60fd46f8f2914ea33201ea690db2"></a>
@@ -162,8 +168,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>BOOK_FILTERS_SIZE</
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">bool</span> BookFilters_##member(<a class="code" href="structBook.html">Book</a> *book, <span class="keywordtype">void</span> *member) { \</div>
 <div class="line">        return string_containsIgnoreCase(book-&gt;member, member); \</div>
 <div class="line">    }</div>
-<div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> Book.h:13</div></div>
+<div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
 </div><!-- fragment -->
+<p>Definition at line <a class="el" href="BookFilters_8c_source.html#l00011">11</a> of file <a class="el" href="BookFilters_8c_source.html">BookFilters.c</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afe465beece31f11ee2ccb19aaf36632f"></a>
@@ -192,8 +200,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>BOOK_FILTERS_SIZE</
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">bool</span> BookFilters_##member(<a class="code" href="structBook.html">Book</a> *book, <span class="keywordtype">void</span> *member) { \</div>
 <div class="line">        return string_array_containsIgnoreCase(book-&gt;member, size, member); \</div>
 <div class="line">    }</div>
-<div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> Book.h:13</div></div>
+<div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
 </div><!-- fragment -->
+<p>Definition at line <a class="el" href="BookFilters_8c_source.html#l00016">16</a> of file <a class="el" href="BookFilters_8c_source.html">BookFilters.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -231,6 +241,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>BOOK_FILTERS_SIZE</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Whether this book should be in the result list, used by the search algorithm. </dd></dl>
 
+<p>Definition at line <a class="el" href="BookFilters_8c_source.html#l00073">73</a> of file <a class="el" href="BookFilters_8c_source.html">BookFilters.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -254,12 +266,14 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>BOOK_FILTERS_SIZE</
 <div class="line">    BookFilters_circulating,</div>
 <div class="line">}</div>
 </div><!-- fragment -->
+<p>Definition at line <a class="el" href="BookFilters_8c_source.html#l00027">27</a> of file <a class="el" href="BookFilters_8c_source.html">BookFilters.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 18:00:55 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 18:20:53 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

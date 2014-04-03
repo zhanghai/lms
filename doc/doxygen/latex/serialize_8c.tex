@@ -33,6 +33,10 @@ Zhang Hai
 \end{DoxyAuthor}
 
 
+Definition in file \hyperlink{serialize_8c_source}{serialize.\-c}.
+
+
+
 \subsection{Macro Definition Documentation}
 \hypertarget{serialize_8c_aec6de318447a45d57bb492abaaaf32f2}{\index{serialize.\-c@{serialize.\-c}!L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}}
 \index{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}!serialize.c@{serialize.\-c}}
@@ -47,6 +51,10 @@ Zhang Hai
         return fread(value, \textcolor{keyword}{sizeof}(type), 1, file) == 1; \(\backslash\)
     \};
 \end{DoxyCode}
+
+
+Definition at line 17 of file serialize.\-c.
+
 \hypertarget{serialize_8c_a3b47562f9b44c57199800862aa6e3507}{\index{serialize.\-c@{serialize.\-c}!L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}}
 \index{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}!serialize.c@{serialize.\-c}}
 \subsubsection[{L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-M\-S\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-S\-E\-R\-I\-A\-L\-I\-Z\-E\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N(
@@ -60,6 +68,10 @@ Zhang Hai
         return fwrite(value, \textcolor{keyword}{sizeof}(type), 1, file) == 1; \(\backslash\)
     \};
 \end{DoxyCode}
+
+
+Definition at line 12 of file serialize.\-c.
+
 
 
 \subsection{Function Documentation}
@@ -85,3 +97,7 @@ Note that memory will be allocated for the string.
 \begin{DoxyReturn}{Returns}
 Whether the deserialization is successful. 
 \end{DoxyReturn}
+
+
+Definition at line 44 of file serialize.\-c.
+
