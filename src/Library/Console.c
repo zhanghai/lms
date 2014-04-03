@@ -77,7 +77,7 @@ string Console_readLine(string message) {
     size_t size = SIZE_STEP, i = 0;
 
     line = Memory_allocate(size * sizeof(char));
-    while ((c = getc()) != '\n' && c != EOF) {
+    while ((c = getchar()) != '\n' && c != EOF) {
         if (i == size) {
             size += SIZE_STEP;
             line = Memory_reallocate(line, size);
