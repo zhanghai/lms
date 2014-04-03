@@ -5,10 +5,15 @@
 
 #include "Console.h"
 
+#ifdef __gnu_linux__
+#define __USE_READLINE__
+#endif /* __linux__ */
+
 #include <stdarg.h>
+#ifdef __USE_READLINE__
 #include <readline/readline.h>
 #include <readline/history.h>
-
+#endif
 
 static string CONSOLE_CHOICES_Y_N[] = {"y", "n"};
 
@@ -53,6 +58,7 @@ void Console_printErrorLine(string format, ...) {
     fprintf(stderr, "\n");
 }
 
+#ifdef __USE_READLINE__
 string Console_readLine(string message) {
     string line;
     while ((line = readline(message)) == null);
@@ -61,6 +67,32 @@ string Console_readLine(string message) {
     }
     return line;
 }
+#else
+string Console_readLine(string message) {
+
+    static size_t SIZE_STEP = 16;
+
+    char c;
+    string line;
+    size_t size = SIZE_STEP, i = 0;
+
+    line = Memory_allocate(size * sizeof(char));
+    while ((c = getc()) != '\n' && c != EOF) {
+        if (i == size) {
+            size += SIZE_STEP;
+            line = Memory_reallocate(line, size);
+        }
+        line[i++] = c;
+    }
+
+    if (i == size) {
+        line = Memory_reallocate(line, ++size);
+    }
+    line[i] = '\0';
+
+    return line;
+}
+#endif
 
 size_t Console_readChoice(string message, string choices[],
         size_t choicesSize) {

@@ -33,6 +33,14 @@ size_t string_length(string theString);
 
 bool string_isEmpty(string theString);
 
+void string_toUpper(string theString);
+
+void string_toLower(string theString);
+
+string string_append(string theString, string extra);
+
+string string_concatenate(string first, string second);
+
 void string_array_clone(string source[], string destination[],
         size_t size);
 

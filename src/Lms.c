@@ -319,6 +319,7 @@ void Lms_modifyBook(BookList *list) {
     BookList *result;
     BookNode *node;
     Book *book;
+    bool quit = false;
 
     result = Lms_filterBook(list);
 
@@ -332,22 +333,37 @@ void Lms_modifyBook(BookList *list) {
             Console_printSeparator();
             Book_print(book, stdout);
             Console_printSeparator();
-            if (Console_readChoiceYN("Do you want to modify this book?")) {
-                // HACK: Use the boolean result with an empty if.
+            switch (Console_readChoice("Do you want to modify this book?",
+                    Lms_CHOICES_YNQ, array_size(Lms_CHOICES_YNQ))) {
+            case 0:
                 if (Lms_modifyBookString(book->title,
-                        Book_FIELD_NAMES[0])
-                && Lms_modifyBookStringArray(book->authors, 5, "Author")
-                && Lms_modifyBookString(book->number,
-                        Book_FIELD_NAMES[2])
-                && Lms_modifyBookStringArray(book->subjects, 5, "Subject")
-                && Lms_modifyBookString(book->publisher,
-                        Book_FIELD_NAMES[4])
-                && Lms_modifyBookString(book->year,
-                        Book_FIELD_NAMES[5])
-                && Lms_modifyBookBool(book->circulating,
-                        Book_FIELD_NAMES[6])) {}
-                Console_printSeparator();
-                Console_prompt("Book modified successfully.");
+                        Book_FIELD_NAMES[0])) {
+                    // HACK: Use the boolean result with an empty if.
+                    if (Lms_modifyBookStringArray(book->authors, 5, "Author")
+                    && Lms_modifyBookString(book->number,
+                            Book_FIELD_NAMES[2])
+                    && Lms_modifyBookStringArray(book->subjects, 5, "Subject")
+                    && Lms_modifyBookString(book->publisher,
+                            Book_FIELD_NAMES[4])
+                    && Lms_modifyBookString(book->year,
+                            Book_FIELD_NAMES[5])
+                    && Lms_modifyBookBool(book->circulating,
+                            Book_FIELD_NAMES[6])) {}
+                    Console_printSeparator();
+                    Console_prompt("Book modified successfully.");
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                quit = true;
+                break;
+            default:
+                Application_fatalError("Internal error at Lms_modifyBook()");
+                return;
+            }
+            if (quit) {
+                break;
             }
         }
     }
@@ -373,9 +389,9 @@ void Lms_removeBook(BookList *list) {
             Console_printSeparator();
             if (Console_readChoiceYN("Do you want to remove this book? ")) {
                 BookList_remove(list, node->data);
+                Console_printSeparator();
+                Console_prompt("Book removed successfully.");
             }
-            Console_printSeparator();
-            Console_prompt("Book removed successfully.");
         }
     }
 

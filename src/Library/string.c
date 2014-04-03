@@ -5,10 +5,19 @@
 
 #include "string.h"
 
-// For strcasestr()
+#ifdef __gnu_linux__
+#define __USE_GNU_STRCASESTR__
+#endif
+
+// For toupper() and tolower()
+#include <ctype.h>
+#ifdef __USE_GNU_STRCASESTR__
 #define __USE_GNU
+#endif
 #include <string.h>
+#ifdef __USE_GNU_STRCASESTR__
 #undef __USE_GNU
+#endif
 #include <strings.h>
 
 #include "array.h"
@@ -44,9 +53,20 @@ bool string_contains(string theString, string subString) {
     return strstr(theString, subString) != null;
 }
 
+#ifdef __USE_GNU_STRCASESTR__
 bool string_containsIgnoreCase(string theString, string subString) {
     return strcasestr(theString, subString) != null;
 }
+#else
+bool string_containsIgnoreCase(string theString, string subString) {
+    string *stringUpper = string_toUpper(string_clone(theString)),
+            subStringUpper = string_toUpper(string_clone(subString));
+    bool result = strstr(stringUpper, subStringUpper);
+    Memory_free(stringUpper);
+    Memory_free(subStringUpper);
+    return result;
+}
+#endif
 
 size_t string_length(string theString) {
     return strlen(theString);
@@ -54,6 +74,52 @@ size_t string_length(string theString) {
 
 bool string_isEmpty(string theString) {
     return string_length(theString) == 0;
+}
+
+void string_toUpper(string theString) {
+    size_t i, size;
+    size = string_length(theString);
+    for (i = 0; i < size; ++i) {
+        // No conversion will be done if not possible.
+        theString[i] = toupper(theString[i]);
+    }
+}
+
+void string_toLower(string theString) {
+    size_t i, size;
+    size = string_length(theString);
+    for (i = 0; i < size; ++i) {
+        // No conversion will be done if not possible.
+        theString[i] = tolower(theString[i]);
+    }
+}
+
+/**
+ * Append a string to an existing string.
+ * @param theString The existing string.
+ * @param extra The extra string to be appended.
+ * @return The address of the string appended by extra, may differ
+ *         from the original string.
+ */
+string string_append(string theString, string extra) {
+    size_t oldLength = string_length(theString);
+    theString = Memory_reallocate(theString,
+            oldLength + string_length(extra) + 1);
+    strcpy(theString + oldLength, extra);
+    return theString;
+}
+
+/**
+ * Concatenate a string with another string.
+ * @param theString The first string.
+ * @param extra The second string.
+ * @return The new concatenated string.
+ */
+string string_concatenate(string first, string second) {
+    size_t firstLength = string_length(first);
+    string concatenated = Memory_allocate(firstLength + string_length(second) + 1);
+    strcpy(concatenated + firstLength, second);
+    return concatenated;
 }
 
 /**
