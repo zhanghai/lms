@@ -341,6 +341,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="stringliteral">3. 将内容导出为文本文件</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="stringliteral">   目前可以使用重定向标准输出至文件代替。</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="stringliteral">4. 对实际运用中大量图书的处理</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="stringliteral">   目前的实现是在程序启动时读入所有书籍信息，在程序退出时写入数据文件。</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="stringliteral">   对于大量图书的管理，若自己实现根据需求从文件中读取数据并在内存中建立缓冲较为繁琐，因此一般会采用成熟的数据库进行信息存储。</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="stringliteral">   若一定要自己实现，可以按照常规方法实现一个数据库，而另一个效率较低但可以处理大量数据的简单实现则是直接利用文件系统的功能，将每本书存储为一个文件，只将需要操作的书籍内容读入内存，并可以实现简单地基于`RLU`策略的缓存。</span></div>
 <div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
 <div class="ttc" id="BookFilters_8c_html_a1007712a46203acf0abcace91e981235"><div class="ttname"><a href="BookFilters_8c.html#a1007712a46203acf0abcace91e981235">BookFilters_compound</a></div><div class="ttdeci">bool BookFilters_compound(Book *book, void *list)</div><div class="ttdoc">A compound BookFilter function. </div><div class="ttdef"><b>Definition:</b> <a href="BookFilters_8c_source.html#l00073">BookFilters.c:73</a></div></div>
 <div class="ttc" id="structLinkedList_html"><div class="ttname"><a href="structLinkedList.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="LinkedList_8h_source.html#l00068">LinkedList.h:68</a></div></div>
@@ -348,7 +356,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 18:20:53 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
