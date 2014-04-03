@@ -59,11 +59,11 @@ bool string_containsIgnoreCase(string theString, string subString) {
 }
 #else
 bool string_containsIgnoreCase(string theString, string subString) {
-    string *stringUpper = string_clone(theString),
+    string stringUpper = string_clone(theString),
             subStringUpper = string_clone(subString);
     string_toUpperCase(stringUpper);
     string_toUpperCase(subStringUpper);
-    bool result = strstr(stringUpper, subStringUpper);
+    bool result = strstr(stringUpper, subStringUpper) != null;
     Memory_free(stringUpper);
     Memory_free(subStringUpper);
     return result;
