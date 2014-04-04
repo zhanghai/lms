@@ -5,39 +5,33 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{LinkedList_8c_ab9af8fd7984159cad43589d1279cbc87}{\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ {\bfseries Linked\-List\-Node\-\_\-new} (void $\ast$data, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$prev, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$next)}\label{LinkedList_8c_ab9af8fd7984159cad43589d1279cbc87}
+\hypertarget{LinkedList_8c_a2ea28be1e615a42e164d27bd7861aba9}{void {\bfseries Linked\-List\-\_\-initialize} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this)}\label{LinkedList_8c_a2ea28be1e615a42e164d27bd7861aba9}
 
 \item 
-\hypertarget{LinkedList_8c_a30e6c6a07972a5b09b968e9b13e87378}{void {\bfseries Linked\-List\-Node\-\_\-delete} (\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node)}\label{LinkedList_8c_a30e6c6a07972a5b09b968e9b13e87378}
+\hypertarget{LinkedList_8c_a80a411f23420c2bcb69ca15ace06c522}{void {\bfseries Linked\-List\-\_\-finalize} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this)}\label{LinkedList_8c_a80a411f23420c2bcb69ca15ace06c522}
 
 \item 
-\hypertarget{LinkedList_8c_a97b000ccdaf085ddb201f88a10017383}{void {\bfseries Linked\-List\-\_\-initialize} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, Linked\-List\-\_\-\-Method\-New new, Linked\-List\-\_\-\-Method\-Delete delete, Linked\-List\-\_\-\-Method\-New\-Node new\-Node, Linked\-List\-\_\-\-Method\-Delete\-Node delete\-Node, Linked\-List\-\_\-\-Method\-Add\-Start add\-Start, Linked\-List\-\_\-\-Method\-Add\-End add\-End, Linked\-List\-\_\-\-Method\-Insert\-Before insert\-Before, Linked\-List\-\_\-\-Method\-Insert\-After insert\-After, Linked\-List\-\_\-\-Method\-Remove\-Node remove\-Node, Linked\-List\-\_\-\-Method\-Remove remove, Linked\-List\-\_\-\-Method\-Swap swap, Linked\-List\-\_\-\-Method\-Sort sort, Linked\-List\-\_\-\-Method\-Search search)}\label{LinkedList_8c_a97b000ccdaf085ddb201f88a10017383}
-
-\item 
-\hypertarget{LinkedList_8c_a79a4fa6f659d4be6346a36c3dce2c797}{void {\bfseries Linked\-List\-\_\-finalize} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list)}\label{LinkedList_8c_a79a4fa6f659d4be6346a36c3dce2c797}
-
-\item 
-\hyperlink{structLinkedList}{Linked\-List} $\ast$ \hyperlink{LinkedList_8c_af4c511d117bd780233137814b20d1bd3}{Linked\-List\-\_\-new} ()
-\begin{DoxyCompactList}\small\item\em Create a new instance of \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{LinkedList_8c_a54a9fe68748263fe848bcd2c898036b5}{Linked\-List\-\_\-delete} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list)
-\begin{DoxyCompactList}\small\item\em Destroy a \hyperlink{structLinkedList}{Linked\-List} instance. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a128a97b25db2bcb5937d9bf53228d4ea}{Linked\-List\-\_\-add\-Start} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, void $\ast$data)
-\begin{DoxyCompactList}\small\item\em Add a node holding some data to the start of a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_ae4898e1cd809c73b3973bb17d6fd7772}{Linked\-List\-\_\-add\-End} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, void $\ast$data)
-\begin{DoxyCompactList}\small\item\em Add a node holding some data to the end of a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a5b56062d6896617f090363c198c5ae6f}{Linked\-List\-\_\-insert\-Before} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node, void $\ast$data)
-\begin{DoxyCompactList}\small\item\em Insert a new node holding some data before a node. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a7b2fdb4106c3214da32fa85fbb4010ae}{Linked\-List\-\_\-insert\-After} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node, void $\ast$data)
-\begin{DoxyCompactList}\small\item\em Insert a new node holding some data after a node. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a6bdd929d245b4edcbddc52163736d46b}{Linked\-List\-\_\-remove\-Node} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node)
+\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a86d63cb48a67ae4d7f3136bf9423178b}{Linked\-List\-\_\-new\-Node} (void $\ast$data, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$previous, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$next)
+\begin{DoxyCompactList}\small\item\em Create a new \hyperlink{structLinkedListNode}{Linked\-List\-Node} instance. \end{DoxyCompactList}\item 
+void \hyperlink{LinkedList_8c_a6920b01f73f2950a3ad74558e8e11c7d}{Linked\-List\-\_\-delete\-Node} (\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Destroy a \hyperlink{structLinkedListNode}{Linked\-List\-Node} instance. \end{DoxyCompactList}\item 
+\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a8a7132f713431ac4e11c7b780c34989b}{Linked\-List\-\_\-add\-Start} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Add a node holding some book to the start of a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
+\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a187c687217ae617a8a089051a3874396}{Linked\-List\-\_\-add\-End} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Add a node holding some book to the end of a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
+\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_acea8d89599acfac6be8b0f4d1ff4adea}{Linked\-List\-\_\-insert\-Before} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Insert a new node holding some book before a node. \end{DoxyCompactList}\item 
+\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_a7e8874058936aea620fbd293139daaa7}{Linked\-List\-\_\-insert\-After} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Insert a new node holding some book after a node. \end{DoxyCompactList}\item 
+\hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$ \hyperlink{LinkedList_8c_ad35a5dbf02091fd691f92de70051548b}{Linked\-List\-\_\-remove\-Node} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Remove a node from a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{LinkedList_8c_a9fef314ef5ceedc1604dde1a8d16015f}{Linked\-List\-\_\-remove} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, void $\ast$data)
-\begin{DoxyCompactList}\small\item\em Remove a piece of data from a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{LinkedList_8c_a129e53a044959c57f2384da71c5ef62e}{Linked\-List\-\_\-swap} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node1, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node2)
+void \hyperlink{LinkedList_8c_a737312c4ec018d5204dcad4060be5f94}{Linked\-List\-\_\-remove} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Remove a piece of book from a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
+void \hyperlink{LinkedList_8c_a69828ecc986a5dc04bf748199c9dffa2}{Linked\-List\-\_\-swap} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node1, \hyperlink{structLinkedListNode}{Linked\-List\-Node} $\ast$node2)
 \begin{DoxyCompactList}\small\item\em Swap two nodes in a \hyperlink{structLinkedList}{Linked\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{LinkedList_8c_afdc8b021bd918462c416ed3f5c2f6b86}{Linked\-List\-\_\-sort} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, Comparator comparator)
+void \hyperlink{LinkedList_8c_a8219a44c024f4dfcd290581d63b13f8b}{Linked\-List\-\_\-sort} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, Comparator comparator)
 \begin{DoxyCompactList}\small\item\em Sort a \hyperlink{structLinkedList}{Linked\-List} by a comparator. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedList}{Linked\-List} $\ast$ \hyperlink{LinkedList_8c_ab62fe9f647f35e46d1ea8ae9b95e3308}{Linked\-List\-\_\-search} (\hyperlink{structLinkedList}{Linked\-List} $\ast$list, \hyperlink{structFilter}{Filter} filter)
+\hyperlink{structLinkedList}{Linked\-List} $\ast$ \hyperlink{LinkedList_8c_a52b3a0d0e83d00e298ee831cc6255072}{Linked\-List\-\_\-search} (\hyperlink{structLinkedList}{Linked\-List} $\ast$this, \hyperlink{structFilter}{Filter} filter)
 \begin{DoxyCompactList}\small\item\em Search in a \hyperlink{structLinkedList}{Linked\-List} by a filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -52,196 +46,195 @@ Definition in file \hyperlink{LinkedList_8c_source}{Linked\-List.\-c}.
 
 
 \subsection{Function Documentation}
-\hypertarget{LinkedList_8c_ae4898e1cd809c73b3973bb17d6fd7772}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-add\-End@{Linked\-List\-\_\-add\-End}}
+\hypertarget{LinkedList_8c_a187c687217ae617a8a089051a3874396}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-add\-End@{Linked\-List\-\_\-add\-End}}
 \index{Linked\-List\-\_\-add\-End@{Linked\-List\-\_\-add\-End}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-add\-End}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List\-Node}$\ast$ Linked\-List\-\_\-add\-End (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{void $\ast$}]{data}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_ae4898e1cd809c73b3973bb17d6fd7772}
+)}}\label{LinkedList_8c_a187c687217ae617a8a089051a3874396}
 
 
-Add a node holding some data to the end of a \hyperlink{structLinkedList}{Linked\-List}. 
+Add a node holding some book to the end of a \hyperlink{structLinkedList}{Linked\-List}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to add the data to. \\
-\hline
-{\em data} & The data to be added. \\
+{\em book} & The book to be added. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The newly added node in the \hyperlink{structLinkedList}{Linked\-List}. 
+The newly added node. 
 \end{DoxyReturn}
 
 
-Definition at line 132 of file Linked\-List.\-c.
+Definition at line 104 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a128a97b25db2bcb5937d9bf53228d4ea}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-add\-Start@{Linked\-List\-\_\-add\-Start}}
+\hypertarget{LinkedList_8c_a8a7132f713431ac4e11c7b780c34989b}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-add\-Start@{Linked\-List\-\_\-add\-Start}}
 \index{Linked\-List\-\_\-add\-Start@{Linked\-List\-\_\-add\-Start}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-add\-Start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List\-Node}$\ast$ Linked\-List\-\_\-add\-Start (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{void $\ast$}]{data}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a128a97b25db2bcb5937d9bf53228d4ea}
+)}}\label{LinkedList_8c_a8a7132f713431ac4e11c7b780c34989b}
 
 
-Add a node holding some data to the start of a \hyperlink{structLinkedList}{Linked\-List}. 
+Add a node holding some book to the start of a \hyperlink{structLinkedList}{Linked\-List}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to add the data to. \\
-\hline
-{\em data} & The data to be added. \\
+{\em book} & The book to be added. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The newly added node in the \hyperlink{structLinkedList}{Linked\-List}. 
+The newly added node. 
 \end{DoxyReturn}
 
 
-Definition at line 107 of file Linked\-List.\-c.
+Definition at line 80 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a54a9fe68748263fe848bcd2c898036b5}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-delete@{Linked\-List\-\_\-delete}}
-\index{Linked\-List\-\_\-delete@{Linked\-List\-\_\-delete}!LinkedList.c@{Linked\-List.\-c}}
-\subsubsection[{Linked\-List\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-\_\-delete (
+\hypertarget{LinkedList_8c_a6920b01f73f2950a3ad74558e8e11c7d}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-delete\-Node@{Linked\-List\-\_\-delete\-Node}}
+\index{Linked\-List\-\_\-delete\-Node@{Linked\-List\-\_\-delete\-Node}!LinkedList.c@{Linked\-List.\-c}}
+\subsubsection[{Linked\-List\-\_\-delete\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-\_\-delete\-Node (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list}
+\item[{{\bf Linked\-List\-Node} $\ast$}]{node}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a54a9fe68748263fe848bcd2c898036b5}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{LinkedList_8c_a6920b01f73f2950a3ad74558e8e11c7d}
 
 
-Destroy a \hyperlink{structLinkedList}{Linked\-List} instance. 
+Destroy a \hyperlink{structLinkedListNode}{Linked\-List\-Node} instance. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} instance to be destroyed. \\
+{\em node} & The node to be destroyed. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 94 of file Linked\-List.\-c.
+Definition at line 71 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a7b2fdb4106c3214da32fa85fbb4010ae}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-insert\-After@{Linked\-List\-\_\-insert\-After}}
+\hypertarget{LinkedList_8c_a7e8874058936aea620fbd293139daaa7}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-insert\-After@{Linked\-List\-\_\-insert\-After}}
 \index{Linked\-List\-\_\-insert\-After@{Linked\-List\-\_\-insert\-After}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-insert\-After}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List\-Node}$\ast$ Linked\-List\-\_\-insert\-After (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{{\bf Linked\-List\-Node} $\ast$}]{node, }
 \item[{void $\ast$}]{data}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a7b2fdb4106c3214da32fa85fbb4010ae}
+)}}\label{LinkedList_8c_a7e8874058936aea620fbd293139daaa7}
 
 
-Insert a new node holding some data after a node. 
+Insert a new node holding some book after a node. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to insert the data into. \\
-\hline
 {\em node} & The node to insert after. \\
 \hline
-{\em data} & The data to be inserted. \\
+{\em book} & The book to be inserted. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The newly inserted node in the \hyperlink{structLinkedList}{Linked\-List}. 
+The newly inserted node. 
 \end{DoxyReturn}
 
 
-Definition at line 183 of file Linked\-List.\-c.
+Definition at line 153 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a5b56062d6896617f090363c198c5ae6f}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-insert\-Before@{Linked\-List\-\_\-insert\-Before}}
+\hypertarget{LinkedList_8c_acea8d89599acfac6be8b0f4d1ff4adea}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-insert\-Before@{Linked\-List\-\_\-insert\-Before}}
 \index{Linked\-List\-\_\-insert\-Before@{Linked\-List\-\_\-insert\-Before}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-insert\-Before}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List\-Node}$\ast$ Linked\-List\-\_\-insert\-Before (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{{\bf Linked\-List\-Node} $\ast$}]{node, }
 \item[{void $\ast$}]{data}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a5b56062d6896617f090363c198c5ae6f}
+)}}\label{LinkedList_8c_acea8d89599acfac6be8b0f4d1ff4adea}
 
 
-Insert a new node holding some data before a node. 
+Insert a new node holding some book before a node. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to insert the data into. \\
-\hline
 {\em node} & The node to insert before. \\
 \hline
-{\em data} & The data to be inserted. \\
+{\em book} & The book to be inserted. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The newly inserted node in the \hyperlink{structLinkedList}{Linked\-List}. 
+The newly inserted node. 
 \end{DoxyReturn}
 
 
-Definition at line 158 of file Linked\-List.\-c.
+Definition at line 129 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_af4c511d117bd780233137814b20d1bd3}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-new@{Linked\-List\-\_\-new}}
-\index{Linked\-List\-\_\-new@{Linked\-List\-\_\-new}!LinkedList.c@{Linked\-List.\-c}}
-\subsubsection[{Linked\-List\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List}$\ast$ Linked\-List\-\_\-new (
+\hypertarget{LinkedList_8c_a86d63cb48a67ae4d7f3136bf9423178b}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-new\-Node@{Linked\-List\-\_\-new\-Node}}
+\index{Linked\-List\-\_\-new\-Node@{Linked\-List\-\_\-new\-Node}!LinkedList.c@{Linked\-List.\-c}}
+\subsubsection[{Linked\-List\-\_\-new\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List\-Node}$\ast$ Linked\-List\-\_\-new\-Node (
 \begin{DoxyParamCaption}
-{}
+\item[{void $\ast$}]{data, }
+\item[{{\bf Linked\-List\-Node} $\ast$}]{previous, }
+\item[{{\bf Linked\-List\-Node} $\ast$}]{next}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_af4c511d117bd780233137814b20d1bd3}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{LinkedList_8c_a86d63cb48a67ae4d7f3136bf9423178b}
 
 
-Create a new instance of \hyperlink{structLinkedList}{Linked\-List}. 
+Create a new \hyperlink{structLinkedListNode}{Linked\-List\-Node} instance. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be held by the new node. \\
+\hline
+{\em previous} & The node previous to the new node. \\
+\hline
+{\em next} & The node next to the new node. \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The created \hyperlink{structLinkedList}{Linked\-List} instance. 
+The created \hyperlink{structLinkedListNode}{Linked\-List\-Node} instance. 
 \end{DoxyReturn}
 
 
-Definition at line 68 of file Linked\-List.\-c.
+Definition at line 54 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a9fef314ef5ceedc1604dde1a8d16015f}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-remove@{Linked\-List\-\_\-remove}}
+\hypertarget{LinkedList_8c_a737312c4ec018d5204dcad4060be5f94}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-remove@{Linked\-List\-\_\-remove}}
 \index{Linked\-List\-\_\-remove@{Linked\-List\-\_\-remove}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-\_\-remove (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{void $\ast$}]{data}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a9fef314ef5ceedc1604dde1a8d16015f}
+)}}\label{LinkedList_8c_a737312c4ec018d5204dcad4060be5f94}
 
 
-Remove a piece of data from a \hyperlink{structLinkedList}{Linked\-List}. 
+Remove a piece of book from a \hyperlink{structLinkedList}{Linked\-List}. 
 
 \begin{DoxyNote}{Note}
-This function will only remove the first occurrence of the data. 
+This function will only remove the first occurrence of the book. 
 \end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to remove the data from. \\
-\hline
-{\em data} & The data to be removed. \\
+{\em book} & The book to be removed. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 237 of file Linked\-List.\-c.
+Definition at line 206 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a6bdd929d245b4edcbddc52163736d46b}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-remove\-Node@{Linked\-List\-\_\-remove\-Node}}
+\hypertarget{LinkedList_8c_ad35a5dbf02091fd691f92de70051548b}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-remove\-Node@{Linked\-List\-\_\-remove\-Node}}
 \index{Linked\-List\-\_\-remove\-Node@{Linked\-List\-\_\-remove\-Node}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-remove\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List\-Node}$\ast$ Linked\-List\-\_\-remove\-Node (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{{\bf Linked\-List\-Node} $\ast$}]{node}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a6bdd929d245b4edcbddc52163736d46b}
+)}}\label{LinkedList_8c_ad35a5dbf02091fd691f92de70051548b}
 
 
 Remove a node from a \hyperlink{structLinkedList}{Linked\-List}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to remove the node from. \\
-\hline
 {\em node} & The node to be removed. \\
 \hline
 \end{DoxyParams}
@@ -250,27 +243,25 @@ the node following the removed one, or null if the tail node is removed.
 \end{DoxyReturn}
 
 
-Definition at line 208 of file Linked\-List.\-c.
+Definition at line 177 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_ab62fe9f647f35e46d1ea8ae9b95e3308}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-search@{Linked\-List\-\_\-search}}
+\hypertarget{LinkedList_8c_a52b3a0d0e83d00e298ee831cc6255072}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-search@{Linked\-List\-\_\-search}}
 \index{Linked\-List\-\_\-search@{Linked\-List\-\_\-search}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-search}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List}$\ast$ Linked\-List\-\_\-search (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{{\bf Filter}}]{filter}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_ab62fe9f647f35e46d1ea8ae9b95e3308}
+)}}\label{LinkedList_8c_a52b3a0d0e83d00e298ee831cc6255072}
 
 
 Search in a \hyperlink{structLinkedList}{Linked\-List} by a filter. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to be searched in. \\
-\hline
 {\em filter} & A filter function for the search. \\
 \hline
-{\em criteria} & The criteria data to be passed into the filter. \\
+{\em criteria} & The criteria book to be passed into the filter. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -278,16 +269,16 @@ A \hyperlink{structLinkedList}{Linked\-List} containing the result.
 \end{DoxyReturn}
 
 
-Definition at line 301 of file Linked\-List.\-c.
+Definition at line 268 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_afdc8b021bd918462c416ed3f5c2f6b86}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-sort@{Linked\-List\-\_\-sort}}
+\hypertarget{LinkedList_8c_a8219a44c024f4dfcd290581d63b13f8b}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-sort@{Linked\-List\-\_\-sort}}
 \index{Linked\-List\-\_\-sort@{Linked\-List\-\_\-sort}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-sort}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-\_\-sort (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{Comparator}]{comparator}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_afdc8b021bd918462c416ed3f5c2f6b86}
+)}}\label{LinkedList_8c_a8219a44c024f4dfcd290581d63b13f8b}
 
 
 Sort a \hyperlink{structLinkedList}{Linked\-List} by a comparator. 
@@ -297,30 +288,28 @@ This function uses bubble sort.
 \end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{structLinkedList}{Linked\-List} to be sorted. \\
-\hline
 {\em comparator} & The comparator for sorting. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 265 of file Linked\-List.\-c.
+Definition at line 233 of file Linked\-List.\-c.
 
-\hypertarget{LinkedList_8c_a129e53a044959c57f2384da71c5ef62e}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-swap@{Linked\-List\-\_\-swap}}
+\hypertarget{LinkedList_8c_a69828ecc986a5dc04bf748199c9dffa2}{\index{Linked\-List.\-c@{Linked\-List.\-c}!Linked\-List\-\_\-swap@{Linked\-List\-\_\-swap}}
 \index{Linked\-List\-\_\-swap@{Linked\-List\-\_\-swap}!LinkedList.c@{Linked\-List.\-c}}
 \subsubsection[{Linked\-List\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-\_\-swap (
 \begin{DoxyParamCaption}
-\item[{{\bf Linked\-List} $\ast$}]{list, }
+\item[{{\bf Linked\-List} $\ast$}]{this, }
 \item[{{\bf Linked\-List\-Node} $\ast$}]{node1, }
 \item[{{\bf Linked\-List\-Node} $\ast$}]{node2}
 \end{DoxyParamCaption}
-)}}\label{LinkedList_8c_a129e53a044959c57f2384da71c5ef62e}
+)}}\label{LinkedList_8c_a69828ecc986a5dc04bf748199c9dffa2}
 
 
 Swap two nodes in a \hyperlink{structLinkedList}{Linked\-List}. 
 
 \begin{DoxyNote}{Note}
-This function will simply swap the data of the two nodes. 
+This function will simply swap the book of the two nodes. 
 \end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
@@ -331,5 +320,5 @@ This function will simply swap the data of the two nodes.
 \end{DoxyParams}
 
 
-Definition at line 253 of file Linked\-List.\-c.
+Definition at line 222 of file Linked\-List.\-c.
 

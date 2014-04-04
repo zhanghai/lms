@@ -97,7 +97,7 @@
 \item {\ttfamily \hyperlink{structBook}{Book}}
 
 图书的数据结构，包含新建、删除、序列化、逆序列化、引用计数、打印等方法。
-\item {\ttfamily Book\-List}
+\item {\ttfamily \hyperlink{structBookList}{Book\-List}}
 
 图书列表的数据结构，“继承”于{\ttfamily \hyperlink{structLinkedList}{Linked\-List}}类，包含新建、删除、序列化、逆序列化、添加、插入、删除、交换、排序、查找等方法。
 \item {\ttfamily Book\-Filters}
@@ -117,7 +117,7 @@
 \begin{DoxyEnumerate}
 \item 链表
 
-本系统中{\ttfamily \hyperlink{structLinkedList}{Linked\-List}}类提供了双向链表的实现，在基础的增减操作外同时提供了冒泡排序、顺序查找功能，并在{\ttfamily Book\-List}中被使用。
+本系统中{\ttfamily \hyperlink{structLinkedList}{Linked\-List}}类提供了双向链表的实现，在基础的增减操作外同时提供了冒泡排序、顺序查找功能，并在{\ttfamily \hyperlink{structBookList}{Book\-List}}中被使用。
 \item 动态数组
 
 本系统中{\ttfamily \hyperlink{structArrayList}{Array\-List}}类提供了动态数组的实现，由于需求与时间均较少，仅仅提供了在尾部增加的功能，并在{\ttfamily Book\-Filters\-\_\-compound}中被使用。
@@ -192,7 +192,7 @@
 
 在实现了各个模块的{\ttfamily 封装}之后，我们发现{\ttfamily book\-\_\-list}的链表结构其实是通用的一个双向链表实现，因此想要将这个实现拆分出来方便日后的代码复用。那么，{\ttfamily book\-\_\-list}自然就成为了{\ttfamily 继承}于{\ttfamily linked\-\_\-list}的一个派生类，{\ttfamily 继承}的概念在{\ttfamily 封装}之后被引入了我们的程序，所以我们决定放弃{\ttfamily C}语言本身{\ttfamily 面向过程编程}的方式，开始使用{\ttfamily 面向对象编程}的思想组织代码，同时开始采用{\ttfamily Java}风格的命名规范。
 
-确立了面向对象编程的方法后我们顺利编写了大量代码，直到引入{\ttfamily 引用计数}的内存管理后链表节点的创建与释放需要在派生的{\ttfamily Book\-List}类中进行{\ttfamily 重写}，以便基类{\ttfamily \hyperlink{structLinkedList}{Linked\-List}}可以正确地对{\ttfamily \hyperlink{structBook}{Book}}对象进行内存管理。因此，我们想到了利用{\ttfamily C}语言中函数指针的特性，建立函数指针列表以实现类的{\ttfamily 多态}性（类似于{\ttfamily C++}中的{\ttfamily vftable}）。
+确立了面向对象编程的方法后我们顺利编写了大量代码，直到引入{\ttfamily 引用计数}的内存管理后链表节点的创建与释放需要在派生的{\ttfamily \hyperlink{structBookList}{Book\-List}}类中进行{\ttfamily 重写}，以便基类{\ttfamily \hyperlink{structLinkedList}{Linked\-List}}可以正确地对{\ttfamily \hyperlink{structBook}{Book}}对象进行内存管理。因此，我们想到了利用{\ttfamily C}语言中函数指针的特性，建立函数指针列表以实现类的{\ttfamily 多态}性（类似于{\ttfamily C++}中的{\ttfamily vftable}）。
 
 至此，我们基本完成了{\ttfamily 面向对象编程}的三大特点在{\ttfamily C}语言中的实践。这三个特性的引入，并非将另一语言的思想生搬硬套地代入，而是从实际需要出发的不断补充，并且优雅地解决了程序开发中的代码组织问题，因此我们认为这次实践拥有一定的价值。
 \item 资源获取即初始化（\-R\-A\-I\-I，\-Resource Acquisition Is Initialization）
@@ -213,7 +213,7 @@
 
 为了解决字符串可能带来的内存泄漏，我们建立了类的机制，约定使用\-R\-A\-I\-I及析构函数使各个类分别管理各自成员的内存。
 
-针对用户需要在{\ttfamily Book\-List}中搜索{\ttfamily \hyperlink{structBook}{Book}}对象，同时搜索结果也将为一个{\ttfamily Book\-List}的需求，我们决定让每本书在程序中拥有唯一的{\ttfamily \hyperlink{structBook}{Book}}示例并让容器类维护引用计数，从而使得书目的编辑、删除变得简洁明了，同时有效解决了内存管理的问题。
+针对用户需要在{\ttfamily \hyperlink{structBookList}{Book\-List}}中搜索{\ttfamily \hyperlink{structBook}{Book}}对象，同时搜索结果也将为一个{\ttfamily \hyperlink{structBookList}{Book\-List}}的需求，我们决定让每本书在程序中拥有唯一的{\ttfamily \hyperlink{structBook}{Book}}示例并让容器类维护引用计数，从而使得书目的编辑、删除变得简洁明了，同时有效解决了内存管理的问题。
 \item 多过滤器搜索的实现
 
 考虑到用户需要访问某本书时，可能需要对书目信息的某几个字段或全文进行不同关键字的搜索，因此我们设计了多过滤器的机制，并通过{\ttfamily \hyperlink{structBookFilter}{Book\-Filter}}结构实现了过滤器的闭包。在{\ttfamily Book\-Filters}中，我们预先定义了所有单个条目的过滤函数与一个全文过滤函数，同时定义了一个复合过滤函数{\ttfamily Book\-Filters\-\_\-compound}，它可以接受一个过滤器列表并分别调用各个过滤器来获得最终的结果。

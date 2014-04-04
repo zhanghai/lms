@@ -64,7 +64,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
-      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,8 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
 <div class="title">LinkedList Struct Reference</div>  </div>
 </div><!--header-->
@@ -93,58 +91,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ab0f2e260b7ea9b4259188fa1ed9c855f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0f2e260b7ea9b4259188fa1ed9c855f"></a>
-<a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>head</b></td></tr>
-<tr class="separator:ab0f2e260b7ea9b4259188fa1ed9c855f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad88e00638ee39ab681869c1ae8b685b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad88e00638ee39ab681869c1ae8b685b2"></a>
-<a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>tail</b></td></tr>
-<tr class="separator:ad88e00638ee39ab681869c1ae8b685b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8983298fc229caceaa6435c9c20417dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8983298fc229caceaa6435c9c20417dc"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
-<tr class="separator:a8983298fc229caceaa6435c9c20417dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ab6cc1736f85c5b6241908fd411d11c4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListMethods.html">LinkedListMethods</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedList.html#ab6cc1736f85c5b6241908fd411d11c4b">methods</a></td></tr>
-<tr class="memdesc:ab6cc1736f85c5b6241908fd411d11c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following function table are intended only for subclass to use.  <a href="#ab6cc1736f85c5b6241908fd411d11c4b">More...</a><br/></td></tr>
-<tr class="separator:ab6cc1736f85c5b6241908fd411d11c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782be244ed9e9f82bc0925a3a48220f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a782be244ed9e9f82bc0925a3a48220f3"></a>
+<a class="el" href="structLinkedList__Fields.html">LinkedList_Fields</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>fields</b></td></tr>
+<tr class="separator:a782be244ed9e9f82bc0925a3a48220f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d977f15ed59b7984af0c9e418f116dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d977f15ed59b7984af0c9e418f116dc"></a>
+<a class="el" href="structLinkedList__Methods.html">LinkedList_Methods</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>methods</b></td></tr>
+<tr class="separator:a6d977f15ed59b7984af0c9e418f116dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="LinkedList_8h_source.html#l00068">68</a> of file <a class="el" href="LinkedList_8h_source.html">LinkedList.h</a>.</p>
-</div><h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="ab6cc1736f85c5b6241908fd411d11c4b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structLinkedListMethods.html">LinkedListMethods</a> LinkedList::methods</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The following function table are intended only for subclass to use. </p>
-<dl class="section note"><dt>Note</dt><dd>You should not add any member after it. </dd></dl>
-
-<p>Definition at line <a class="el" href="LinkedList_8h_source.html#l00077">77</a> of file <a class="el" href="LinkedList_8h_source.html">LinkedList.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<p>Definition at line <a class="el" href="LinkedList_8h_source.html#l00079">79</a> of file <a class="el" href="LinkedList_8h_source.html">LinkedList.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/zh/workspace/eclipse/lms/src/Library/<a class="el" href="LinkedList_8h_source.html">LinkedList.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

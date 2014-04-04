@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,7 +119,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> Lms_promptBookNotFound();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">static</span> <a class="code" href="structLinkedList.html">BookList</a> *Lms_filterBook(<a class="code" href="structLinkedList.html">BookList</a> *list);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">static</span> <a class="code" href="structBookList.html">BookList</a> *Lms_filterBook(<a class="code" href="structBookList.html">BookList</a> *list);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">static</span> <span class="keywordtype">string</span> Lms_readBookString(<span class="keywordtype">string</span> fieldName);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
@@ -128,12 +128,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_readBookBoolean(<span class="keywordtype">string</span> fieldName);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookString(<span class="keywordtype">string</span> field, <span class="keywordtype">string</span> fieldName);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookString(<span class="keywordtype">string</span> *field, <span class="keywordtype">string</span> fieldName);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookStringArray(<span class="keywordtype">string</span> array[], <span class="keywordtype">size_t</span> size,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookStringArray(<span class="keywordtype">string</span> (*array)[], <span class="keywordtype">size_t</span> size,</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">string</span> fieldName);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookBool(<span class="keywordtype">bool</span> field, <span class="keywordtype">string</span> fieldName);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookBool(<span class="keywordtype">bool</span> *field, <span class="keywordtype">string</span> fieldName);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> Lms_printTitle(<span class="keywordtype">string</span> title) {</div>
@@ -168,7 +168,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Console_prompt(<span class="stringliteral">&quot;No book was found by specified filter(s).&quot;</span>);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">static</span> <a class="code" href="structLinkedList.html">BookList</a> *Lms_filterBook(<a class="code" href="structLinkedList.html">BookList</a> *list) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">static</span> <a class="code" href="structBookList.html">BookList</a> *Lms_filterBook(<a class="code" href="structBookList.html">BookList</a> *list) {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> INDEXES[] = {<span class="stringliteral">&quot;0&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>, <span class="stringliteral">&quot;3&quot;</span>, <span class="stringliteral">&quot;4&quot;</span>, <span class="stringliteral">&quot;5&quot;</span>, <span class="stringliteral">&quot;6&quot;</span>,</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="stringliteral">&quot;7&quot;</span>};</div>
@@ -177,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">string</span> keyword;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="structBookFilter.html">BookFilter</a> *filter, compoundFilter;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="structArrayList.html">ArrayList</a> *filters = ArrayList_new();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="structLinkedList.html">BookList</a> *result;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="structBookList.html">BookList</a> *result;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    Lms_printBookFilters();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">do</span> {</div>
@@ -192,7 +192,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    compoundFilter.filter = <a class="code" href="BookFilters_8c.html#a1007712a46203acf0abcace91e981235">BookFilters_compound</a>;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    compoundFilter.filterData = filters;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    result = <a class="code" href="BookList_8c.html#a4a566a734eaed091f59df4fdd36f5c5e">BookList_search</a>(list, compoundFilter);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    result = $(list, search, compoundFilter);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    ARRAY_LIST_FOR_EACH(filters, filter) {</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        Memory_free(filter-&gt;filterData);</div>
@@ -229,14 +229,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> Console_readChoiceBoolean(fieldName);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookString(<span class="keywordtype">string</span> field, <span class="keywordtype">string</span> fieldName) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookString(<span class="keywordtype">string</span> *field, <span class="keywordtype">string</span> fieldName) {</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    Console_print(<span class="stringliteral">&quot;Do you want to modify %s?&quot;</span>, fieldName);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">switch</span> (Console_readChoice(<span class="stringliteral">&quot;&quot;</span>, Lms_CHOICES_YNQ,</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            array_size(Lms_CHOICES_YNQ))) {</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        Memory_free(field);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        Memory_free(*field);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        Console_print(<span class="stringliteral">&quot;Enter new %s: &quot;</span>, fieldName);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        field = Console_readLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        *field = Console_readLine(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">case</span> 1:</div>
@@ -251,14 +251,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookStringArray(<span class="keywordtype">string</span> array[], <span class="keywordtype">size_t</span> size,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookStringArray(<span class="keywordtype">string</span> (*array)[], <span class="keywordtype">size_t</span> size,</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordtype">string</span> fieldName) {</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">size_t</span> i;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">bool</span> fill = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; size; ++i) {</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">if</span> (!fill) {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">if</span> (string_isEmpty(array[i])</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    &amp;&amp; string_isEmpty(array[i - 1])) {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">if</span> (string_isEmpty((*array)[i])</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    &amp;&amp; string_isEmpty((*array)[i - 1])) {</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            }</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            Console_print(<span class="stringliteral">&quot;Do you want to modify %s %zu?&quot;</span>, fieldName,</div>
@@ -266,10 +266,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">switch</span> (Console_readChoice(<span class="stringliteral">&quot;&quot;</span>, Lms_CHOICES_YNQ,</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    array_size(Lms_CHOICES_YNQ))) {</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                Memory_free(array[i]);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                Memory_free((*array)[i]);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                Console_print(<span class="stringliteral">&quot;Enter new %s %zu: &quot;</span>, fieldName, i + 1);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                array[i] = Console_readLine(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                <span class="keywordflow">if</span> (string_isEmpty(array[i])) {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                (*array)[i] = Console_readLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                <span class="keywordflow">if</span> (string_isEmpty((*array)[i])) {</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                    fill = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                }</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -283,21 +283,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            }</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordflow">if</span> (!string_isEmpty(array[i])) {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                array[i] = string_clone(string_EMPTY);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordflow">if</span> (!string_isEmpty((*array)[i])) {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                (*array)[i] = string_clone(string_EMPTY);</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            }</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        }</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;}</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookBool(<span class="keywordtype">bool</span> field, <span class="keywordtype">string</span> fieldName) {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Lms_modifyBookBool(<span class="keywordtype">bool</span> *field, <span class="keywordtype">string</span> fieldName) {</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    Console_print(<span class="stringliteral">&quot;Do you want to modify %s?&quot;</span>, fieldName);</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">switch</span> (Console_readChoice(<span class="stringliteral">&quot;&quot;</span>, Lms_CHOICES_YNQ,</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            array_size(Lms_CHOICES_YNQ))) {</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">case</span> 0:</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        Console_print(<span class="stringliteral">&quot;Enter new %s: &quot;</span>, fieldName);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        field = Console_readChoiceBoolean(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        *field = Console_readChoiceBoolean(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">case</span> 1:</div>
@@ -312,13 +312,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    }</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<a class="code" href="structLinkedList.html">BookList</a> *Lms_deserializeOrCreateBookList(<span class="keywordtype">string</span> filename) {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<a class="code" href="structBookList.html">BookList</a> *Lms_deserializeOrCreateBookList(<span class="keywordtype">string</span> filename) {</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    FILE *file;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <a class="code" href="structLinkedList.html">BookList</a> *list;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <a class="code" href="structBookList.html">BookList</a> *list;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">if</span> ((file = fopen(filename, <span class="stringliteral">&quot;rb&quot;</span>)) == null) {</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">if</span> (errno == ENOENT) {</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="comment">// File not found, simply return a new BookList.</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="BookList_8c.html#a60f97f8cc6e719256fc0a89d21b55dbb">BookList_new</a>();</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <span class="keywordflow">return</span> BookList_new();</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="comment">// File already exists, but we failed to open it for reading.</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            Application_fatalError(<span class="stringliteral">&quot;Opening database file for reading failed.&quot;</span>);</div>
@@ -330,7 +330,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">return</span> list;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keywordtype">bool</span> Lms_serializeBookList(<a class="code" href="structLinkedList.html">BookList</a> *list, <span class="keywordtype">string</span> filename) {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keywordtype">bool</span> Lms_serializeBookList(<a class="code" href="structBookList.html">BookList</a> *list, <span class="keywordtype">string</span> filename) {</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    FILE *file;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">bool</span> result;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span> ((file = fopen(filename, <span class="stringliteral">&quot;wb&quot;</span>)) == null) {</div>
@@ -342,30 +342,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keywordtype">void</span> Lms_searchBook(<a class="code" href="structLinkedList.html">BookList</a> *list) {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keywordtype">void</span> Lms_searchBook(<a class="code" href="structBookList.html">BookList</a> *list) {</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <a class="code" href="structLinkedList.html">BookList</a> *result;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="structLinkedListNode.html">BookNode</a> *node;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <a class="code" href="structBookList.html">BookList</a> *result;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="structBookListNode.html">BookListNode</a> *node;</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    result = Lms_filterBook(list);</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    Console_printSeparator();</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">if</span> (result-&gt;size == 0) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">if</span> (_(result, size) == 0) {</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        Lms_promptBookNotFound();</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        Lms_printBookFound(result-&gt;size);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        Lms_printBookFound(_(result, size));</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            Console_printSeparator();</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(node-&gt;data, stdout);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(node-&gt;book, stdout);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        }</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        Console_printSeparator();</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        Console_pause();</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <a class="code" href="BookList_8c.html#a4069e5178c238840f883994215a3e15c">BookList_delete</a>(result);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    BookList_delete(result);</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keywordtype">void</span> Lms_addBook(<a class="code" href="structLinkedList.html">BookList</a> *list) {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keywordtype">void</span> Lms_addBook(<a class="code" href="structBookList.html">BookList</a> *list) {</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">string</span> title, authors[5], number, subjects[5], publisher, year;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">bool</span> circulating;</div>
@@ -381,162 +381,159 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    book = <a class="code" href="Book_8c.html#a9478207f0ec9ccdb53d858e1d102211b">Book_new</a>(title, authors, number, subjects, publisher, year,</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            circulating);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="BookList_8c.html#aec921a568edcc34c737da73f25c2b360">BookList_addEnd</a>(list, book);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    $(list, addEnd, book);</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <a class="code" href="Book_8c.html#a75cd1575560384d112b857bd9462820e">Book_removeReference</a>(book);</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    Console_printSeparator();</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    Console_prompt(<span class="stringliteral">&quot;Book added successfully.&quot;</span>);</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;}</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keywordtype">void</span> Lms_modifyBook(<a class="code" href="structLinkedList.html">BookList</a> *list) {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keywordtype">void</span> Lms_modifyBook(<a class="code" href="structBookList.html">BookList</a> *list) {</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <a class="code" href="structLinkedList.html">BookList</a> *result;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <a class="code" href="structLinkedListNode.html">BookNode</a> *node;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <a class="code" href="structBookList.html">BookList</a> *result;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <a class="code" href="structBookListNode.html">BookListNode</a> *node;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <a class="code" href="structBook.html">Book</a> *book;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordtype">bool</span> quit = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    result = Lms_filterBook(list);</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    Console_printSeparator();</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">if</span> (result-&gt;size == 0) {</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">if</span> (_(result, size) == 0) {</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        Lms_promptBookNotFound();</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        Lms_printBookFound(result-&gt;size);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        Lms_printBookFound(_(result, size));</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            book = node-&gt;data;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            book = node-&gt;book;</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            Console_printSeparator();</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(book, stdout);</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            Console_printSeparator();</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordflow">switch</span> (Console_readChoice(<span class="stringliteral">&quot;Do you want to modify this book?&quot;</span>,</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                    Lms_CHOICES_YNQ, array_size(Lms_CHOICES_YNQ))) {</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                <span class="keywordflow">if</span> (Lms_modifyBookString(book-&gt;title,</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                        Book_FIELD_NAMES[0])) {</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                    <span class="comment">// HACK: Use the boolean result with an empty if.</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                    <span class="keywordflow">if</span> (Lms_modifyBookStringArray(book-&gt;authors, 5, <span class="stringliteral">&quot;Author&quot;</span>)</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    &amp;&amp; Lms_modifyBookString(book-&gt;number,</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                            Book_FIELD_NAMES[2])</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                    &amp;&amp; Lms_modifyBookStringArray(book-&gt;subjects, 5, <span class="stringliteral">&quot;Subject&quot;</span>)</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                    &amp;&amp; Lms_modifyBookString(book-&gt;publisher,</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                            Book_FIELD_NAMES[4])</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                    &amp;&amp; Lms_modifyBookString(book-&gt;year,</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                            Book_FIELD_NAMES[5])</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                    &amp;&amp; Lms_modifyBookBool(book-&gt;circulating,</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                            Book_FIELD_NAMES[6])) {}</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                    Console_printSeparator();</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                    Console_prompt(<span class="stringliteral">&quot;Book modified successfully.&quot;</span>);</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordflow">switch</span> (Console_readChoice(</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                    <span class="stringliteral">&quot;Do you want to modify this book?&quot;</span>,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                    Lms_CHOICES_YNQ, array_size(Lms_CHOICES_YNQ))) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                <span class="keywordflow">if</span> (Lms_modifyBookString(&amp;book-&gt;title,</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                        Book_FIELD_NAMES[0])) {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                    <span class="comment">// HACK: Use the boolean result with an empty if.</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    <span class="keywordflow">if</span> (Lms_modifyBookStringArray(&amp;book-&gt;authors, 5,</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                            <span class="stringliteral">&quot;Author&quot;</span>)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                    &amp;&amp; Lms_modifyBookString(&amp;book-&gt;number,</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                            Book_FIELD_NAMES[2])</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                    &amp;&amp; Lms_modifyBookStringArray(&amp;book-&gt;subjects, 5, <span class="stringliteral">&quot;Subject&quot;</span>)</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                    &amp;&amp; Lms_modifyBookString(&amp;book-&gt;publisher,</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                            Book_FIELD_NAMES[4])</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                    &amp;&amp; Lms_modifyBookString(&amp;book-&gt;year,</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                            Book_FIELD_NAMES[5])</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                    &amp;&amp; Lms_modifyBookBool(&amp;book-&gt;circulating,</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                            Book_FIELD_NAMES[6])) {}</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                    Console_printSeparator();</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                    Console_prompt(<span class="stringliteral">&quot;Book modified successfully.&quot;</span>);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                }</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                quit = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                Application_fatalError(<span class="stringliteral">&quot;Internal error at Lms_modifyBook()&quot;</span>);</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            }</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">if</span> (quit) {</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            }</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        }</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    }</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <a class="code" href="BookList_8c.html#a4069e5178c238840f883994215a3e15c">BookList_delete</a>(result);</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;}</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keywordtype">void</span> Lms_removeBook(<a class="code" href="structLinkedList.html">BookList</a> *list) {</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                quit = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                Application_fatalError(<span class="stringliteral">&quot;Internal error at Lms_modifyBook()&quot;</span>);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            }</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="keywordflow">if</span> (quit) {</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            }</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    BookList_delete(result);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;}</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <a class="code" href="structLinkedList.html">BookList</a> *result;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <a class="code" href="structLinkedListNode.html">BookNode</a> *node;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    result = Lms_filterBook(list);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="keywordtype">void</span> Lms_removeBook(<a class="code" href="structBookList.html">BookList</a> *list) {</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <a class="code" href="structBookList.html">BookList</a> *result;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <a class="code" href="structBookListNode.html">BookListNode</a> *node;</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    Console_printSeparator();</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">if</span> (result-&gt;size == 0) {</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        Lms_promptBookNotFound();</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        Lms_printBookFound(result-&gt;size);</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            Console_printSeparator();</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(node-&gt;data, stdout);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    result = Lms_filterBook(list);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    Console_printSeparator();</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">if</span> (_(result, size) == 0) {</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        Lms_promptBookNotFound();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        Lms_printBookFound(_(result, size));</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            Console_printSeparator();</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            <span class="keywordflow">if</span> (Console_readChoiceYN(<span class="stringliteral">&quot;Do you want to remove this book? &quot;</span>)) {</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                <a class="code" href="BookList_8c.html#a0d2731d68bd459074fd934a3c903c789">BookList_remove</a>(list, node-&gt;data);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                Console_printSeparator();</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                Console_prompt(<span class="stringliteral">&quot;Book removed successfully.&quot;</span>);</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            }</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    }</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <a class="code" href="BookList_8c.html#a4069e5178c238840f883994215a3e15c">BookList_delete</a>(result);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;}</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keywordtype">void</span> Lms_loop() {</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(node-&gt;book, stdout);</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            Console_printSeparator();</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            <span class="keywordflow">if</span> (Console_readChoiceYN(<span class="stringliteral">&quot;Do you want to remove this book? &quot;</span>)) {</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                $(list, <span class="keyword">remove</span>, node-&gt;book);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                Console_printSeparator();</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                Console_prompt(<span class="stringliteral">&quot;Book removed successfully.&quot;</span>);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            }</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    }</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    BookList_delete(result);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;}</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> FUNCTION_CHOICES[] = {<span class="stringliteral">&quot;0&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>, <span class="stringliteral">&quot;3&quot;</span>, <span class="stringliteral">&quot;4&quot;</span>};</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="keywordtype">void</span> Lms_loop() {</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <a class="code" href="structLinkedList.html">BookList</a> *list;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordtype">size_t</span> choice;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordtype">bool</span> quit = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordflow">if</span> ((list = Lms_deserializeOrCreateBookList(Lms_DATABASE_FILENAME)) == NULL) {</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        Application_fatalError(<span class="stringliteral">&quot;Reading database from file failed.&quot;</span>);</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    }</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordflow">do</span> {</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        Lms_printTitle(<span class="stringliteral">&quot;Library Management System&quot;</span>);</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        Lms_printFunctions();</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        choice = Console_readChoice(<span class="stringliteral">&quot;Please select a function&quot;</span>,</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                FUNCTION_CHOICES, array_size(FUNCTION_CHOICES));</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        Lms_printTitle(Lms_FUNCTIONS[choice]);</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keywordflow">switch</span> (choice) {</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            quit = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            Lms_searchBook(list);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            Lms_addBook(list);</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            Lms_modifyBook(list);</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            Lms_removeBook(list);</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            Application_fatalError(<span class="stringliteral">&quot;Internal error at Lms_modifyBookString()&quot;</span>);</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        }</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    } <span class="keywordflow">while</span> (!quit);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordflow">if</span> (!Lms_serializeBookList(list, Lms_DATABASE_FILENAME)) {</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        Console_printErrorLine(<span class="stringliteral">&quot;Writing database to file failed.&quot;</span>);</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    }</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;}</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> FUNCTION_CHOICES[] = {<span class="stringliteral">&quot;0&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>, <span class="stringliteral">&quot;3&quot;</span>, <span class="stringliteral">&quot;4&quot;</span>};</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <a class="code" href="structBookList.html">BookList</a> *list;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordtype">size_t</span> choice;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordtype">bool</span> quit = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keywordflow">if</span> ((list = Lms_deserializeOrCreateBookList(Lms_DATABASE_FILENAME)) == NULL) {</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        Application_fatalError(<span class="stringliteral">&quot;Reading database from file failed.&quot;</span>);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    }</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        Lms_printTitle(<span class="stringliteral">&quot;Library Management System&quot;</span>);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        Lms_printFunctions();</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        choice = Console_readChoice(<span class="stringliteral">&quot;Please select a function&quot;</span>,</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                FUNCTION_CHOICES, array_size(FUNCTION_CHOICES));</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        Lms_printTitle(Lms_FUNCTIONS[choice]);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keywordflow">switch</span> (choice) {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            quit = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            Lms_searchBook(list);</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            Lms_addBook(list);</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            Lms_modifyBook(list);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            Lms_removeBook(list);</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            Application_fatalError(<span class="stringliteral">&quot;Internal error at Lms_modifyBookString()&quot;</span>);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        }</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    } <span class="keywordflow">while</span> (!quit);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordflow">if</span> (!Lms_serializeBookList(list, Lms_DATABASE_FILENAME)) {</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        Console_printErrorLine(<span class="stringliteral">&quot;Writing database to file failed.&quot;</span>);</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;}</div>
 <div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
-<div class="ttc" id="BookList_8c_html_a4069e5178c238840f883994215a3e15c"><div class="ttname"><a href="BookList_8c.html#a4069e5178c238840f883994215a3e15c">BookList_delete</a></div><div class="ttdeci">void BookList_delete(BookList *list)</div><div class="ttdoc">Destroy a BookList instance. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00050">BookList.c:50</a></div></div>
-<div class="ttc" id="BookList_8c_html_a60f97f8cc6e719256fc0a89d21b55dbb"><div class="ttname"><a href="BookList_8c.html#a60f97f8cc6e719256fc0a89d21b55dbb">BookList_new</a></div><div class="ttdeci">BookList * BookList_new()</div><div class="ttdoc">Create a new instance of BookList. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00024">BookList.c:24</a></div></div>
-<div class="ttc" id="BookList_8c_html_a0d2731d68bd459074fd934a3c903c789"><div class="ttname"><a href="BookList_8c.html#a0d2731d68bd459074fd934a3c903c789">BookList_remove</a></div><div class="ttdeci">void BookList_remove(BookList *list, Book *book)</div><div class="ttdoc">Remove a Book instance from a BookList. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00168">BookList.c:168</a></div></div>
-<div class="ttc" id="BookList_8c_html_aec921a568edcc34c737da73f25c2b360"><div class="ttname"><a href="BookList_8c.html#aec921a568edcc34c737da73f25c2b360">BookList_addEnd</a></div><div class="ttdeci">BookNode * BookList_addEnd(BookList *list, Book *book)</div><div class="ttdoc">Add a Book instance to the end of a BookList. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00119">BookList.c:119</a></div></div>
 <div class="ttc" id="Book_8c_html_a802c99e1bef05ddbe41e5cf896341f3e"><div class="ttname"><a href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a></div><div class="ttdeci">void Book_print(Book *book, FILE *file)</div><div class="ttdoc">Print the information stored in a Book instance. </div><div class="ttdef"><b>Definition:</b> <a href="Book_8c_source.html#l00173">Book.c:173</a></div></div>
-<div class="ttc" id="BookList_8c_html_a4a566a734eaed091f59df4fdd36f5c5e"><div class="ttname"><a href="BookList_8c.html#a4a566a734eaed091f59df4fdd36f5c5e">BookList_search</a></div><div class="ttdeci">BookList * BookList_search(BookList *list, BookFilter filter)</div><div class="ttdoc">Search in a BookList by a filter. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00202">BookList.c:202</a></div></div>
 <div class="ttc" id="Book_8c_html_a9478207f0ec9ccdb53d858e1d102211b"><div class="ttname"><a href="Book_8c.html#a9478207f0ec9ccdb53d858e1d102211b">Book_new</a></div><div class="ttdeci">Book * Book_new(string title, string authors[5], string number, string subjects[5], string publisher, string year, bool circulating)</div><div class="ttdoc">Create a new instance of Book. </div><div class="ttdef"><b>Definition:</b> <a href="Book_8c_source.html#l00037">Book.c:37</a></div></div>
 <div class="ttc" id="Book_8c_html_a75cd1575560384d112b857bd9462820e"><div class="ttname"><a href="Book_8c.html#a75cd1575560384d112b857bd9462820e">Book_removeReference</a></div><div class="ttdeci">void Book_removeReference(Book *book)</div><div class="ttdoc">Remove a reference to a Book instance, will delete the instance if reference count reaches 0...</div><div class="ttdef"><b>Definition:</b> <a href="Book_8c_source.html#l00087">Book.c:87</a></div></div>
+<div class="ttc" id="structBookList_html"><div class="ttname"><a href="structBookList.html">BookList</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00084">BookList.h:84</a></div></div>
 <div class="ttc" id="BookFilters_8c_html_a1007712a46203acf0abcace91e981235"><div class="ttname"><a href="BookFilters_8c.html#a1007712a46203acf0abcace91e981235">BookFilters_compound</a></div><div class="ttdeci">bool BookFilters_compound(Book *book, void *list)</div><div class="ttdoc">A compound BookFilter function. </div><div class="ttdef"><b>Definition:</b> <a href="BookFilters_8c_source.html#l00073">BookFilters.c:73</a></div></div>
-<div class="ttc" id="structLinkedList_html"><div class="ttname"><a href="structLinkedList.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="LinkedList_8h_source.html#l00068">LinkedList.h:68</a></div></div>
 <div class="ttc" id="Lms_8h_html"><div class="ttname"><a href="Lms_8h.html">Lms.h</a></div></div>
-<div class="ttc" id="BookList_8c_html_a2f14cf9aec7ea267db2ab86ac9795e41"><div class="ttname"><a href="BookList_8c.html#a2f14cf9aec7ea267db2ab86ac9795e41">BookList_deserialize</a></div><div class="ttdeci">BookList * BookList_deserialize(FILE *file)</div><div class="ttdoc">Deserialize a BookList from file. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00083">BookList.c:83</a></div></div>
+<div class="ttc" id="BookList_8c_html_a2f14cf9aec7ea267db2ab86ac9795e41"><div class="ttname"><a href="BookList_8c.html#a2f14cf9aec7ea267db2ab86ac9795e41">BookList_deserialize</a></div><div class="ttdeci">BookList * BookList_deserialize(FILE *file)</div><div class="ttdoc">Deserialize a BookList from file. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00065">BookList.c:65</a></div></div>
 <div class="ttc" id="structArrayList_html"><div class="ttname"><a href="structArrayList.html">ArrayList</a></div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00017">ArrayList.h:17</a></div></div>
-<div class="ttc" id="BookList_8c_html_afec208d4d15dcfa8a462e0681dd90991"><div class="ttname"><a href="BookList_8c.html#afec208d4d15dcfa8a462e0681dd90991">BookList_serialize</a></div><div class="ttdeci">bool BookList_serialize(BookList *list, FILE *file)</div><div class="ttdoc">Serialize a BookList to file. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00063">BookList.c:63</a></div></div>
+<div class="ttc" id="BookList_8c_html_afec208d4d15dcfa8a462e0681dd90991"><div class="ttname"><a href="BookList_8c.html#afec208d4d15dcfa8a462e0681dd90991">BookList_serialize</a></div><div class="ttdeci">bool BookList_serialize(BookList *list, FILE *file)</div><div class="ttdoc">Serialize a BookList to file. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00045">BookList.c:45</a></div></div>
 <div class="ttc" id="structBookFilter_html"><div class="ttname"><a href="structBookFilter.html">BookFilter</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00029">Book.h:29</a></div></div>
+<div class="ttc" id="structBookListNode_html"><div class="ttname"><a href="structBookListNode.html">BookListNode</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00022">BookList.h:22</a></div></div>
 <div class="ttc" id="ArrayList_8h_html"><div class="ttname"><a href="ArrayList_8h.html">ArrayList.h</a></div></div>
 <div class="ttc" id="Console_8h_html"><div class="ttname"><a href="Console_8h.html">Console.h</a></div></div>
-<div class="ttc" id="structLinkedListNode_html"><div class="ttname"><a href="structLinkedListNode.html">LinkedListNode</a></div><div class="ttdef"><b>Definition:</b> <a href="LinkedList_8h_source.html#l00018">LinkedList.h:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

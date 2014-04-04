@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -184,7 +184,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;     图书的数据结构，包含新建、删除、序列化、逆序列化、引用计数、打印等方法。</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;   * `<a class="code" href="structLinkedList.html">BookList</a>`</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;   * `<a class="code" href="structBookList.html">BookList</a>`</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;     图书列表的数据结构，“继承”于`<a class="code" href="structLinkedList.html">LinkedList</a>`类，包含新建、删除、序列化、逆序列化、添加、插入、删除、交换、排序、查找等方法。</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
@@ -202,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;1. 链表</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;   本系统中`<a class="code" href="structLinkedList.html">LinkedList</a>`类提供了双向链表的实现，在基础的增减操作外同时提供了冒泡排序、顺序查找功能，并在`<a class="code" href="structLinkedList.html">BookList</a>`中被使用。</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;   本系统中`<a class="code" href="structLinkedList.html">LinkedList</a>`类提供了双向链表的实现，在基础的增减操作外同时提供了冒泡排序、顺序查找功能，并在`<a class="code" href="structBookList.html">BookList</a>`中被使用。</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;2. 动态数组</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
@@ -220,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;* [`<a class="code" href="structBook.html">Book</a>`](doxygen/html/Book_8c.html)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;* [`<a class="code" href="structLinkedList.html">BookList</a>`](doxygen/html/BookList_8c.html)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;* [`<a class="code" href="structBookList.html">BookList</a>`](doxygen/html/BookList_8c.html)</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;## 系统设计</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
@@ -350,13 +350,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="stringliteral">   若一定要自己实现，可以按照常规方法实现一个数据库，而另一个效率较低但可以处理大量数据的简单实现则是直接利用文件系统的功能，将每本书存储为一个文件，只将需要操作的书籍内容读入内存，并可以实现简单地基于`RLU`策略的缓存。</span></div>
 <div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
+<div class="ttc" id="structBookList_html"><div class="ttname"><a href="structBookList.html">BookList</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00084">BookList.h:84</a></div></div>
 <div class="ttc" id="BookFilters_8c_html_a1007712a46203acf0abcace91e981235"><div class="ttname"><a href="BookFilters_8c.html#a1007712a46203acf0abcace91e981235">BookFilters_compound</a></div><div class="ttdeci">bool BookFilters_compound(Book *book, void *list)</div><div class="ttdoc">A compound BookFilter function. </div><div class="ttdef"><b>Definition:</b> <a href="BookFilters_8c_source.html#l00073">BookFilters.c:73</a></div></div>
-<div class="ttc" id="structLinkedList_html"><div class="ttname"><a href="structLinkedList.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="LinkedList_8h_source.html#l00068">LinkedList.h:68</a></div></div>
+<div class="ttc" id="structLinkedList_html"><div class="ttname"><a href="structLinkedList.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="LinkedList_8h_source.html#l00079">LinkedList.h:79</a></div></div>
 <div class="ttc" id="structArrayList_html"><div class="ttname"><a href="structArrayList.html">ArrayList</a></div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00017">ArrayList.h:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

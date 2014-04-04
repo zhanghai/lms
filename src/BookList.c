@@ -6,52 +6,34 @@
 #include "BookList.h"
 
 
-BookNode *BookNode_new(void *data, BookNode *prev, BookNode *next) {
-    Book_addReference(data);
-    return LinkedListNode_new(data, (LinkedListNode *)prev,
-            (LinkedListNode *)next);
+void BookList_initialize(BookList *this) {
+
+    LinkedList_initialize((LinkedList *)this);
+
+    _$(this, new) = BookList_new;
+    _$(this, delete) = BookList_delete;
+    _$(this, newNode) = BookList_newNode;
+    _$(this, deleteNode) = BookList_deleteNode;
 }
 
-void BookNode_delete(BookNode *node) {
-    Book_removeReference(node->data);
-    LinkedListNode_delete((LinkedListNode *)node);
+void BookList_finalize(BookList *this) {
+    LinkedList_finalize((LinkedList *)this);
 }
 
-/**
- * Create a new instance of {@link BookList}.
- * @return The created {@link BookList} instance.
- */
-BookList *BookList_new() {
+OBJECT_DEFINE_NEW(BookList, BookList_Fields, BookList_Methods)
 
-    BookList *list = Memory_allocateType(BookList);
+OBJECT_DEFINE_DELETE(BookList)
 
-    LinkedList_initialize(list,
-            (LinkedList_MethodNew) BookList_new,
-            (LinkedList_MethodDelete) BookList_delete,
-            (LinkedList_MethodNewNode) BookNode_new,
-            (LinkedList_MethodDeleteNode) BookNode_delete,
-            LinkedList_addStart,
-            LinkedList_addEnd,
-            LinkedList_insertBefore,
-            LinkedList_insertAfter,
-            LinkedList_removeNode,
-            LinkedList_remove,
-            LinkedList_swap,
-            LinkedList_sort,
-            LinkedList_search);
-
-    return list;
+BookListNode *BookList_newNode(Book *book, BookListNode *previous,
+        BookListNode *next) {
+    Book_addReference(book);
+    return (BookListNode *) LinkedList_newNode(book,
+            (LinkedListNode *)previous, (LinkedListNode *)next);
 }
 
-/**
- * Destroy a {@link BookList} instance.
- * @param list The {@link BookList} instance to be destroyed.
- */
-void BookList_delete(BookList *list) {
-
-    LinkedList_finalize((LinkedList *)list);
-
-    Memory_free(list);
+void BookList_deleteNode(BookListNode *node) {
+    LinkedList_deleteNode((LinkedListNode *)node);
+    Book_removeReference(node->book);
 }
 
 /**
@@ -62,11 +44,11 @@ void BookList_delete(BookList *list) {
  */
 bool BookList_serialize(BookList *list, FILE *file) {
 
-    BookNode *node;
+    BookListNode *node;
 
-    size_t_serialize(&list->size, file);
+    size_t_serialize(&_(list, size), file);
     BOOK_LIST_FOR_EACH(list, node) {
-        if (!Book_serialize(node->data, file)) {
+        if (!Book_serialize(node->book, file)) {
             return false;
         }
     }
@@ -78,7 +60,7 @@ bool BookList_serialize(BookList *list, FILE *file) {
  * Deserialize a {@link BookList} from file.
  * @param file The file to deserialize a {@link BookList} from.
  * @return a {@link BookList} deserialized from the file, or null
- *         if failed to read sufficient data.
+ *         if failed to read sufficient book.
  */
 BookList *BookList_deserialize(FILE *file) {
 
@@ -93,112 +75,9 @@ BookList *BookList_deserialize(FILE *file) {
         if ((book = Book_deserialize(file)) == null) {
             return null;
         }
-        BookList_addEnd(list, book);
+        $(list, addEnd, book);
         Book_removeReference(book);
     }
 
     return list;
-}
-
-/**
- * Add a {@link Book} instance to the start of a {@link BookList}.
- * @param list The {@link BookList} to add the book to.
- * @param book The {@link Book} to be added.
- * @return The newly added node in the {@link BookList).
- */
-BookNode *BookList_addStart(BookList *list, Book *book) {
-    return LinkedList_addStart((LinkedList *)list, book);
-}
-
-/**
- * Add a {@link Book} instance to the end of a {@link BookList}.
- * @param list The {@link BookList} to add the book to.
- * @param book The {@link Book} to be added.
- * @return The newly added node in the {@link BookList).
- */
-BookNode *BookList_addEnd(BookList *list, Book *book) {
-    return LinkedList_addEnd((LinkedList *)list, book);
-}
-
-/**
- * Insert a {@link Book} instance before a node in a {@link BookList}.
- * @param list The {@link BookList} to insert the book into.
- * @param node The node to insert before.
- * @param book The {@link Book} to be inserted.
- * @return The newly inserted node in the {@link BookList).
- */
-BookNode *BookList_insertBefore(BookList *list, BookNode *node,
-        Book *book) {
-    return LinkedList_insertBefore((LinkedList *)list,
-            (LinkedListNode *)node, book);
-}
-
-/**
- * Insert a {@link Book} instance after a node in a {@link BookList}.
- * @param list The {@link BookList} to insert the book into.
- * @param node The node to insert after.
- * @param book The {@link Book} to be inserted.
- * @return The newly inserted node in the {@link BookList).
- */
-BookNode *BookList_insertAfter(BookList *list, BookNode *node,
-        Book *book) {
-    return LinkedList_insertAfter((LinkedList *)list,
-            (LinkedListNode *)node, book);
-}
-
-/**
- * Remove a node from a {@link BookList}.
- * @param list The {@link BookList} to remove the node from.
- * @param node The node to be removed.
- * @return the node following the removed one, or null if the tail
- *         node is removed.
- */
-BookNode *BookList_removeNode(BookList *list, BookNode *node) {
-    return LinkedList_removeNode((LinkedList *)list,
-            (LinkedListNode *)node);
-}
-
-/**
- * Remove a {@link Book} instance from a {@link BookList}.
- * @note This function will only remove the first occurrence of the
- *       book.
- * @param list The {@link BookList} to remove the book from.
- * @param book The {@link Book} instance to be removed.
- */
-void BookList_remove(BookList *list, Book *book) {
-    LinkedList_remove((LinkedList *)list, book);
-}
-
-/**
- * Swap two nodes in a {@link BookList}.
- * @note This function will simply swap the {@link Book} objects of
- *       the two nodes.
- * @param node1 The first node to be swapped.
- * @param node2 The second node to be swapped.
- */
-void BookList_swap(BookList *list, BookNode *node1,
-        BookNode *node2) {
-    LinkedList_swap((LinkedList *)list, (LinkedListNode *)node1,
-            (LinkedListNode *)node2);
-}
-
-/**
- * Sort a {@link BookList} by a comparator.
- * @note This function uses bubble sort.
- * @param list The {@link BookList} to be sorted.
- * @param comparator The comparator for sorting.
- */
-void BookList_sort(BookList *list, BookComparator comparator) {
-    LinkedList_sort((LinkedList *)list, (Comparator) comparator);
-}
-
-/**
- * Search in a {@link BookList} by a filter.
- * @param list The {@link BookList} to be searched in.
- * @param filter A filter function for the search.
- * @param criteria The criteria data to be passed into the filter.
- * @return A {@link BookList} containing the result.
- */
-BookList *BookList_search(BookList *list, BookFilter filter) {
-    return LinkedList_search((LinkedList *)list, *(Filter *)&filter);
 }

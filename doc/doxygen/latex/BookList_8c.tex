@@ -5,38 +5,22 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{BookList_8c_adf7f71082cb10f2cf13b7f2c869df379}{\hyperlink{structLinkedListNode}{Book\-Node} $\ast$ {\bfseries Book\-Node\-\_\-new} (void $\ast$data, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$prev, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$next)}\label{BookList_8c_adf7f71082cb10f2cf13b7f2c869df379}
+\hypertarget{BookList_8c_ac8c5e9fdc4c1ccae593c00b695830b66}{void {\bfseries Book\-List\-\_\-initialize} (\hyperlink{structBookList}{Book\-List} $\ast$this)}\label{BookList_8c_ac8c5e9fdc4c1ccae593c00b695830b66}
 
 \item 
-\hypertarget{BookList_8c_a5e84bc36ed60c956e8e88d2b4eefaa87}{void {\bfseries Book\-Node\-\_\-delete} (\hyperlink{structLinkedListNode}{Book\-Node} $\ast$node)}\label{BookList_8c_a5e84bc36ed60c956e8e88d2b4eefaa87}
+\hypertarget{BookList_8c_a01b265f2e71e1f16ac9b2c6ff034d9a0}{void {\bfseries Book\-List\-\_\-finalize} (\hyperlink{structBookList}{Book\-List} $\ast$this)}\label{BookList_8c_a01b265f2e71e1f16ac9b2c6ff034d9a0}
 
 \item 
-\hyperlink{structLinkedList}{Book\-List} $\ast$ \hyperlink{BookList_8c_a60f97f8cc6e719256fc0a89d21b55dbb}{Book\-List\-\_\-new} ()
-\begin{DoxyCompactList}\small\item\em Create a new instance of \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{BookList_8c_a4069e5178c238840f883994215a3e15c}{Book\-List\-\_\-delete} (\hyperlink{structLinkedList}{Book\-List} $\ast$list)
-\begin{DoxyCompactList}\small\item\em Destroy a \hyperlink{}{Book\-List} instance. \end{DoxyCompactList}\item 
-bool \hyperlink{BookList_8c_afec208d4d15dcfa8a462e0681dd90991}{Book\-List\-\_\-serialize} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, F\-I\-L\-E $\ast$file)
-\begin{DoxyCompactList}\small\item\em Serialize a \hyperlink{}{Book\-List} to file. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedList}{Book\-List} $\ast$ \hyperlink{BookList_8c_a2f14cf9aec7ea267db2ab86ac9795e41}{Book\-List\-\_\-deserialize} (F\-I\-L\-E $\ast$file)
-\begin{DoxyCompactList}\small\item\em Deserialize a \hyperlink{}{Book\-List} from file. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Book\-Node} $\ast$ \hyperlink{BookList_8c_a48c581ada5824f744a9a476c6e81091c}{Book\-List\-\_\-add\-Start} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structBook}{Book} $\ast$book)
-\begin{DoxyCompactList}\small\item\em Add a \hyperlink{structBook}{Book} instance to the start of a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Book\-Node} $\ast$ \hyperlink{BookList_8c_aec921a568edcc34c737da73f25c2b360}{Book\-List\-\_\-add\-End} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structBook}{Book} $\ast$book)
-\begin{DoxyCompactList}\small\item\em Add a \hyperlink{structBook}{Book} instance to the end of a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Book\-Node} $\ast$ \hyperlink{BookList_8c_a07e5aa12303b71738d889fce74ceb307}{Book\-List\-\_\-insert\-Before} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$node, \hyperlink{structBook}{Book} $\ast$book)
-\begin{DoxyCompactList}\small\item\em Insert a \hyperlink{structBook}{Book} instance before a node in a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Book\-Node} $\ast$ \hyperlink{BookList_8c_ae801facc7e9cfea643887d946a5aa9d3}{Book\-List\-\_\-insert\-After} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$node, \hyperlink{structBook}{Book} $\ast$book)
-\begin{DoxyCompactList}\small\item\em Insert a \hyperlink{structBook}{Book} instance after a node in a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedListNode}{Book\-Node} $\ast$ \hyperlink{BookList_8c_a52d3477408db4c91955a595cf8cd4594}{Book\-List\-\_\-remove\-Node} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$node)
-\begin{DoxyCompactList}\small\item\em Remove a node from a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{BookList_8c_a0d2731d68bd459074fd934a3c903c789}{Book\-List\-\_\-remove} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structBook}{Book} $\ast$book)
-\begin{DoxyCompactList}\small\item\em Remove a \hyperlink{structBook}{Book} instance from a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{BookList_8c_a26144a970abb9c529293e4b1081a4bf3}{Book\-List\-\_\-swap} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$node1, \hyperlink{structLinkedListNode}{Book\-Node} $\ast$node2)
-\begin{DoxyCompactList}\small\item\em Swap two nodes in a \hyperlink{}{Book\-List}. \end{DoxyCompactList}\item 
-void \hyperlink{BookList_8c_a04c7db55bc6890dd37d531b3bf90c208}{Book\-List\-\_\-sort} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, Book\-Comparator comparator)
-\begin{DoxyCompactList}\small\item\em Sort a \hyperlink{}{Book\-List} by a comparator. \end{DoxyCompactList}\item 
-\hyperlink{structLinkedList}{Book\-List} $\ast$ \hyperlink{BookList_8c_a4a566a734eaed091f59df4fdd36f5c5e}{Book\-List\-\_\-search} (\hyperlink{structLinkedList}{Book\-List} $\ast$list, \hyperlink{structBookFilter}{Book\-Filter} filter)
-\begin{DoxyCompactList}\small\item\em Search in a \hyperlink{}{Book\-List} by a filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{BookList_8c_abbbd66604199ae1f7fab54898df15981}{\hyperlink{structBookListNode}{Book\-List\-Node} $\ast$ {\bfseries Book\-List\-\_\-new\-Node} (\hyperlink{structBook}{Book} $\ast$book, \hyperlink{structBookListNode}{Book\-List\-Node} $\ast$previous, \hyperlink{structBookListNode}{Book\-List\-Node} $\ast$next)}\label{BookList_8c_abbbd66604199ae1f7fab54898df15981}
+
+\item 
+\hypertarget{BookList_8c_a0958c4e75ce861ece120b680da9af2c5}{void {\bfseries Book\-List\-\_\-delete\-Node} (\hyperlink{structBookListNode}{Book\-List\-Node} $\ast$node)}\label{BookList_8c_a0958c4e75ce861ece120b680da9af2c5}
+
+\item 
+bool \hyperlink{BookList_8c_afec208d4d15dcfa8a462e0681dd90991}{Book\-List\-\_\-serialize} (\hyperlink{structBookList}{Book\-List} $\ast$list, F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Serialize a \hyperlink{structBookList}{Book\-List} to file. \end{DoxyCompactList}\item 
+\hyperlink{structBookList}{Book\-List} $\ast$ \hyperlink{BookList_8c_a2f14cf9aec7ea267db2ab86ac9795e41}{Book\-List\-\_\-deserialize} (F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Deserialize a \hyperlink{structBookList}{Book\-List} from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -50,78 +34,6 @@ Definition in file \hyperlink{BookList_8c_source}{Book\-List.\-c}.
 
 
 \subsection{Function Documentation}
-\hypertarget{BookList_8c_aec921a568edcc34c737da73f25c2b360}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-add\-End@{Book\-List\-\_\-add\-End}}
-\index{Book\-List\-\_\-add\-End@{Book\-List\-\_\-add\-End}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-add\-End}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-Node}$\ast$ Book\-List\-\_\-add\-End (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book} $\ast$}]{book}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_aec921a568edcc34c737da73f25c2b360}
-
-
-Add a \hyperlink{structBook}{Book} instance to the end of a \hyperlink{}{Book\-List}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to add the book to. \\
-\hline
-{\em book} & The \hyperlink{structBook}{Book} to be added. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The newly added node in the \hyperlink{}{Book\-List).}
-\end{DoxyReturn}
-
-
-Definition at line 119 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a48c581ada5824f744a9a476c6e81091c}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-add\-Start@{Book\-List\-\_\-add\-Start}}
-\index{Book\-List\-\_\-add\-Start@{Book\-List\-\_\-add\-Start}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-add\-Start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-Node}$\ast$ Book\-List\-\_\-add\-Start (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book} $\ast$}]{book}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a48c581ada5824f744a9a476c6e81091c}
-
-
-Add a \hyperlink{structBook}{Book} instance to the start of a \hyperlink{}{Book\-List}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to add the book to. \\
-\hline
-{\em book} & The \hyperlink{structBook}{Book} to be added. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The newly added node in the \hyperlink{}{Book\-List).}
-\end{DoxyReturn}
-
-
-Definition at line 109 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a4069e5178c238840f883994215a3e15c}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-delete@{Book\-List\-\_\-delete}}
-\index{Book\-List\-\_\-delete@{Book\-List\-\_\-delete}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-List\-\_\-delete (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a4069e5178c238840f883994215a3e15c}
-
-
-Destroy a \hyperlink{}{Book\-List} instance. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} instance to be destroyed. \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 50 of file Book\-List.\-c.
-
 \hypertarget{BookList_8c_a2f14cf9aec7ea267db2ab86ac9795e41}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-deserialize@{Book\-List\-\_\-deserialize}}
 \index{Book\-List\-\_\-deserialize@{Book\-List\-\_\-deserialize}!BookList.c@{Book\-List.\-c}}
 \subsubsection[{Book\-List\-\_\-deserialize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-List}$\ast$ Book\-List\-\_\-deserialize (
@@ -131,175 +43,19 @@ Definition at line 50 of file Book\-List.\-c.
 )}}\label{BookList_8c_a2f14cf9aec7ea267db2ab86ac9795e41}
 
 
-Deserialize a \hyperlink{}{Book\-List} from file. 
+Deserialize a \hyperlink{structBookList}{Book\-List} from file. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em file} & The file to deserialize a \hyperlink{}{Book\-List} from. \\
+{\em file} & The file to deserialize a \hyperlink{structBookList}{Book\-List} from. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a \hyperlink{}{Book\-List} deserialized from the file, or null if failed to read sufficient data. 
+a \hyperlink{structBookList}{Book\-List} deserialized from the file, or null if failed to read sufficient book. 
 \end{DoxyReturn}
 
 
-Definition at line 83 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_ae801facc7e9cfea643887d946a5aa9d3}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-insert\-After@{Book\-List\-\_\-insert\-After}}
-\index{Book\-List\-\_\-insert\-After@{Book\-List\-\_\-insert\-After}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-insert\-After}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-Node}$\ast$ Book\-List\-\_\-insert\-After (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book\-Node} $\ast$}]{node, }
-\item[{{\bf Book} $\ast$}]{book}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_ae801facc7e9cfea643887d946a5aa9d3}
-
-
-Insert a \hyperlink{structBook}{Book} instance after a node in a \hyperlink{}{Book\-List}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to insert the book into. \\
-\hline
-{\em node} & The node to insert after. \\
-\hline
-{\em book} & The \hyperlink{structBook}{Book} to be inserted. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The newly inserted node in the \hyperlink{}{Book\-List).}
-\end{DoxyReturn}
-
-
-Definition at line 143 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a07e5aa12303b71738d889fce74ceb307}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-insert\-Before@{Book\-List\-\_\-insert\-Before}}
-\index{Book\-List\-\_\-insert\-Before@{Book\-List\-\_\-insert\-Before}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-insert\-Before}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-Node}$\ast$ Book\-List\-\_\-insert\-Before (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book\-Node} $\ast$}]{node, }
-\item[{{\bf Book} $\ast$}]{book}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a07e5aa12303b71738d889fce74ceb307}
-
-
-Insert a \hyperlink{structBook}{Book} instance before a node in a \hyperlink{}{Book\-List}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to insert the book into. \\
-\hline
-{\em node} & The node to insert before. \\
-\hline
-{\em book} & The \hyperlink{structBook}{Book} to be inserted. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The newly inserted node in the \hyperlink{}{Book\-List).}
-\end{DoxyReturn}
-
-
-Definition at line 130 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a60f97f8cc6e719256fc0a89d21b55dbb}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-new@{Book\-List\-\_\-new}}
-\index{Book\-List\-\_\-new@{Book\-List\-\_\-new}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-List}$\ast$ Book\-List\-\_\-new (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a60f97f8cc6e719256fc0a89d21b55dbb}
-
-
-Create a new instance of \hyperlink{}{Book\-List}. 
-
-\begin{DoxyReturn}{Returns}
-The created \hyperlink{}{Book\-List} instance. 
-\end{DoxyReturn}
-
-
-Definition at line 24 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a0d2731d68bd459074fd934a3c903c789}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-remove@{Book\-List\-\_\-remove}}
-\index{Book\-List\-\_\-remove@{Book\-List\-\_\-remove}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-List\-\_\-remove (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book} $\ast$}]{book}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a0d2731d68bd459074fd934a3c903c789}
-
-
-Remove a \hyperlink{structBook}{Book} instance from a \hyperlink{}{Book\-List}. 
-
-\begin{DoxyNote}{Note}
-This function will only remove the first occurrence of the book. 
-\end{DoxyNote}
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to remove the book from. \\
-\hline
-{\em book} & The \hyperlink{structBook}{Book} instance to be removed. \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 168 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a52d3477408db4c91955a595cf8cd4594}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-remove\-Node@{Book\-List\-\_\-remove\-Node}}
-\index{Book\-List\-\_\-remove\-Node@{Book\-List\-\_\-remove\-Node}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-remove\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-Node}$\ast$ Book\-List\-\_\-remove\-Node (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book\-Node} $\ast$}]{node}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a52d3477408db4c91955a595cf8cd4594}
-
-
-Remove a node from a \hyperlink{}{Book\-List}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to remove the node from. \\
-\hline
-{\em node} & The node to be removed. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-the node following the removed one, or null if the tail node is removed. 
-\end{DoxyReturn}
-
-
-Definition at line 156 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a4a566a734eaed091f59df4fdd36f5c5e}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-search@{Book\-List\-\_\-search}}
-\index{Book\-List\-\_\-search@{Book\-List\-\_\-search}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-search}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Book\-List}$\ast$ Book\-List\-\_\-search (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book\-Filter}}]{filter}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a4a566a734eaed091f59df4fdd36f5c5e}
-
-
-Search in a \hyperlink{}{Book\-List} by a filter. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to be searched in. \\
-\hline
-{\em filter} & A filter function for the search. \\
-\hline
-{\em criteria} & The criteria data to be passed into the filter. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A \hyperlink{}{Book\-List} containing the result. 
-\end{DoxyReturn}
-
-
-Definition at line 202 of file Book\-List.\-c.
+Definition at line 65 of file Book\-List.\-c.
 
 \hypertarget{BookList_8c_afec208d4d15dcfa8a462e0681dd90991}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-serialize@{Book\-List\-\_\-serialize}}
 \index{Book\-List\-\_\-serialize@{Book\-List\-\_\-serialize}!BookList.c@{Book\-List.\-c}}
@@ -311,11 +67,11 @@ Definition at line 202 of file Book\-List.\-c.
 )}}\label{BookList_8c_afec208d4d15dcfa8a462e0681dd90991}
 
 
-Serialize a \hyperlink{}{Book\-List} to file. 
+Serialize a \hyperlink{structBookList}{Book\-List} to file. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to be serialized. \\
+{\em list} & The \hyperlink{structBookList}{Book\-List} to be serialized. \\
 \hline
 {\em file} & The file to serialize the list. \\
 \hline
@@ -325,58 +81,5 @@ Whether the serialization was successful.
 \end{DoxyReturn}
 
 
-Definition at line 63 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a04c7db55bc6890dd37d531b3bf90c208}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-sort@{Book\-List\-\_\-sort}}
-\index{Book\-List\-\_\-sort@{Book\-List\-\_\-sort}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-sort}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-List\-\_\-sort (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{Book\-Comparator}]{comparator}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a04c7db55bc6890dd37d531b3bf90c208}
-
-
-Sort a \hyperlink{}{Book\-List} by a comparator. 
-
-\begin{DoxyNote}{Note}
-This function uses bubble sort. 
-\end{DoxyNote}
-
-\begin{DoxyParams}{Parameters}
-{\em list} & The \hyperlink{}{Book\-List} to be sorted. \\
-\hline
-{\em comparator} & The comparator for sorting. \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 191 of file Book\-List.\-c.
-
-\hypertarget{BookList_8c_a26144a970abb9c529293e4b1081a4bf3}{\index{Book\-List.\-c@{Book\-List.\-c}!Book\-List\-\_\-swap@{Book\-List\-\_\-swap}}
-\index{Book\-List\-\_\-swap@{Book\-List\-\_\-swap}!BookList.c@{Book\-List.\-c}}
-\subsubsection[{Book\-List\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}void Book\-List\-\_\-swap (
-\begin{DoxyParamCaption}
-\item[{{\bf Book\-List} $\ast$}]{list, }
-\item[{{\bf Book\-Node} $\ast$}]{node1, }
-\item[{{\bf Book\-Node} $\ast$}]{node2}
-\end{DoxyParamCaption}
-)}}\label{BookList_8c_a26144a970abb9c529293e4b1081a4bf3}
-
-
-Swap two nodes in a \hyperlink{}{Book\-List}. 
-
-\begin{DoxyNote}{Note}
-This function will simply swap the \hyperlink{structBook}{Book} objects of the two nodes. 
-\end{DoxyNote}
-
-\begin{DoxyParams}{Parameters}
-{\em node1} & The first node to be swapped. \\
-\hline
-{\em node2} & The second node to be swapped. \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 179 of file Book\-List.\-c.
+Definition at line 45 of file Book\-List.\-c.
 

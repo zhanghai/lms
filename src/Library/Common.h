@@ -18,6 +18,7 @@
 #include "serialize.h"
 #include "Application.h"
 #include "Memory.h"
+#include "Object.h"
 
 
 #define MAX(var1, var2) ((var1) > (var2) ? (var1) : (var2))
@@ -34,7 +35,7 @@
 
 typedef int (*Comparator)(void *data1, void *data2);
 
-typedef bool (*FilterFunction)(void *data, void *filterData);
+typedef bool (*FilterFunction)(void *book, void *filterData);
 
 typedef struct {
     FilterFunction filter;

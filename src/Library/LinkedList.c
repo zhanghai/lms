@@ -6,239 +6,208 @@
 #include "LinkedList.h"
 
 
-LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
+void LinkedList_initialize(LinkedList *this) {
+
+    Object_initialize((Object *)this);
+
+    _(this, head) = null;
+    _(this, tail) = null;
+    _(this, size) = 0;
+
+    _$(this, new) = LinkedList_new;
+    _$(this, delete) = LinkedList_delete;
+    _$(this, newNode) = LinkedList_newNode;
+    _$(this, deleteNode) = LinkedList_deleteNode;
+    _$(this, addStart) = LinkedList_addStart;
+    _$(this, addEnd) = LinkedList_addEnd;
+    _$(this, insertBefore) = LinkedList_insertBefore;
+    _$(this, insertAfter) = LinkedList_insertAfter;
+    _$(this, removeNode) = LinkedList_removeNode;
+    _$(this, remove) = LinkedList_remove;
+    _$(this, swap) = LinkedList_swap;
+    _$(this, sort) = LinkedList_sort;
+    _$(this, search) = LinkedList_search;
+}
+
+void LinkedList_finalize(LinkedList *this) {
+
+    LinkedListNode *node;
+    LINKED_LIST_FOR_EACH(this, node) {
+        $_(this, deleteNode, node);
+    }
+
+    Object_finalize((Object *)this);
+}
+
+OBJECT_DEFINE_NEW(LinkedList, LinkedList_Fields, LinkedList_Methods)
+
+OBJECT_DEFINE_DELETE(LinkedList)
+
+/**
+ * @protected
+ * Create a new {@link LinkedListNode} instance.
+ * @param data The data to be held by the new node.
+ * @param previous The node previous to the new node.
+ * @param next The node next to the new node.
+ * @return The created {@link LinkedListNode} instance.
+ */
+LinkedListNode *LinkedList_newNode(void *data, LinkedListNode *previous,
         LinkedListNode *next) {
 
     LinkedListNode *node = Memory_allocateType(LinkedListNode);
 
     node->data = data;
-    node->prev = prev;
+    node->previous = previous;
     node->next = next;
 
     return node;
 }
 
-void LinkedListNode_delete(LinkedListNode *node) {
+/**
+ * @protected
+ * Destroy a {@link LinkedListNode} instance.
+ * @param node The node to be destroyed.
+ */
+void LinkedList_deleteNode(LinkedListNode *node) {
     Memory_free(node);
 }
 
-void LinkedList_initialize(LinkedList *list,
-        LinkedList_MethodNew new,
-        LinkedList_MethodDelete delete,
-        LinkedList_MethodNewNode newNode,
-        LinkedList_MethodDeleteNode deleteNode,
-        LinkedList_MethodAddStart addStart,
-        LinkedList_MethodAddEnd addEnd,
-        LinkedList_MethodInsertBefore insertBefore,
-        LinkedList_MethodInsertAfter insertAfter,
-        LinkedList_MethodRemoveNode removeNode,
-        LinkedList_MethodRemove remove,
-        LinkedList_MethodSwap swap,
-        LinkedList_MethodSort sort,
-        LinkedList_MethodSearch search) {
-    list->head = null;
-    list->tail = null;
-    list->size = 0;
-    list->methods.new = new;
-    list->methods.delete = delete;
-    list->methods.newNode = newNode;
-    list->methods.deleteNode = deleteNode;
-    list->methods.addStart = addStart;
-    list->methods.addEnd = addEnd;
-    list->methods.insertBefore = insertBefore;
-    list->methods.insertAfter = insertAfter;
-    list->methods.removeNode = removeNode;
-    list->methods.remove = remove;
-    list->methods.swap = swap;
-    list->methods.sort = sort;
-    list->methods.search = search;
-}
-
-void LinkedList_finalize(LinkedList *list) {
-    LinkedListNode *node;
-    LINKED_LIST_FOR_EACH(list, node) {
-        list->methods.deleteNode(node);
-    }
-}
-
 /**
- * Create a new instance of {@link LinkedList}.
- * @return The created {@link LinkedList} instance.
+ * Add a node holding some book to the start of a {@link LinkedList}.
+ * @param book The book to be added.
+ * @return The newly added node.
  */
-LinkedList *LinkedList_new() {
+LinkedListNode *LinkedList_addStart(LinkedList *this, void *data) {
 
-    LinkedList *list = Memory_allocateType(LinkedList);
+    LinkedListNode *node = $_(this, newNode, data, null,
+            _(this, head));
 
-    LinkedList_initialize(list,
-            LinkedList_new,
-            LinkedList_delete,
-            LinkedListNode_new,
-            LinkedListNode_delete,
-            LinkedList_addStart,
-            LinkedList_addEnd,
-            LinkedList_insertBefore,
-            LinkedList_insertAfter,
-            LinkedList_removeNode,
-            LinkedList_remove,
-            LinkedList_swap,
-            LinkedList_sort,
-            LinkedList_search);
-
-    return list;
-}
-
-/**
- * Destroy a {@link LinkedList} instance.
- * @param list The {@link LinkedList} instance to be destroyed.
- */
-void LinkedList_delete(LinkedList *list) {
-
-    LinkedList_finalize(list);
-
-    Memory_free(list);
-}
-
-/**
- * Add a node holding some data to the start of a {@link LinkedList}.
- * @param list The {@link LinkedList} to add the data to.
- * @param data The data to be added.
- * @return The newly added node in the {@link LinkedList}.
- */
-LinkedListNode *LinkedList_addStart(LinkedList *list, void *data) {
-
-    LinkedListNode *node = list->methods.newNode(data, null,
-            list->head);
-
-    if (list->head != null) {
-        list->head->prev = node;
+    if (_(this, head) != null) {
+        _(this, head)->previous = node;
     }
 
-    list->head = node;
-    if (list->tail == null) {
-        list->tail = node;
+    _(this, head) = node;
+    if (_(this, tail) == null) {
+        _(this, tail) = node;
     }
 
-    ++list->size;
+    ++_(this, size);
 
     return node;
 }
 
 /**
- * Add a node holding some data to the end of a {@link LinkedList}.
- * @param list The {@link LinkedList} to add the data to.
- * @param data The data to be added.
- * @return The newly added node in the {@link LinkedList}.
+ * Add a node holding some book to the end of a {@link LinkedList}.
+ * @param book The book to be added.
+ * @return The newly added node.
  */
-LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data) {
+LinkedListNode *LinkedList_addEnd(LinkedList *this, void *data) {
 
-    LinkedListNode *node = list->methods.newNode(data, list->tail,
+    LinkedListNode *node = $_(this, newNode, data, _(this, tail),
             null);
 
-    if (list->tail != null) {
-        list->tail->next = node;
+    if (_(this, tail) != null) {
+        _(this, tail)->next = node;
     }
 
-    list->tail = node;
-    if (list->head == null) {
-        list->head = node;
+    _(this, tail) = node;
+    if (_(this, head) == null) {
+        _(this, head) = node;
     }
 
-    ++list->size;
+    ++_(this, size);
 
     return node;
 }
 
 /**
- * Insert a new node holding some data before a node.
- * @param list The {@link LinkedList} to insert the data into.
+ * Insert a new node holding some book before a node.
  * @param node The node to insert before.
- * @param data The data to be inserted.
- * @return The newly inserted node in the {@link LinkedList}.
+ * @param book The book to be inserted.
+ * @return The newly inserted node.
  */
-LinkedListNode *LinkedList_insertBefore(LinkedList *list,
+LinkedListNode *LinkedList_insertBefore(LinkedList *this,
         LinkedListNode *node, void *data) {
 
-    LinkedListNode *newNode = list->methods.newNode(data, node->prev,
+    LinkedListNode *newNode = $_(this, newNode, data, node->previous,
             node);
 
-    if (node->prev != null) {
-        node->prev->next = newNode;
+    if (node->previous != null) {
+        node->previous->next = newNode;
     } else {
-        list->head = newNode;
+        _(this, head) = newNode;
     }
-    node->prev = newNode;
+    node->previous = newNode;
 
-    ++list->size;
+    ++_(this, size);
 
     return newNode;
 }
 
 /**
- * Insert a new node holding some data after a node.
- * @param list The {@link LinkedList} to insert the data into.
+ * Insert a new node holding some book after a node.
  * @param node The node to insert after.
- * @param data The data to be inserted.
- * @return The newly inserted node in the {@link LinkedList}.
+ * @param book The book to be inserted.
+ * @return The newly inserted node.
  */
-LinkedListNode *LinkedList_insertAfter(LinkedList *list, LinkedListNode *node,
-        void *data) {
+LinkedListNode *LinkedList_insertAfter(LinkedList *this,
+        LinkedListNode *node, void *data) {
 
-    LinkedListNode *newNode = list->methods.newNode(data, node,
+    LinkedListNode *newNode = $_(this, newNode ,data, node,
             node->next);
 
     if (node->next != null) {
-        node->next->prev = newNode;
+        node->next->previous = newNode;
     } else {
-        list->tail = newNode;
+        _(this, tail) = newNode;
     }
     node->next = newNode;
 
-    ++list->size;
+    ++_(this, size);
 
     return newNode;
 }
 
 /**
  * Remove a node from a {@link LinkedList}.
- * @param list The {@link LinkedList} to remove the node from.
  * @param node The node to be removed.
  * @return the node following the removed one, or null if the tail
  *         node is removed.
  */
-LinkedListNode *LinkedList_removeNode(LinkedList *list, LinkedListNode *node) {
+LinkedListNode *LinkedList_removeNode(LinkedList *this,
+        LinkedListNode *node) {
 
     LinkedListNode *nextNode = node->next;
 
-    if (node->prev != null) {
-        node->prev->next = node->next;
+    if (node->previous != null) {
+        node->previous->next = node->next;
     } else {
-        list->head = node->next;
+        _(this, head) = node->next;
     }
     if (node->next != null) {
-        node->next->prev = node->prev;
+        node->next->previous = node->previous;
     } else {
-        list->tail = node->prev;
+        _(this, tail) = node->previous;
     }
 
-    list->methods.deleteNode(node);
+    $_(this, deleteNode, node);
 
-    --list->size;
+    --_(this, size);
 
     return nextNode;
 }
 
 /**
- * Remove a piece of data from a {@link LinkedList}.
+ * Remove a piece of book from a {@link LinkedList}.
  * @note This function will only remove the first occurrence of the
- *       data.
- * @param list The {@link LinkedList} to remove the data from.
- * @param data The data to be removed.
+ *       book.
+ * @param book The book to be removed.
  */
-void LinkedList_remove(LinkedList *list, void *data) {
+void LinkedList_remove(LinkedList *this, void *data) {
     LinkedListNode *node;
-    LINKED_LIST_FOR_EACH(list, node) {
+    LINKED_LIST_FOR_EACH(this, node) {
         if (node->data == data) {
-            list->methods.removeNode(list, node);
+            $(this, removeNode, node);
             return;
         }
     }
@@ -246,11 +215,11 @@ void LinkedList_remove(LinkedList *list, void *data) {
 
 /**
  * Swap two nodes in a {@link LinkedList}.
- * @note This function will simply swap the data of the two nodes.
+ * @note This function will simply swap the book of the two nodes.
  * @param node1 The first node to be swapped.
  * @param node2 The second node to be swapped.
  */
-void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
+void LinkedList_swap(LinkedList *this, LinkedListNode *node1,
         LinkedListNode *node2) {
     void *tmp;
     SWAP(node1->data, node2->data, tmp);
@@ -259,29 +228,28 @@ void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
 /**
  * Sort a {@link LinkedList} by a comparator.
  * @note This function uses bubble sort.
- * @param list The {@link LinkedList} to be sorted.
  * @param comparator The comparator for sorting.
  */
-void LinkedList_sort(LinkedList *list, Comparator comparator) {
+void LinkedList_sort(LinkedList *this, Comparator comparator) {
 
     LinkedListNode *node1, *node2;
     bool changed;
 
-    if (list->size == 0) {
+    if (_(this, size) == 0) {
         return;
     }
 
-    for (node1 = list->head; node1->next != null;
+    for (node1 = _(this, head); node1->next != null;
             node1 = node1->next) {
 
         changed = false;
 
-        for (node2 = list->tail; node2 != node1; ) {
-            if (comparator(node2->prev->data, node2->data) > 0) {
-                list->methods.swap(list, node2->prev, node2);
+        for (node2 = _(this, tail); node2 != node1; ) {
+            if (comparator(node2->previous->data, node2->data) > 0) {
+                $(this, swap, node2->previous, node2);
                 changed = true;
             } else {
-                node2 = node2->prev;
+                node2 = node2->previous;
             }
         }
 
@@ -293,19 +261,18 @@ void LinkedList_sort(LinkedList *list, Comparator comparator) {
 
 /**
  * Search in a {@link LinkedList} by a filter.
- * @param list The {@link LinkedList} to be searched in.
  * @param filter A filter function for the search.
- * @param criteria The criteria data to be passed into the filter.
+ * @param criteria The criteria book to be passed into the filter.
  * @return A {@link LinkedList} containing the result.
  */
-LinkedList *LinkedList_search(LinkedList *list, Filter filter) {
+LinkedList *LinkedList_search(LinkedList *this, Filter filter) {
 
-    LinkedList *result = list->methods.new();
+    LinkedList *result = $_(this, new);
     LinkedListNode *node;
 
-    LINKED_LIST_FOR_EACH(list, node) {
+    LINKED_LIST_FOR_EACH(this, node) {
         if (filter.filter(node->data, filter.filterData)) {
-            list->methods.addEnd(result, node->data);
+            $(result, addEnd, node->data);
         }
     }
 

@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><p class="startli"><code><a class="el" href="structBook.html">Book</a></code></p>
 <p class="startli">图书的数据结构，包含新建、删除、序列化、逆序列化、引用计数、打印等方法。</p>
 </li>
-<li><p class="startli"><code>BookList</code></p>
+<li><p class="startli"><code><a class="el" href="structBookList.html">BookList</a></code></p>
 <p class="startli">图书列表的数据结构，“继承”于<code><a class="el" href="structLinkedList.html">LinkedList</a></code>类，包含新建、删除、序列化、逆序列化、添加、插入、删除、交换、排序、查找等方法。</p>
 </li>
 <li><p class="startli"><code>BookFilters</code></p>
@@ -157,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3>数据结构</h3>
 <ol type="1">
 <li><p class="startli">链表</p>
-<p class="startli">本系统中<code><a class="el" href="structLinkedList.html">LinkedList</a></code>类提供了双向链表的实现，在基础的增减操作外同时提供了冒泡排序、顺序查找功能，并在<code>BookList</code>中被使用。</p>
+<p class="startli">本系统中<code><a class="el" href="structLinkedList.html">LinkedList</a></code>类提供了双向链表的实现，在基础的增减操作外同时提供了冒泡排序、顺序查找功能，并在<code><a class="el" href="structBookList.html">BookList</a></code>中被使用。</p>
 </li>
 <li><p class="startli">动态数组</p>
 <p class="startli">本系统中<code><a class="el" href="structArrayList.html">ArrayList</a></code>类提供了动态数组的实现，由于需求与时间均较少，仅仅提供了在尾部增加的功能，并在<code>BookFilters_compound</code>中被使用。</p>
@@ -211,7 +211,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><p class="startli">面向对象编程</p>
 <p class="startli">在尚未开始设计时，我们原本的计划时使用纯粹的<code>C</code>语言风格编写本系统。然而在规划系统的各个模块时，我们希望各个模块能够相对独立，减小耦合度从而便于分工合作，因此有了对<code>封装</code>的需求。在这种情况下，我们选择了采用<code>module_name_mehtod_name</code>的命名规范来对各个模块的函数进行拆分与归类。</p>
 <p class="startli">在实现了各个模块的<code>封装</code>之后，我们发现<code>book_list</code>的链表结构其实是通用的一个双向链表实现，因此想要将这个实现拆分出来方便日后的代码复用。那么，<code>book_list</code>自然就成为了<code>继承</code>于<code>linked_list</code>的一个派生类，<code>继承</code>的概念在<code>封装</code>之后被引入了我们的程序，所以我们决定放弃<code>C</code>语言本身<code>面向过程编程</code>的方式，开始使用<code>面向对象编程</code>的思想组织代码，同时开始采用<code>Java</code>风格的命名规范。</p>
-<p class="startli">确立了面向对象编程的方法后我们顺利编写了大量代码，直到引入<code>引用计数</code>的内存管理后链表节点的创建与释放需要在派生的<code>BookList</code>类中进行<code>重写</code>，以便基类<code><a class="el" href="structLinkedList.html">LinkedList</a></code>可以正确地对<code><a class="el" href="structBook.html">Book</a></code>对象进行内存管理。因此，我们想到了利用<code>C</code>语言中函数指针的特性，建立函数指针列表以实现类的<code>多态</code>性（类似于<code>C++</code>中的<code>vftable</code>）。</p>
+<p class="startli">确立了面向对象编程的方法后我们顺利编写了大量代码，直到引入<code>引用计数</code>的内存管理后链表节点的创建与释放需要在派生的<code><a class="el" href="structBookList.html">BookList</a></code>类中进行<code>重写</code>，以便基类<code><a class="el" href="structLinkedList.html">LinkedList</a></code>可以正确地对<code><a class="el" href="structBook.html">Book</a></code>对象进行内存管理。因此，我们想到了利用<code>C</code>语言中函数指针的特性，建立函数指针列表以实现类的<code>多态</code>性（类似于<code>C++</code>中的<code>vftable</code>）。</p>
 <p class="startli">至此，我们基本完成了<code>面向对象编程</code>的三大特点在<code>C</code>语言中的实践。这三个特性的引入，并非将另一语言的思想生搬硬套地代入，而是从实际需要出发的不断补充，并且优雅地解决了程序开发中的代码组织问题，因此我们认为这次实践拥有一定的价值。</p>
 </li>
 <li><p class="startli">资源获取即初始化（RAII，Resource Acquisition Is Initialization）</p>
@@ -226,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li><p class="startli">基于<code>引用计数</code>的内存管理</p>
 <p class="startli">为了解决字符串可能带来的内存泄漏，我们建立了类的机制，约定使用RAII及析构函数使各个类分别管理各自成员的内存。</p>
-<p class="startli">针对用户需要在<code>BookList</code>中搜索<code><a class="el" href="structBook.html">Book</a></code>对象，同时搜索结果也将为一个<code>BookList</code>的需求，我们决定让每本书在程序中拥有唯一的<code><a class="el" href="structBook.html">Book</a></code>示例并让容器类维护引用计数，从而使得书目的编辑、删除变得简洁明了，同时有效解决了内存管理的问题。</p>
+<p class="startli">针对用户需要在<code><a class="el" href="structBookList.html">BookList</a></code>中搜索<code><a class="el" href="structBook.html">Book</a></code>对象，同时搜索结果也将为一个<code><a class="el" href="structBookList.html">BookList</a></code>的需求，我们决定让每本书在程序中拥有唯一的<code><a class="el" href="structBook.html">Book</a></code>示例并让容器类维护引用计数，从而使得书目的编辑、删除变得简洁明了，同时有效解决了内存管理的问题。</p>
 </li>
 <li><p class="startli">多过滤器搜索的实现</p>
 <p class="startli">考虑到用户需要访问某本书时，可能需要对书目信息的某几个字段或全文进行不同关键字的搜索，因此我们设计了多过滤器的机制，并通过<code><a class="el" href="structBookFilter.html">BookFilter</a></code>结构实现了过滤器的闭包。在<code>BookFilters</code>中，我们预先定义了所有单个条目的过滤函数与一个全文过滤函数，同时定义了一个复合过滤函数<code>BookFilters_compound</code>，它可以接受一个过滤器列表并分别调用各个过滤器来获得最终的结果。</p>
@@ -273,7 +273,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,0 +1,116 @@
+\hypertarget{Object_8h}{\section{/home/zh/workspace/eclipse/lms/src/\-Library/\-Object.h File Reference}
+\label{Object_8h}\index{/home/zh/workspace/eclipse/lms/src/\-Library/\-Object.\-h@{/home/zh/workspace/eclipse/lms/src/\-Library/\-Object.\-h}}
+}
+{\ttfamily \#include \char`\"{}Memory.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structObject__Fields}{Object\-\_\-\-Fields}
+\item 
+struct \hyperlink{structObject__Methods}{Object\-\_\-\-Methods}
+\item 
+struct \hyperlink{structObject}{Object}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Object_8h_a159a4b6c52e10837b6f623008411d90c}{\#define {\bfseries \-\_\-}(object, field)~((object)-\/$>$fields-\/$>$field)}\label{Object_8h_a159a4b6c52e10837b6f623008411d90c}
+
+\item 
+\hypertarget{Object_8h_ae4dfd7b0d66121016d6466d2ff10e8ba}{\#define {\bfseries \-\_\-}~\$(object, method) ((object)-\/$>$methods-\/$>$method)}\label{Object_8h_ae4dfd7b0d66121016d6466d2ff10e8ba}
+
+\item 
+\hypertarget{Object_8h_a4462caa2c3574d0dcc35979cd4c19e27}{\#define {\bfseries object}~, method, ...) (\-\_\-\$(object, method)(object, \#\#\-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-))}\label{Object_8h_a4462caa2c3574d0dcc35979cd4c19e27}
+
+\item 
+\hypertarget{Object_8h_afe4fda59167e23ee517d7851a370adeb}{\#define {\bfseries \-\_\-}(object, method,...)~(\-\_\-\$(object, method)(\-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-))}\label{Object_8h_afe4fda59167e23ee517d7851a370adeb}
+
+\item 
+\#define {\bfseries O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W}(O\-B\-J\-E\-C\-T\-\_\-\-T\-Y\-P\-E, F\-I\-E\-L\-D\-S\-\_\-\-T\-Y\-P\-E, M\-E\-T\-H\-O\-D\-S\-\_\-\-T\-Y\-P\-E)
+\item 
+\#define {\bfseries O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E}(O\-B\-J\-E\-C\-T\-\_\-\-T\-Y\-P\-E)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Object_8h_ac22e176f35ce9b652129d5c1fa1a71c5}{typedef struct tag\-Object {\bfseries Object}}\label{Object_8h_ac22e176f35ce9b652129d5c1fa1a71c5}
+
+\item 
+\hypertarget{Object_8h_a01f642dcafc2564ce32d263fe01565a4}{typedef \hyperlink{structObject}{Object} $\ast$($\ast$ {\bfseries Object\-\_\-\-Method\-New} )()}\label{Object_8h_a01f642dcafc2564ce32d263fe01565a4}
+
+\item 
+\hypertarget{Object_8h_a2fc8377aa80d1a61d1c513431afef1e9}{typedef void($\ast$ {\bfseries Object\-\_\-\-Mehotd\-Delete} )(\hyperlink{structObject}{Object} $\ast$this)}\label{Object_8h_a2fc8377aa80d1a61d1c513431afef1e9}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Object_8h_a74bf81249a3de63ad275bd90e4c1bc02}{void {\bfseries Object\-\_\-initialize} (\hyperlink{structObject}{Object} $\ast$this)}\label{Object_8h_a74bf81249a3de63ad275bd90e4c1bc02}
+
+\item 
+\hypertarget{Object_8h_a45cf51a8e615e97cf6e7b30e0553398a}{void {\bfseries Object\-\_\-finalize} (\hyperlink{structObject}{Object} $\ast$this)}\label{Object_8h_a45cf51a8e615e97cf6e7b30e0553398a}
+
+\item 
+\hypertarget{Object_8h_a959cdefe9fc7d9145fd57885aa74e790}{\hyperlink{structObject}{Object} $\ast$ {\bfseries Object\-\_\-new} ()}\label{Object_8h_a959cdefe9fc7d9145fd57885aa74e790}
+
+\item 
+\hypertarget{Object_8h_af543b60696a1ac4dd91f34688e47914f}{void {\bfseries Object\-\_\-delete} (\hyperlink{structObject}{Object} $\ast$this)}\label{Object_8h_af543b60696a1ac4dd91f34688e47914f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\-: Zhang Hai 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{Object_8h_source}{Object.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Object_8h_a5332aa3a8112ad38aebeffb97a9a2127}{\index{Object.\-h@{Object.\-h}!O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E@{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E}}
+\index{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E@{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E}!Object.h@{Object.\-h}}
+\subsubsection[{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{O\-B\-J\-E\-C\-T\-\_\-\-T\-Y\-P\-E}
+\end{DoxyParamCaption}
+)}}\label{Object_8h_a5332aa3a8112ad38aebeffb97a9a2127}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} OBJECT\_TYPE##\_delete(OBJECT\_TYPE *\textcolor{keyword}{this}) \{ \(\backslash\)
+        OBJECT\_TYPE##\_finalize(\textcolor{keyword}{this}); \(\backslash\)
+        Memory\_free(this->methods); \(\backslash\)
+        Memory\_free(this->fields); \(\backslash\)
+        Memory\_free(\textcolor{keyword}{this}); \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Definition at line 34 of file Object.\-h.
+
+\hypertarget{Object_8h_a18f4d41f7795733c8145d59a71d67735}{\index{Object.\-h@{Object.\-h}!O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W@{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W}}
+\index{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W@{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W}!Object.h@{Object.\-h}}
+\subsubsection[{O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-N\-E\-W(
+\begin{DoxyParamCaption}
+\item[{}]{O\-B\-J\-E\-C\-T\-\_\-\-T\-Y\-P\-E, }
+\item[{}]{F\-I\-E\-L\-D\-S\-\_\-\-T\-Y\-P\-E, }
+\item[{}]{M\-E\-T\-H\-O\-D\-S\-\_\-\-T\-Y\-P\-E}
+\end{DoxyParamCaption}
+)}}\label{Object_8h_a18f4d41f7795733c8145d59a71d67735}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+OBJECT\_TYPE *OBJECT\_TYPE##\_new() \{ \(\backslash\)
+        OBJECT\_TYPE *\textcolor{keyword}{this}; \(\backslash\)
+        this = Memory\_allocateType(\hyperlink{structObject}{Object}); \(\backslash\)
+        this->fields = Memory\_allocateType(FIELDS\_TYPE); \(\backslash\)
+        this->methods = Memory\_allocateType(METHODS\_TYPE); \(\backslash\)
+        OBJECT\_TYPE##\_initialize(\textcolor{keyword}{this}); \(\backslash\)
+        return \textcolor{keyword}{this}; \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Definition at line 24 of file Object.\-h.
+

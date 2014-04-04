@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,6 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="serialize_8h_source.html">serialize.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="Application_8h_source.html">Application.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="Memory_8h_source.html">Memory.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Object_8h_source.html">Object.h</a>&quot;</code><br/>
 </div>
 <p><a href="Common_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -128,9 +129,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a753b1995455fa0b8aea8780582697ac5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a753b1995455fa0b8aea8780582697ac5"></a>
 typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><b>Comparator</b> )(void *data1, void *data2)</td></tr>
 <tr class="separator:a753b1995455fa0b8aea8780582697ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7cb667f51559ca93484477a62654ee6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7cb667f51559ca93484477a62654ee6"></a>
-typedef bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>FilterFunction</b> )(void *data, void *filterData)</td></tr>
-<tr class="separator:aa7cb667f51559ca93484477a62654ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22468e581d854b44b4b32a420edca349"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22468e581d854b44b4b32a420edca349"></a>
+typedef bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>FilterFunction</b> )(void *book, void *filterData)</td></tr>
+<tr class="separator:a22468e581d854b44b4b32a420edca349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Zhang Hai </dd></dl>
@@ -172,14 +173,14 @@ typedef bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>FilterFunct
 <div class="line">        var2 = tmp; \</div>
 <div class="line">    } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="Common_8h_source.html#l00027">27</a> of file <a class="el" href="Common_8h_source.html">Common.h</a>.</p>
+<p>Definition at line <a class="el" href="Common_8h_source.html#l00028">28</a> of file <a class="el" href="Common_8h_source.html">Common.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

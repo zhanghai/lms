@@ -40,12 +40,12 @@ static void Lms_readBookStringArray(string array[], size_t size,
 
 static bool Lms_readBookBoolean(string fieldName);
 
-static bool Lms_modifyBookString(string field, string fieldName);
+static bool Lms_modifyBookString(string *field, string fieldName);
 
-static bool Lms_modifyBookStringArray(string array[], size_t size,
+static bool Lms_modifyBookStringArray(string (*array)[], size_t size,
         string fieldName);
 
-static bool Lms_modifyBookBool(bool field, string fieldName);
+static bool Lms_modifyBookBool(bool *field, string fieldName);
 
 
 static void Lms_printTitle(string title) {
@@ -104,7 +104,7 @@ static BookList *Lms_filterBook(BookList *list) {
 
     compoundFilter.filter = BookFilters_compound;
     compoundFilter.filterData = filters;
-    result = BookList_search(list, compoundFilter);
+    result = $(list, search, compoundFilter);
 
     ARRAY_LIST_FOR_EACH(filters, filter) {
         Memory_free(filter->filterData);
@@ -148,14 +148,14 @@ static bool Lms_readBookBoolean(string fieldName) {
     return Console_readChoiceBoolean(fieldName);
 }
 
-static bool Lms_modifyBookString(string field, string fieldName) {
+static bool Lms_modifyBookString(string *field, string fieldName) {
     Console_print("Do you want to modify %s?", fieldName);
     switch (Console_readChoice("", Lms_CHOICES_YNQ,
             array_size(Lms_CHOICES_YNQ))) {
     case 0:
-        Memory_free(field);
+        Memory_free(*field);
         Console_print("Enter new %s: ", fieldName);
-        field = Console_readLine("");
+        *field = Console_readLine("");
         return true;
         break;
     case 1:
@@ -174,18 +174,18 @@ static bool Lms_modifyBookString(string field, string fieldName) {
  * Modify a string array from console input, stopping if an empty
  * string is found, and the other elements will be replaced by new
  * empty strings if it is not.
- * @param array The string array to be filled.
+ * @param array The pointer to the string array to be filled.
  * @param size The size to be read;
  * @param fieldName The field name to be displayed.
  */
-static bool Lms_modifyBookStringArray(string array[], size_t size,
+static bool Lms_modifyBookStringArray(string (*array)[], size_t size,
         string fieldName) {
     size_t i;
     bool fill = false;
     for (i = 0; i < size; ++i) {
         if (!fill) {
-            if (string_isEmpty(array[i])
-                    && string_isEmpty(array[i - 1])) {
+            if (string_isEmpty((*array)[i])
+                    && string_isEmpty((*array)[i - 1])) {
                 return true;
             }
             Console_print("Do you want to modify %s %zu?", fieldName,
@@ -193,10 +193,10 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
             switch (Console_readChoice("", Lms_CHOICES_YNQ,
                     array_size(Lms_CHOICES_YNQ))) {
             case 0:
-                Memory_free(array[i]);
+                Memory_free((*array)[i]);
                 Console_print("Enter new %s %zu: ", fieldName, i + 1);
-                array[i] = Console_readLine("");
-                if (string_isEmpty(array[i])) {
+                (*array)[i] = Console_readLine("");
+                if (string_isEmpty((*array)[i])) {
                     fill = true;
                 }
                 break;
@@ -210,21 +210,21 @@ static bool Lms_modifyBookStringArray(string array[], size_t size,
                 return false;
             }
         } else {
-            if (!string_isEmpty(array[i])) {
-                array[i] = string_clone(string_EMPTY);
+            if (!string_isEmpty((*array)[i])) {
+                (*array)[i] = string_clone(string_EMPTY);
             }
         }
     }
     return true;
 }
 
-static bool Lms_modifyBookBool(bool field, string fieldName) {
+static bool Lms_modifyBookBool(bool *field, string fieldName) {
     Console_print("Do you want to modify %s?", fieldName);
     switch (Console_readChoice("", Lms_CHOICES_YNQ,
             array_size(Lms_CHOICES_YNQ))) {
     case 0:
         Console_print("Enter new %s: ", fieldName);
-        field = Console_readChoiceBoolean("");
+        *field = Console_readChoiceBoolean("");
                 return true;
         break;
     case 1:
@@ -272,18 +272,18 @@ bool Lms_serializeBookList(BookList *list, string filename) {
 void Lms_searchBook(BookList *list) {
 
     BookList *result;
-    BookNode *node;
+    BookListNode *node;
 
     result = Lms_filterBook(list);
 
     Console_printSeparator();
-    if (result->size == 0) {
+    if (_(result, size) == 0) {
         Lms_promptBookNotFound();
     } else {
-        Lms_printBookFound(result->size);
+        Lms_printBookFound(_(result, size));
         BOOK_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
-            Book_print(node->data, stdout);
+            Book_print(node->book, stdout);
         }
         Console_printSeparator();
         Console_pause();
@@ -308,7 +308,7 @@ void Lms_addBook(BookList *list) {
 
     book = Book_new(title, authors, number, subjects, publisher, year,
             circulating);
-    BookList_addEnd(list, book);
+    $(list, addEnd, book);
     Book_removeReference(book);
     Console_printSeparator();
     Console_prompt("Book added successfully.");
@@ -317,37 +317,39 @@ void Lms_addBook(BookList *list) {
 void Lms_modifyBook(BookList *list) {
 
     BookList *result;
-    BookNode *node;
+    BookListNode *node;
     Book *book;
     bool quit = false;
 
     result = Lms_filterBook(list);
 
     Console_printSeparator();
-    if (result->size == 0) {
+    if (_(result, size) == 0) {
         Lms_promptBookNotFound();
     } else {
-        Lms_printBookFound(result->size);
+        Lms_printBookFound(_(result, size));
         BOOK_LIST_FOR_EACH(result, node) {
-            book = node->data;
+            book = node->book;
             Console_printSeparator();
             Book_print(book, stdout);
             Console_printSeparator();
-            switch (Console_readChoice("Do you want to modify this book?",
+            switch (Console_readChoice(
+                    "Do you want to modify this book?",
                     Lms_CHOICES_YNQ, array_size(Lms_CHOICES_YNQ))) {
             case 0:
-                if (Lms_modifyBookString(book->title,
+                if (Lms_modifyBookString(&book->title,
                         Book_FIELD_NAMES[0])) {
                     // HACK: Use the boolean result with an empty if.
-                    if (Lms_modifyBookStringArray(book->authors, 5, "Author")
-                    && Lms_modifyBookString(book->number,
+                    if (Lms_modifyBookStringArray(&book->authors, 5,
+                            "Author")
+                    && Lms_modifyBookString(&book->number,
                             Book_FIELD_NAMES[2])
-                    && Lms_modifyBookStringArray(book->subjects, 5, "Subject")
-                    && Lms_modifyBookString(book->publisher,
+                    && Lms_modifyBookStringArray(&book->subjects, 5, "Subject")
+                    && Lms_modifyBookString(&book->publisher,
                             Book_FIELD_NAMES[4])
-                    && Lms_modifyBookString(book->year,
+                    && Lms_modifyBookString(&book->year,
                             Book_FIELD_NAMES[5])
-                    && Lms_modifyBookBool(book->circulating,
+                    && Lms_modifyBookBool(&book->circulating,
                             Book_FIELD_NAMES[6])) {}
                     Console_printSeparator();
                     Console_prompt("Book modified successfully.");
@@ -374,21 +376,21 @@ void Lms_modifyBook(BookList *list) {
 void Lms_removeBook(BookList *list) {
 
     BookList *result;
-    BookNode *node;
+    BookListNode *node;
 
     result = Lms_filterBook(list);
 
     Console_printSeparator();
-    if (result->size == 0) {
+    if (_(result, size) == 0) {
         Lms_promptBookNotFound();
     } else {
-        Lms_printBookFound(result->size);
+        Lms_printBookFound(_(result, size));
         BOOK_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
-            Book_print(node->data, stdout);
+            Book_print(node->book, stdout);
             Console_printSeparator();
             if (Console_readChoiceYN("Do you want to remove this book? ")) {
-                BookList_remove(list, node->data);
+                $(list, remove, node->book);
                 Console_printSeparator();
                 Console_prompt("Book removed successfully.");
             }

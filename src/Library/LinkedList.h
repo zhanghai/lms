@@ -11,47 +11,57 @@
 
 
 #define LINKED_LIST_FOR_EACH(list, node) \
-    for (node = list->head; node != null; node = node->next)
+    for (node = list->fields->head; node != null; node = node->next)
 
 
 typedef struct tagLinkedListNode LinkedListNode;
 typedef struct tagLinkedListNode {
     void *data;
-    LinkedListNode *prev;
+    LinkedListNode *previous;
     LinkedListNode *next;
 } LinkedListNode;
+
+
+typedef struct {
+    LinkedListNode *head;
+    LinkedListNode *tail;
+    size_t size;
+} LinkedList_Fields;
+
 
 typedef struct tagLinkedList LinkedList;
 
 typedef LinkedList *(*LinkedList_MethodNew)();
-typedef void (*LinkedList_MethodDelete)(LinkedList *list);
+typedef void (*LinkedList_MethodDelete)(LinkedList *this);
 typedef LinkedListNode *(*LinkedList_MethodNewNode)(void *data,
-        LinkedListNode *prev,
+        LinkedListNode *previous,
         LinkedListNode *next);
 typedef void (*LinkedList_MethodDeleteNode)(
         LinkedListNode *node);
 typedef LinkedListNode *(*LinkedList_MethodAddStart)(
-        LinkedList *list, void *data);
-typedef LinkedListNode *(*LinkedList_MethodAddEnd)(LinkedList *list,
-        void *data);
+        LinkedList *this, void *book);
+typedef LinkedListNode *(*LinkedList_MethodAddEnd)(LinkedList *this,
+        void *book);
 typedef LinkedListNode *(*LinkedList_MethodInsertBefore)(
-        LinkedList *list, LinkedListNode *node, void *data);
+        LinkedList *this, LinkedListNode *node, void *book);
 typedef LinkedListNode *(*LinkedList_MethodInsertAfter)(
-        LinkedList *list, LinkedListNode *node, void *data);
+        LinkedList *this, LinkedListNode *node, void *book);
 typedef LinkedListNode *(*LinkedList_MethodRemoveNode)(
-        LinkedList *list, LinkedListNode *node);
-typedef void (*LinkedList_MethodRemove)(LinkedList *list,
-        void *data);
-typedef void (*LinkedList_MethodSwap)(LinkedList *list,
+        LinkedList *this, LinkedListNode *node);
+typedef void (*LinkedList_MethodRemove)(LinkedList *this,
+        void *book);
+typedef void (*LinkedList_MethodSwap)(LinkedList *this,
         LinkedListNode *node1, LinkedListNode *node2);
-typedef void (*LinkedList_MethodSort)(LinkedList *list,
+typedef void (*LinkedList_MethodSort)(LinkedList *this,
         Comparator comparator);
-typedef LinkedList *(*LinkedList_MethodSearch)(LinkedList *list,
+typedef LinkedList *(*LinkedList_MethodSearch)(LinkedList *this,
         Filter filter);
 
 typedef struct {
+
     LinkedList_MethodNew new;
     LinkedList_MethodDelete delete;
+
     LinkedList_MethodNewNode newNode;
     LinkedList_MethodDeleteNode deleteNode;
     LinkedList_MethodAddStart addStart;
@@ -63,68 +73,49 @@ typedef struct {
     LinkedList_MethodSwap swap;
     LinkedList_MethodSort sort;
     LinkedList_MethodSearch search;
-} LinkedListMethods;
+} LinkedList_Methods;
+
 
 typedef struct tagLinkedList {
-    LinkedListNode *head;
-    LinkedListNode *tail;
-    size_t size;
-    /**
-     * @protected The following function table are intended only for
-     *            subclass to use.
-     * @note You should not add any member after it.
-     */
-    LinkedListMethods methods;
+    LinkedList_Fields *fields;
+    LinkedList_Methods *methods;
 } LinkedList;
 
 
-LinkedListNode *LinkedListNode_new(void *data, LinkedListNode *prev,
+void LinkedList_initialize(LinkedList *this);
+
+void LinkedList_finalize(LinkedList *this);
+
+LinkedListNode *LinkedList_newNode(void *data, LinkedListNode *prev,
         LinkedListNode *next);
 
-void LinkedListNode_delete(LinkedListNode *node);
-
-void LinkedList_initialize(LinkedList *list,
-        LinkedList_MethodNew new,
-        LinkedList_MethodDelete delete,
-        LinkedList_MethodNewNode newNode,
-        LinkedList_MethodDeleteNode deleteNode,
-        LinkedList_MethodAddStart addStart,
-        LinkedList_MethodAddEnd addEnd,
-        LinkedList_MethodInsertBefore insertBefore,
-        LinkedList_MethodInsertAfter insertAfter,
-        LinkedList_MethodRemoveNode removeNode,
-        LinkedList_MethodRemove remove,
-        LinkedList_MethodSwap swap,
-        LinkedList_MethodSort sort,
-        LinkedList_MethodSearch search);
-
-void LinkedList_finalize(LinkedList *list);
+void LinkedList_deleteNode(LinkedListNode *node);
 
 LinkedList *LinkedList_new();
 
-void LinkedList_delete(LinkedList *list);
+void LinkedList_delete(LinkedList *this);
 
-LinkedListNode *LinkedList_addStart(LinkedList *list, void *data);
+LinkedListNode *LinkedList_addStart(LinkedList *this, void *data);
 
-LinkedListNode *LinkedList_addEnd(LinkedList *list, void *data);
+LinkedListNode *LinkedList_addEnd(LinkedList *this, void *data);
 
-LinkedListNode *LinkedList_insertBefore(LinkedList *list,
+LinkedListNode *LinkedList_insertBefore(LinkedList *this,
         LinkedListNode *node, void *data);
 
-LinkedListNode *LinkedList_insertAfter(LinkedList *list,
+LinkedListNode *LinkedList_insertAfter(LinkedList *this,
         LinkedListNode *node, void *data);
 
-LinkedListNode *LinkedList_removeNode(LinkedList *list,
+LinkedListNode *LinkedList_removeNode(LinkedList *this,
         LinkedListNode *node);
 
-void LinkedList_remove(LinkedList *list, void *data);
+void LinkedList_remove(LinkedList *this, void *data);
 
-void LinkedList_swap(LinkedList *list, LinkedListNode *node1,
+void LinkedList_swap(LinkedList *this, LinkedListNode *node1,
         LinkedListNode *node2);
 
-void LinkedList_sort(LinkedList *list, Comparator comparator);
+void LinkedList_sort(LinkedList *this, Comparator comparator);
 
-LinkedList *LinkedList_search(LinkedList *list, Filter filter);
+LinkedList *LinkedList_search(LinkedList *this, Filter filter);
 
 
 #endif /* _LINKED_LIST_H_ */

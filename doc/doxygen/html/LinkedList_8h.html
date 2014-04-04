@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,7 +103,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedListNode.html">LinkedListNode</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedListMethods.html">LinkedListMethods</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedList__Fields.html">LinkedList_Fields</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedList__Methods.html">LinkedList_Methods</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedList.html">LinkedList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,7 +113,7 @@ Data Structures</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:acdff25fea9ce26865f12a3175cc9efb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdff25fea9ce26865f12a3175cc9efb0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LINKED_LIST_FOR_EACH</b>(list, node)&#160;&#160;&#160;for (node = list-&gt;head; node != null; node = node-&gt;next)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LINKED_LIST_FOR_EACH</b>(list, node)&#160;&#160;&#160;for (node = list-&gt;fields-&gt;head; node != null; node = node-&gt;next)</td></tr>
 <tr class="separator:acdff25fea9ce26865f12a3175cc9efb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -125,97 +127,97 @@ typedef struct tagLinkedList&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memitem:acb6c56d56fd0c71fd92433c744921f1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb6c56d56fd0c71fd92433c744921f1e"></a>
 typedef <a class="el" href="structLinkedList.html">LinkedList</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodNew</b> )()</td></tr>
 <tr class="separator:acb6c56d56fd0c71fd92433c744921f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3542e0c1168fad9842f0a39c19e63b2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3542e0c1168fad9842f0a39c19e63b2a"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodDelete</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list)</td></tr>
-<tr class="separator:a3542e0c1168fad9842f0a39c19e63b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a165641c378cdb000b00a2400048282"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a165641c378cdb000b00a2400048282"></a>
-typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodNewNode</b> )(void *data, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *prev, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *next)</td></tr>
-<tr class="separator:a0a165641c378cdb000b00a2400048282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe680153877cec25eaf27e78cd79774"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affe680153877cec25eaf27e78cd79774"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodDelete</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this)</td></tr>
+<tr class="separator:affe680153877cec25eaf27e78cd79774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f3f92542c7d93f4cbfc309b0f390a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31f3f92542c7d93f4cbfc309b0f390a5"></a>
+typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodNewNode</b> )(void *data, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *previous, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *next)</td></tr>
+<tr class="separator:a31f3f92542c7d93f4cbfc309b0f390a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735c91d5fc845163c7c1d99f857cacf5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a735c91d5fc845163c7c1d99f857cacf5"></a>
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodDeleteNode</b> )(<a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
 <tr class="separator:a735c91d5fc845163c7c1d99f857cacf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1227f574e227f5ea48fa8c35856c5eb4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1227f574e227f5ea48fa8c35856c5eb4"></a>
-typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodAddStart</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, void *data)</td></tr>
-<tr class="separator:a1227f574e227f5ea48fa8c35856c5eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a709154a872c641400c076c17b01f2488"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a709154a872c641400c076c17b01f2488"></a>
-typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodAddEnd</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, void *data)</td></tr>
-<tr class="separator:a709154a872c641400c076c17b01f2488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35c18d821b9e82f26d943d170345208b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35c18d821b9e82f26d943d170345208b"></a>
-typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodInsertBefore</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *data)</td></tr>
-<tr class="separator:a35c18d821b9e82f26d943d170345208b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03ba9b9f3f4d6e9af68ad60db5423eb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03ba9b9f3f4d6e9af68ad60db5423eb0"></a>
-typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodInsertAfter</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *data)</td></tr>
-<tr class="separator:a03ba9b9f3f4d6e9af68ad60db5423eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c4e6063037e4df408d04974aa289fab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c4e6063037e4df408d04974aa289fab"></a>
-typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodRemoveNode</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
-<tr class="separator:a8c4e6063037e4df408d04974aa289fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6130a89a72e329684bfb17c414b8cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f6130a89a72e329684bfb17c414b8cc"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodRemove</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, void *data)</td></tr>
-<tr class="separator:a5f6130a89a72e329684bfb17c414b8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af415ba30c947b2efa5220523ace17b05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af415ba30c947b2efa5220523ace17b05"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodSwap</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node1, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node2)</td></tr>
-<tr class="separator:af415ba30c947b2efa5220523ace17b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ae8f31f9529efc41e9e7504019029a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ae8f31f9529efc41e9e7504019029a1"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodSort</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, Comparator comparator)</td></tr>
-<tr class="separator:a9ae8f31f9529efc41e9e7504019029a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf2a2f7416abafaf4a1e5af40a7cb145"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf2a2f7416abafaf4a1e5af40a7cb145"></a>
-typedef <a class="el" href="structLinkedList.html">LinkedList</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodSearch</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structFilter.html">Filter</a> filter)</td></tr>
-<tr class="separator:aaf2a2f7416abafaf4a1e5af40a7cb145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50277e244a9f3224d4c9c1391732d1a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50277e244a9f3224d4c9c1391732d1a6"></a>
+typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodAddStart</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, void *book)</td></tr>
+<tr class="separator:a50277e244a9f3224d4c9c1391732d1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5699057eb9d9b432c9ea5c870209dfa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5699057eb9d9b432c9ea5c870209dfa"></a>
+typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodAddEnd</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, void *book)</td></tr>
+<tr class="separator:ac5699057eb9d9b432c9ea5c870209dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d46874127dc9cfecef1ba0b5746d86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91d46874127dc9cfecef1ba0b5746d86"></a>
+typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodInsertBefore</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *book)</td></tr>
+<tr class="separator:a91d46874127dc9cfecef1ba0b5746d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53449a2ccfbf37e5143969e938a57dc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53449a2ccfbf37e5143969e938a57dc8"></a>
+typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodInsertAfter</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *book)</td></tr>
+<tr class="separator:a53449a2ccfbf37e5143969e938a57dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b9c1ebcaeaa6eb22619b8893be338cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b9c1ebcaeaa6eb22619b8893be338cd"></a>
+typedef <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodRemoveNode</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
+<tr class="separator:a0b9c1ebcaeaa6eb22619b8893be338cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124bc2ca18eda71d705a790f6fce0e07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a124bc2ca18eda71d705a790f6fce0e07"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodRemove</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, void *book)</td></tr>
+<tr class="separator:a124bc2ca18eda71d705a790f6fce0e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2b233c928858398d5d9b873f8be384"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e2b233c928858398d5d9b873f8be384"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodSwap</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node1, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node2)</td></tr>
+<tr class="separator:a4e2b233c928858398d5d9b873f8be384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912fcc1cf2ff4aa11cecefcea9193364"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a912fcc1cf2ff4aa11cecefcea9193364"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodSort</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, Comparator comparator)</td></tr>
+<tr class="separator:a912fcc1cf2ff4aa11cecefcea9193364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0396d9513a4e95a0a4098d0feeb38755"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0396d9513a4e95a0a4098d0feeb38755"></a>
+typedef <a class="el" href="structLinkedList.html">LinkedList</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_MethodSearch</b> )(<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structFilter.html">Filter</a> filter)</td></tr>
+<tr class="separator:a0396d9513a4e95a0a4098d0feeb38755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab9af8fd7984159cad43589d1279cbc87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9af8fd7984159cad43589d1279cbc87"></a>
-<a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedListNode_new</b> (void *data, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *prev, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *next)</td></tr>
-<tr class="separator:ab9af8fd7984159cad43589d1279cbc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30e6c6a07972a5b09b968e9b13e87378"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30e6c6a07972a5b09b968e9b13e87378"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedListNode_delete</b> (<a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
-<tr class="separator:a30e6c6a07972a5b09b968e9b13e87378"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97b000ccdaf085ddb201f88a10017383"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97b000ccdaf085ddb201f88a10017383"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_initialize</b> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, LinkedList_MethodNew new, LinkedList_MethodDelete delete, LinkedList_MethodNewNode newNode, LinkedList_MethodDeleteNode deleteNode, LinkedList_MethodAddStart addStart, LinkedList_MethodAddEnd addEnd, LinkedList_MethodInsertBefore insertBefore, LinkedList_MethodInsertAfter insertAfter, LinkedList_MethodRemoveNode removeNode, LinkedList_MethodRemove remove, LinkedList_MethodSwap swap, LinkedList_MethodSort sort, LinkedList_MethodSearch search)</td></tr>
-<tr class="separator:a97b000ccdaf085ddb201f88a10017383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a4fa6f659d4be6346a36c3dce2c797"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79a4fa6f659d4be6346a36c3dce2c797"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</b> (<a class="el" href="structLinkedList.html">LinkedList</a> *list)</td></tr>
-<tr class="separator:a79a4fa6f659d4be6346a36c3dce2c797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4c511d117bd780233137814b20d1bd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#af4c511d117bd780233137814b20d1bd3">LinkedList_new</a> ()</td></tr>
-<tr class="memdesc:af4c511d117bd780233137814b20d1bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new instance of <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#af4c511d117bd780233137814b20d1bd3">More...</a><br/></td></tr>
+<tr class="memitem:a2ea28be1e615a42e164d27bd7861aba9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ea28be1e615a42e164d27bd7861aba9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_initialize</b> (<a class="el" href="structLinkedList.html">LinkedList</a> *this)</td></tr>
+<tr class="separator:a2ea28be1e615a42e164d27bd7861aba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a411f23420c2bcb69ca15ace06c522"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80a411f23420c2bcb69ca15ace06c522"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</b> (<a class="el" href="structLinkedList.html">LinkedList</a> *this)</td></tr>
+<tr class="separator:a80a411f23420c2bcb69ca15ace06c522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f191508aa53b8193e51c9bc0c69ed78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a6f191508aa53b8193e51c9bc0c69ed78">LinkedList_newNode</a> (void *data, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *prev, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *next)</td></tr>
+<tr class="memdesc:a6f191508aa53b8193e51c9bc0c69ed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="structLinkedListNode.html">LinkedListNode</a> instance.  <a href="#a6f191508aa53b8193e51c9bc0c69ed78">More...</a><br/></td></tr>
+<tr class="separator:a6f191508aa53b8193e51c9bc0c69ed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6920b01f73f2950a3ad74558e8e11c7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a6920b01f73f2950a3ad74558e8e11c7d">LinkedList_deleteNode</a> (<a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
+<tr class="memdesc:a6920b01f73f2950a3ad74558e8e11c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a <a class="el" href="structLinkedListNode.html">LinkedListNode</a> instance.  <a href="#a6920b01f73f2950a3ad74558e8e11c7d">More...</a><br/></td></tr>
+<tr class="separator:a6920b01f73f2950a3ad74558e8e11c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c511d117bd780233137814b20d1bd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4c511d117bd780233137814b20d1bd3"></a>
+<a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_new</b> ()</td></tr>
 <tr class="separator:af4c511d117bd780233137814b20d1bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54a9fe68748263fe848bcd2c898036b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a54a9fe68748263fe848bcd2c898036b5">LinkedList_delete</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list)</td></tr>
-<tr class="memdesc:a54a9fe68748263fe848bcd2c898036b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a <a class="el" href="structLinkedList.html">LinkedList</a> instance.  <a href="#a54a9fe68748263fe848bcd2c898036b5">More...</a><br/></td></tr>
-<tr class="separator:a54a9fe68748263fe848bcd2c898036b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a128a97b25db2bcb5937d9bf53228d4ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a128a97b25db2bcb5937d9bf53228d4ea">LinkedList_addStart</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, void *data)</td></tr>
-<tr class="memdesc:a128a97b25db2bcb5937d9bf53228d4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node holding some data to the start of a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a128a97b25db2bcb5937d9bf53228d4ea">More...</a><br/></td></tr>
-<tr class="separator:a128a97b25db2bcb5937d9bf53228d4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4898e1cd809c73b3973bb17d6fd7772"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#ae4898e1cd809c73b3973bb17d6fd7772">LinkedList_addEnd</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, void *data)</td></tr>
-<tr class="memdesc:ae4898e1cd809c73b3973bb17d6fd7772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node holding some data to the end of a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#ae4898e1cd809c73b3973bb17d6fd7772">More...</a><br/></td></tr>
-<tr class="separator:ae4898e1cd809c73b3973bb17d6fd7772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b56062d6896617f090363c198c5ae6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a5b56062d6896617f090363c198c5ae6f">LinkedList_insertBefore</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *data)</td></tr>
-<tr class="memdesc:a5b56062d6896617f090363c198c5ae6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new node holding some data before a node.  <a href="#a5b56062d6896617f090363c198c5ae6f">More...</a><br/></td></tr>
-<tr class="separator:a5b56062d6896617f090363c198c5ae6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2fdb4106c3214da32fa85fbb4010ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a7b2fdb4106c3214da32fa85fbb4010ae">LinkedList_insertAfter</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *data)</td></tr>
-<tr class="memdesc:a7b2fdb4106c3214da32fa85fbb4010ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new node holding some data after a node.  <a href="#a7b2fdb4106c3214da32fa85fbb4010ae">More...</a><br/></td></tr>
-<tr class="separator:a7b2fdb4106c3214da32fa85fbb4010ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bdd929d245b4edcbddc52163736d46b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a6bdd929d245b4edcbddc52163736d46b">LinkedList_removeNode</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
-<tr class="memdesc:a6bdd929d245b4edcbddc52163736d46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a node from a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a6bdd929d245b4edcbddc52163736d46b">More...</a><br/></td></tr>
-<tr class="separator:a6bdd929d245b4edcbddc52163736d46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fef314ef5ceedc1604dde1a8d16015f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a9fef314ef5ceedc1604dde1a8d16015f">LinkedList_remove</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, void *data)</td></tr>
-<tr class="memdesc:a9fef314ef5ceedc1604dde1a8d16015f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a piece of data from a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a9fef314ef5ceedc1604dde1a8d16015f">More...</a><br/></td></tr>
-<tr class="separator:a9fef314ef5ceedc1604dde1a8d16015f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129e53a044959c57f2384da71c5ef62e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a129e53a044959c57f2384da71c5ef62e">LinkedList_swap</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node1, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node2)</td></tr>
-<tr class="memdesc:a129e53a044959c57f2384da71c5ef62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap two nodes in a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a129e53a044959c57f2384da71c5ef62e">More...</a><br/></td></tr>
-<tr class="separator:a129e53a044959c57f2384da71c5ef62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdc8b021bd918462c416ed3f5c2f6b86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#afdc8b021bd918462c416ed3f5c2f6b86">LinkedList_sort</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, Comparator comparator)</td></tr>
-<tr class="memdesc:afdc8b021bd918462c416ed3f5c2f6b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort a <a class="el" href="structLinkedList.html">LinkedList</a> by a comparator.  <a href="#afdc8b021bd918462c416ed3f5c2f6b86">More...</a><br/></td></tr>
-<tr class="separator:afdc8b021bd918462c416ed3f5c2f6b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab62fe9f647f35e46d1ea8ae9b95e3308"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#ab62fe9f647f35e46d1ea8ae9b95e3308">LinkedList_search</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *list, <a class="el" href="structFilter.html">Filter</a> filter)</td></tr>
-<tr class="memdesc:ab62fe9f647f35e46d1ea8ae9b95e3308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search in a <a class="el" href="structLinkedList.html">LinkedList</a> by a filter.  <a href="#ab62fe9f647f35e46d1ea8ae9b95e3308">More...</a><br/></td></tr>
-<tr class="separator:ab62fe9f647f35e46d1ea8ae9b95e3308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa811aabff84c792c6da9576914974c8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa811aabff84c792c6da9576914974c8a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_delete</b> (<a class="el" href="structLinkedList.html">LinkedList</a> *this)</td></tr>
+<tr class="separator:aa811aabff84c792c6da9576914974c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7132f713431ac4e11c7b780c34989b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a8a7132f713431ac4e11c7b780c34989b">LinkedList_addStart</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, void *data)</td></tr>
+<tr class="memdesc:a8a7132f713431ac4e11c7b780c34989b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node holding some book to the start of a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a8a7132f713431ac4e11c7b780c34989b">More...</a><br/></td></tr>
+<tr class="separator:a8a7132f713431ac4e11c7b780c34989b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187c687217ae617a8a089051a3874396"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a187c687217ae617a8a089051a3874396">LinkedList_addEnd</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, void *data)</td></tr>
+<tr class="memdesc:a187c687217ae617a8a089051a3874396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node holding some book to the end of a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a187c687217ae617a8a089051a3874396">More...</a><br/></td></tr>
+<tr class="separator:a187c687217ae617a8a089051a3874396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea8d89599acfac6be8b0f4d1ff4adea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#acea8d89599acfac6be8b0f4d1ff4adea">LinkedList_insertBefore</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *data)</td></tr>
+<tr class="memdesc:acea8d89599acfac6be8b0f4d1ff4adea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new node holding some book before a node.  <a href="#acea8d89599acfac6be8b0f4d1ff4adea">More...</a><br/></td></tr>
+<tr class="separator:acea8d89599acfac6be8b0f4d1ff4adea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e8874058936aea620fbd293139daaa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a7e8874058936aea620fbd293139daaa7">LinkedList_insertAfter</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node, void *data)</td></tr>
+<tr class="memdesc:a7e8874058936aea620fbd293139daaa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new node holding some book after a node.  <a href="#a7e8874058936aea620fbd293139daaa7">More...</a><br/></td></tr>
+<tr class="separator:a7e8874058936aea620fbd293139daaa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35a5dbf02091fd691f92de70051548b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#ad35a5dbf02091fd691f92de70051548b">LinkedList_removeNode</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node)</td></tr>
+<tr class="memdesc:ad35a5dbf02091fd691f92de70051548b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a node from a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#ad35a5dbf02091fd691f92de70051548b">More...</a><br/></td></tr>
+<tr class="separator:ad35a5dbf02091fd691f92de70051548b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737312c4ec018d5204dcad4060be5f94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a737312c4ec018d5204dcad4060be5f94">LinkedList_remove</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, void *data)</td></tr>
+<tr class="memdesc:a737312c4ec018d5204dcad4060be5f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a piece of book from a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a737312c4ec018d5204dcad4060be5f94">More...</a><br/></td></tr>
+<tr class="separator:a737312c4ec018d5204dcad4060be5f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69828ecc986a5dc04bf748199c9dffa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a69828ecc986a5dc04bf748199c9dffa2">LinkedList_swap</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node1, <a class="el" href="structLinkedListNode.html">LinkedListNode</a> *node2)</td></tr>
+<tr class="memdesc:a69828ecc986a5dc04bf748199c9dffa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap two nodes in a <a class="el" href="structLinkedList.html">LinkedList</a>.  <a href="#a69828ecc986a5dc04bf748199c9dffa2">More...</a><br/></td></tr>
+<tr class="separator:a69828ecc986a5dc04bf748199c9dffa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8219a44c024f4dfcd290581d63b13f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a8219a44c024f4dfcd290581d63b13f8b">LinkedList_sort</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, Comparator comparator)</td></tr>
+<tr class="memdesc:a8219a44c024f4dfcd290581d63b13f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort a <a class="el" href="structLinkedList.html">LinkedList</a> by a comparator.  <a href="#a8219a44c024f4dfcd290581d63b13f8b">More...</a><br/></td></tr>
+<tr class="separator:a8219a44c024f4dfcd290581d63b13f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b3a0d0e83d00e298ee831cc6255072"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LinkedList_8h.html#a52b3a0d0e83d00e298ee831cc6255072">LinkedList_search</a> (<a class="el" href="structLinkedList.html">LinkedList</a> *this, <a class="el" href="structFilter.html">Filter</a> filter)</td></tr>
+<tr class="memdesc:a52b3a0d0e83d00e298ee831cc6255072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search in a <a class="el" href="structLinkedList.html">LinkedList</a> by a filter.  <a href="#a52b3a0d0e83d00e298ee831cc6255072">More...</a><br/></td></tr>
+<tr class="separator:a52b3a0d0e83d00e298ee831cc6255072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Zhang Hai </dd></dl>
 
 <p>Definition in file <a class="el" href="LinkedList_8h_source.html">LinkedList.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ae4898e1cd809c73b3973bb17d6fd7772"></a>
+<a class="anchor" id="a187c687217ae617a8a089051a3874396"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -223,7 +225,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname"><a class="el" href="structLinkedListNode.html">LinkedListNode</a>* LinkedList_addEnd </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -239,21 +241,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
       </table>
 </div><div class="memdoc">
 
-<p>Add a node holding some data to the end of a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
+<p>Add a node holding some book to the end of a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to add the data to. </td></tr>
-    <tr><td class="paramname">data</td><td>The data to be added. </td></tr>
+    <tr><td class="paramname">book</td><td>The book to be added. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The newly added node in the <a class="el" href="structLinkedList.html">LinkedList</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly added node. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00132">132</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00104">104</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a128a97b25db2bcb5937d9bf53228d4ea"></a>
+<a class="anchor" id="a8a7132f713431ac4e11c7b780c34989b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -261,7 +262,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname"><a class="el" href="structLinkedListNode.html">LinkedListNode</a>* LinkedList_addStart </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -277,47 +278,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
       </table>
 </div><div class="memdoc">
 
-<p>Add a node holding some data to the start of a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
+<p>Add a node holding some book to the start of a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to add the data to. </td></tr>
-    <tr><td class="paramname">data</td><td>The data to be added. </td></tr>
+    <tr><td class="paramname">book</td><td>The book to be added. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The newly added node in the <a class="el" href="structLinkedList.html">LinkedList</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly added node. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00107">107</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00080">80</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a54a9fe68748263fe848bcd2c898036b5"></a>
+<a class="anchor" id="a6920b01f73f2950a3ad74558e8e11c7d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LinkedList_delete </td>
+          <td class="memname">void LinkedList_deleteNode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destroy a <a class="el" href="structLinkedList.html">LinkedList</a> instance. </p>
+<p>Destroy a <a class="el" href="structLinkedListNode.html">LinkedListNode</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> instance to be destroyed. </td></tr>
+    <tr><td class="paramname">node</td><td>The node to be destroyed. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00094">94</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00071">71</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7b2fdb4106c3214da32fa85fbb4010ae"></a>
+<a class="anchor" id="a7e8874058936aea620fbd293139daaa7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -325,7 +325,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname"><a class="el" href="structLinkedListNode.html">LinkedListNode</a>* LinkedList_insertAfter </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -347,22 +347,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
       </table>
 </div><div class="memdoc">
 
-<p>Insert a new node holding some data after a node. </p>
+<p>Insert a new node holding some book after a node. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to insert the data into. </td></tr>
     <tr><td class="paramname">node</td><td>The node to insert after. </td></tr>
-    <tr><td class="paramname">data</td><td>The data to be inserted. </td></tr>
+    <tr><td class="paramname">book</td><td>The book to be inserted. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The newly inserted node in the <a class="el" href="structLinkedList.html">LinkedList</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly inserted node. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00183">183</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00153">153</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5b56062d6896617f090363c198c5ae6f"></a>
+<a class="anchor" id="acea8d89599acfac6be8b0f4d1ff4adea"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -370,7 +369,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname"><a class="el" href="structLinkedListNode.html">LinkedListNode</a>* LinkedList_insertBefore </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -392,42 +391,66 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
       </table>
 </div><div class="memdoc">
 
-<p>Insert a new node holding some data before a node. </p>
+<p>Insert a new node holding some book before a node. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to insert the data into. </td></tr>
     <tr><td class="paramname">node</td><td>The node to insert before. </td></tr>
-    <tr><td class="paramname">data</td><td>The data to be inserted. </td></tr>
+    <tr><td class="paramname">book</td><td>The book to be inserted. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The newly inserted node in the <a class="el" href="structLinkedList.html">LinkedList</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly inserted node. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00158">158</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00129">129</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af4c511d117bd780233137814b20d1bd3"></a>
+<a class="anchor" id="a6f191508aa53b8193e51c9bc0c69ed78"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structLinkedList.html">LinkedList</a>* LinkedList_new </td>
+          <td class="memname"><a class="el" href="structLinkedListNode.html">LinkedListNode</a>* LinkedList_newNode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td>
+          <td class="paramname"><em>previous</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structLinkedListNode.html">LinkedListNode</a> *&#160;</td>
+          <td class="paramname"><em>next</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create a new instance of <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>The created <a class="el" href="structLinkedList.html">LinkedList</a> instance. </dd></dl>
+<p>Create a new <a class="el" href="structLinkedListNode.html">LinkedListNode</a> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The data to be held by the new node. </td></tr>
+    <tr><td class="paramname">previous</td><td>The node previous to the new node. </td></tr>
+    <tr><td class="paramname">next</td><td>The node next to the new node. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The created <a class="el" href="structLinkedListNode.html">LinkedListNode</a> instance. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00068">68</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00054">54</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9fef314ef5ceedc1604dde1a8d16015f"></a>
+<a class="anchor" id="a737312c4ec018d5204dcad4060be5f94"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -435,7 +458,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname">void LinkedList_remove </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -451,21 +474,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
       </table>
 </div><div class="memdoc">
 
-<p>Remove a piece of data from a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
-<dl class="section note"><dt>Note</dt><dd>This function will only remove the first occurrence of the data. </dd></dl>
+<p>Remove a piece of book from a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>This function will only remove the first occurrence of the book. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to remove the data from. </td></tr>
-    <tr><td class="paramname">data</td><td>The data to be removed. </td></tr>
+    <tr><td class="paramname">book</td><td>The book to be removed. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00237">237</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00206">206</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6bdd929d245b4edcbddc52163736d46b"></a>
+<a class="anchor" id="ad35a5dbf02091fd691f92de70051548b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -473,7 +495,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname"><a class="el" href="structLinkedListNode.html">LinkedListNode</a>* LinkedList_removeNode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -492,18 +514,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
 <p>Remove a node from a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to remove the node from. </td></tr>
     <tr><td class="paramname">node</td><td>The node to be removed. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the node following the removed one, or null if the tail node is removed. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00208">208</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00177">177</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab62fe9f647f35e46d1ea8ae9b95e3308"></a>
+<a class="anchor" id="a52b3a0d0e83d00e298ee831cc6255072"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -511,7 +532,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname"><a class="el" href="structLinkedList.html">LinkedList</a>* LinkedList_search </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -530,19 +551,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
 <p>Search in a <a class="el" href="structLinkedList.html">LinkedList</a> by a filter. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to be searched in. </td></tr>
     <tr><td class="paramname">filter</td><td>A filter function for the search. </td></tr>
-    <tr><td class="paramname">criteria</td><td>The criteria data to be passed into the filter. </td></tr>
+    <tr><td class="paramname">criteria</td><td>The criteria book to be passed into the filter. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structLinkedList.html">LinkedList</a> containing the result. </dd></dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00301">301</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00268">268</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="afdc8b021bd918462c416ed3f5c2f6b86"></a>
+<a class="anchor" id="a8219a44c024f4dfcd290581d63b13f8b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -550,7 +570,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname">void LinkedList_sort </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -570,17 +590,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
 <dl class="section note"><dt>Note</dt><dd>This function uses bubble sort. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html">LinkedList</a> to be sorted. </td></tr>
     <tr><td class="paramname">comparator</td><td>The comparator for sorting. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00265">265</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00233">233</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a129e53a044959c57f2384da71c5ef62e"></a>
+<a class="anchor" id="a69828ecc986a5dc04bf748199c9dffa2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -588,7 +607,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
           <td class="memname">void LinkedList_swap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -611,7 +630,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
 </div><div class="memdoc">
 
 <p>Swap two nodes in a <a class="el" href="structLinkedList.html">LinkedList</a>. </p>
-<dl class="section note"><dt>Note</dt><dd>This function will simply swap the data of the two nodes. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function will simply swap the book of the two nodes. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">node1</td><td>The first node to be swapped. </td></tr>
@@ -620,14 +639,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedList_finalize</
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00253">253</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
+<p>Definition at line <a class="el" href="LinkedList_8c_source.html#l00222">222</a> of file <a class="el" href="LinkedList_8c_source.html">LinkedList.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 19:24:46 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
