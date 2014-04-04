@@ -14,10 +14,6 @@
 #include "Book.h"
 
 
-#define BOOK_LIST_FOR_EACH(list, node) \
-    for (node = _(list, head); node != null; node = node->next)
-
-
 typedef struct tagBookListNode BookListNode;
 typedef struct tagBookListNode {
     Book *book;

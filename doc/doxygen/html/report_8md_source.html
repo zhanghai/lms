@@ -220,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;* [`<a class="code" href="structBook.html">Book</a>`](doxygen/html/Book_8c.html)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;* [`<a class="code" href="structBookList.html">BookList</a>`](doxygen/html/BookList_8c.html)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;* [`<a class="code" href="structLinkedList.html">LinkedList</a>`](doxygen/html/LinkedList_8c.html)</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;## 系统设计</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
@@ -330,34 +330,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="stringliteral">## 尚待改进</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="stringliteral">1. 进一步`OOP`的实现</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="stringliteral">1. 从文件中读入指令</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="stringliteral">   由于时间匆忙，对成员函数指针列表的实现尚有不妥当之处，今后若有机会可以改进。</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="stringliteral">   目前可以使用管道代替。</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="stringliteral">2. 从文件中读入指令</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="stringliteral">2. 将内容导出为文本文件</span></div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="stringliteral">   目前可以使用管道代替。</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="stringliteral">   目前可以使用重定向标准输出至文件代替。</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="stringliteral">3. 将内容导出为文本文件</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="stringliteral">3. 对实际运用中大量图书的处理</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="stringliteral">   目前可以使用重定向标准输出至文件代替。</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="stringliteral">   目前的实现是在程序启动时读入所有书籍信息，在程序退出时写入数据文件。</span></div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="stringliteral">4. 对实际运用中大量图书的处理</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="stringliteral">   对于大量图书的管理，若自己实现根据需求从文件中读取数据并在内存中建立缓冲较为繁琐，因此一般会采用成熟的数据库进行信息存储。</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="stringliteral">   目前的实现是在程序启动时读入所有书籍信息，在程序退出时写入数据文件。</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="stringliteral">   对于大量图书的管理，若自己实现根据需求从文件中读取数据并在内存中建立缓冲较为繁琐，因此一般会采用成熟的数据库进行信息存储。</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="stringliteral">   若一定要自己实现，可以按照常规方法实现一个数据库，而另一个效率较低但可以处理大量数据的简单实现则是直接利用文件系统的功能，将每本书存储为一个文件，只将需要操作的书籍内容读入内存，并可以实现简单地基于`RLU`策略的缓存。</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="stringliteral">   若一定要自己实现，可以按照常规方法实现一个数据库，而另一个效率较低但可以处理大量数据的简单实现则是直接利用文件系统的功能，将每本书存储为一个文件，只将需要操作的书籍内容读入内存，并可以实现简单地基于`RLU`策略的缓存。</span></div>
 <div class="ttc" id="structBook_html"><div class="ttname"><a href="structBook.html">Book</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00013">Book.h:13</a></div></div>
-<div class="ttc" id="structBookList_html"><div class="ttname"><a href="structBookList.html">BookList</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00084">BookList.h:84</a></div></div>
+<div class="ttc" id="structBookList_html"><div class="ttname"><a href="structBookList.html">BookList</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00080">BookList.h:80</a></div></div>
 <div class="ttc" id="BookFilters_8c_html_a1007712a46203acf0abcace91e981235"><div class="ttname"><a href="BookFilters_8c.html#a1007712a46203acf0abcace91e981235">BookFilters_compound</a></div><div class="ttdeci">bool BookFilters_compound(Book *book, void *list)</div><div class="ttdoc">A compound BookFilter function. </div><div class="ttdef"><b>Definition:</b> <a href="BookFilters_8c_source.html#l00073">BookFilters.c:73</a></div></div>
 <div class="ttc" id="structLinkedList_html"><div class="ttname"><a href="structLinkedList.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="LinkedList_8h_source.html#l00079">LinkedList.h:79</a></div></div>
 <div class="ttc" id="structArrayList_html"><div class="ttname"><a href="structArrayList.html">ArrayList</a></div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00017">ArrayList.h:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 11:07:16 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

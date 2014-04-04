@@ -354,7 +354,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        Lms_promptBookNotFound();</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        Lms_printBookFound(_(result, size));</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        LINKED_LIST_FOR_EACH(result, node) {</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            Console_printSeparator();</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(node-&gt;book, stdout);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        }</div>
@@ -401,7 +401,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        Lms_promptBookNotFound();</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        Lms_printBookFound(_(result, size));</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        LINKED_LIST_FOR_EACH(result, node) {</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            book = node-&gt;book;</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            Console_printSeparator();</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(book, stdout);</div>
@@ -458,7 +458,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        Lms_promptBookNotFound();</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        Lms_printBookFound(_(result, size));</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        BOOK_LIST_FOR_EACH(result, node) {</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        LINKED_LIST_FOR_EACH(result, node) {</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            Console_printSeparator();</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            <a class="code" href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a>(node-&gt;book, stdout);</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            Console_printSeparator();</div>
@@ -520,20 +520,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="Book_8c_html_a802c99e1bef05ddbe41e5cf896341f3e"><div class="ttname"><a href="Book_8c.html#a802c99e1bef05ddbe41e5cf896341f3e">Book_print</a></div><div class="ttdeci">void Book_print(Book *book, FILE *file)</div><div class="ttdoc">Print the information stored in a Book instance. </div><div class="ttdef"><b>Definition:</b> <a href="Book_8c_source.html#l00173">Book.c:173</a></div></div>
 <div class="ttc" id="Book_8c_html_a9478207f0ec9ccdb53d858e1d102211b"><div class="ttname"><a href="Book_8c.html#a9478207f0ec9ccdb53d858e1d102211b">Book_new</a></div><div class="ttdeci">Book * Book_new(string title, string authors[5], string number, string subjects[5], string publisher, string year, bool circulating)</div><div class="ttdoc">Create a new instance of Book. </div><div class="ttdef"><b>Definition:</b> <a href="Book_8c_source.html#l00037">Book.c:37</a></div></div>
 <div class="ttc" id="Book_8c_html_a75cd1575560384d112b857bd9462820e"><div class="ttname"><a href="Book_8c.html#a75cd1575560384d112b857bd9462820e">Book_removeReference</a></div><div class="ttdeci">void Book_removeReference(Book *book)</div><div class="ttdoc">Remove a reference to a Book instance, will delete the instance if reference count reaches 0...</div><div class="ttdef"><b>Definition:</b> <a href="Book_8c_source.html#l00087">Book.c:87</a></div></div>
-<div class="ttc" id="structBookList_html"><div class="ttname"><a href="structBookList.html">BookList</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00084">BookList.h:84</a></div></div>
+<div class="ttc" id="structBookList_html"><div class="ttname"><a href="structBookList.html">BookList</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00080">BookList.h:80</a></div></div>
 <div class="ttc" id="BookFilters_8c_html_a1007712a46203acf0abcace91e981235"><div class="ttname"><a href="BookFilters_8c.html#a1007712a46203acf0abcace91e981235">BookFilters_compound</a></div><div class="ttdeci">bool BookFilters_compound(Book *book, void *list)</div><div class="ttdoc">A compound BookFilter function. </div><div class="ttdef"><b>Definition:</b> <a href="BookFilters_8c_source.html#l00073">BookFilters.c:73</a></div></div>
 <div class="ttc" id="Lms_8h_html"><div class="ttname"><a href="Lms_8h.html">Lms.h</a></div></div>
 <div class="ttc" id="BookList_8c_html_a2f14cf9aec7ea267db2ab86ac9795e41"><div class="ttname"><a href="BookList_8c.html#a2f14cf9aec7ea267db2ab86ac9795e41">BookList_deserialize</a></div><div class="ttdeci">BookList * BookList_deserialize(FILE *file)</div><div class="ttdoc">Deserialize a BookList from file. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00065">BookList.c:65</a></div></div>
 <div class="ttc" id="structArrayList_html"><div class="ttname"><a href="structArrayList.html">ArrayList</a></div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00017">ArrayList.h:17</a></div></div>
 <div class="ttc" id="BookList_8c_html_afec208d4d15dcfa8a462e0681dd90991"><div class="ttname"><a href="BookList_8c.html#afec208d4d15dcfa8a462e0681dd90991">BookList_serialize</a></div><div class="ttdeci">bool BookList_serialize(BookList *list, FILE *file)</div><div class="ttdoc">Serialize a BookList to file. </div><div class="ttdef"><b>Definition:</b> <a href="BookList_8c_source.html#l00045">BookList.c:45</a></div></div>
 <div class="ttc" id="structBookFilter_html"><div class="ttname"><a href="structBookFilter.html">BookFilter</a></div><div class="ttdef"><b>Definition:</b> <a href="Book_8h_source.html#l00029">Book.h:29</a></div></div>
-<div class="ttc" id="structBookListNode_html"><div class="ttname"><a href="structBookListNode.html">BookListNode</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00022">BookList.h:22</a></div></div>
+<div class="ttc" id="structBookListNode_html"><div class="ttname"><a href="structBookListNode.html">BookListNode</a></div><div class="ttdef"><b>Definition:</b> <a href="BookList_8h_source.html#l00018">BookList.h:18</a></div></div>
 <div class="ttc" id="ArrayList_8h_html"><div class="ttname"><a href="ArrayList_8h.html">ArrayList.h</a></div></div>
 <div class="ttc" id="Console_8h_html"><div class="ttname"><a href="Console_8h.html">Console.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 4 2014 10:53:27 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 11:07:16 for LMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

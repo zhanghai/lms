@@ -281,7 +281,7 @@ void Lms_searchBook(BookList *list) {
         Lms_promptBookNotFound();
     } else {
         Lms_printBookFound(_(result, size));
-        BOOK_LIST_FOR_EACH(result, node) {
+        LINKED_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
             Book_print(node->book, stdout);
         }
@@ -328,7 +328,7 @@ void Lms_modifyBook(BookList *list) {
         Lms_promptBookNotFound();
     } else {
         Lms_printBookFound(_(result, size));
-        BOOK_LIST_FOR_EACH(result, node) {
+        LINKED_LIST_FOR_EACH(result, node) {
             book = node->book;
             Console_printSeparator();
             Book_print(book, stdout);
@@ -385,7 +385,7 @@ void Lms_removeBook(BookList *list) {
         Lms_promptBookNotFound();
     } else {
         Lms_printBookFound(_(result, size));
-        BOOK_LIST_FOR_EACH(result, node) {
+        LINKED_LIST_FOR_EACH(result, node) {
             Console_printSeparator();
             Book_print(node->book, stdout);
             Console_printSeparator();

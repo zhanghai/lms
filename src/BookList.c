@@ -47,7 +47,7 @@ bool BookList_serialize(BookList *list, FILE *file) {
     BookListNode *node;
 
     size_t_serialize(&_(list, size), file);
-    BOOK_LIST_FOR_EACH(list, node) {
+    LINKED_LIST_FOR_EACH(list, node) {
         if (!Book_serialize(node->book, file)) {
             return false;
         }

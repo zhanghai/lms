@@ -73,8 +73,8 @@ void LinkedList_deleteNode(LinkedListNode *node) {
 }
 
 /**
- * Add a node holding some book to the start of a {@link LinkedList}.
- * @param book The book to be added.
+ * Add a node holding some data to the start of a {@link LinkedList}.
+ * @param data The data to be added.
  * @return The newly added node.
  */
 LinkedListNode *LinkedList_addStart(LinkedList *this, void *data) {
@@ -97,8 +97,8 @@ LinkedListNode *LinkedList_addStart(LinkedList *this, void *data) {
 }
 
 /**
- * Add a node holding some book to the end of a {@link LinkedList}.
- * @param book The book to be added.
+ * Add a node holding some data to the end of a {@link LinkedList}.
+ * @param data The data to be added.
  * @return The newly added node.
  */
 LinkedListNode *LinkedList_addEnd(LinkedList *this, void *data) {
@@ -121,9 +121,9 @@ LinkedListNode *LinkedList_addEnd(LinkedList *this, void *data) {
 }
 
 /**
- * Insert a new node holding some book before a node.
+ * Insert a new node holding some data before a node.
  * @param node The node to insert before.
- * @param book The book to be inserted.
+ * @param data The data to be inserted.
  * @return The newly inserted node.
  */
 LinkedListNode *LinkedList_insertBefore(LinkedList *this,
@@ -145,9 +145,9 @@ LinkedListNode *LinkedList_insertBefore(LinkedList *this,
 }
 
 /**
- * Insert a new node holding some book after a node.
+ * Insert a new node holding some data after a node.
  * @param node The node to insert after.
- * @param book The book to be inserted.
+ * @param data The data to be inserted.
  * @return The newly inserted node.
  */
 LinkedListNode *LinkedList_insertAfter(LinkedList *this,
@@ -198,10 +198,10 @@ LinkedListNode *LinkedList_removeNode(LinkedList *this,
 }
 
 /**
- * Remove a piece of book from a {@link LinkedList}.
+ * Remove a piece of data from a {@link LinkedList}.
  * @note This function will only remove the first occurrence of the
- *       book.
- * @param book The book to be removed.
+ *       data.
+ * @param data The data to be removed.
  */
 void LinkedList_remove(LinkedList *this, void *data) {
     LinkedListNode *node;
@@ -215,7 +215,7 @@ void LinkedList_remove(LinkedList *this, void *data) {
 
 /**
  * Swap two nodes in a {@link LinkedList}.
- * @note This function will simply swap the book of the two nodes.
+ * @note This function will simply swap the data of the two nodes.
  * @param node1 The first node to be swapped.
  * @param node2 The second node to be swapped.
  */
@@ -262,7 +262,7 @@ void LinkedList_sort(LinkedList *this, Comparator comparator) {
 /**
  * Search in a {@link LinkedList} by a filter.
  * @param filter A filter function for the search.
- * @param criteria The criteria book to be passed into the filter.
+ * @param criteria The criteria data to be passed into the filter.
  * @return A {@link LinkedList} containing the result.
  */
 LinkedList *LinkedList_search(LinkedList *this, Filter filter) {
